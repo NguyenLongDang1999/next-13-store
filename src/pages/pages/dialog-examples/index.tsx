@@ -21,43 +21,43 @@ import DialogEditUserInfo from 'src/views/pages/dialog-examples/DialogEditUserIn
 import DialogAuthentication from 'src/views/pages/dialog-examples/DialogAuthentication'
 
 const DialogExamples = ({ apiPricingPlanData }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Grid container spacing={6} className='match-height'>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogShareProject />
+    <Grid container spacing={6} className='match-height'>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogShareProject />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogAddCard />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogPricing data={apiPricingPlanData} />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogReferEarn />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogAddAddress />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogCreateApp />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogAuthentication />
+        </Grid>
+        <Grid item md={4} sm={6} xs={12}>
+            <DialogEditUserInfo />
+        </Grid>
     </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogAddCard />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogPricing data={apiPricingPlanData} />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogReferEarn />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogAddAddress />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogCreateApp />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogAuthentication />
-    </Grid>
-    <Grid item md={4} sm={6} xs={12}>
-      <DialogEditUserInfo />
-    </Grid>
-  </Grid>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get('/pages/pricing')
-  const data: PricingDataType = res.data
+    const res = await axios.get('/pages/pricing')
+    const data: PricingDataType = res.data
 
-  return {
-    props: {
-      apiPricingPlanData: data.pricingPlans
+    return {
+        props: {
+            apiPricingPlanData: data.pricingPlans
+        }
     }
-  }
 }
 
 export default DialogExamples

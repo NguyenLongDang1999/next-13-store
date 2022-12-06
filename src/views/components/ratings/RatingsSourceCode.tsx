@@ -1,6 +1,6 @@
 export const RatingsBasicJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -36,12 +36,12 @@ const RatingsBasic = () => {
 
 export default RatingsBasic
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsCustomizedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Rating from '@mui/material/Rating'
@@ -110,12 +110,12 @@ const RatingsCustomized = () => {
 
 export default RatingsCustomized
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsHalfJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 import Typography from '@mui/material/Typography'
@@ -137,12 +137,12 @@ const RatingsHalf = () => {
 
 export default RatingsHalf
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsSizesJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 
@@ -158,12 +158,12 @@ const RatingsSizes = () => {
 
 export default RatingsSizes
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsHoverFeedbackJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -206,12 +206,12 @@ const RatingsHoverFeedback = () => {
 
 export default RatingsHoverFeedback
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsBasicTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -247,12 +247,12 @@ const RatingsBasic = () => {
 
 export default RatingsBasic
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsCustomizedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Rating, { IconContainerProps } from '@mui/material/Rating'
@@ -325,12 +325,12 @@ const RatingsCustomized = () => {
 
 export default RatingsCustomized
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsHoverFeedbackTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -373,12 +373,12 @@ const RatingsHoverFeedback = () => {
 
 export default RatingsHoverFeedback
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsHalfTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 import Typography from '@mui/material/Typography'
@@ -400,12 +400,12 @@ const RatingsHalf = () => {
 
 export default RatingsHalf
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const RatingsSizesTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 
@@ -421,5 +421,5 @@ const RatingsSizes = () => {
 
 export default RatingsSizes
 `}</code>
-  </pre>
+    </pre>
 )

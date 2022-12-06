@@ -16,81 +16,81 @@ interface HorizontalBarProps {
 }
 
 const ChartjsHorizontalBarChart = (props: HorizontalBarProps) => {
-  // ** Props
-  const { info, warning, labelColor, borderColor, legendColor } = props
+    // ** Props
+    const { info, warning, labelColor, borderColor, legendColor } = props
 
-  const options: ChartOptions<'bar'> = {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: { duration: 500 },
-    elements: {
-      bar: {
-        borderRadius: {
-          topRight: 15,
-          bottomRight: 15
+    const options: ChartOptions<'bar'> = {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 500 },
+        elements: {
+            bar: {
+                borderRadius: {
+                    topRight: 15,
+                    bottomRight: 15
+                }
+            }
+        },
+        layout: {
+            padding: { top: -4 }
+        },
+        scales: {
+            x: {
+                min: 0,
+                grid: {
+                    drawTicks: false,
+                    drawBorder: false,
+                    color: borderColor
+                },
+                ticks: { color: labelColor }
+            },
+            y: {
+                grid: {
+                    borderColor,
+                    display: false,
+                    drawBorder: false
+                },
+                ticks: { color: labelColor }
+            }
+        },
+        plugins: {
+            legend: {
+                align: 'end',
+                position: 'top',
+                labels: { color: legendColor }
+            }
         }
-      }
-    },
-    layout: {
-      padding: { top: -4 }
-    },
-    scales: {
-      x: {
-        min: 0,
-        grid: {
-          drawTicks: false,
-          drawBorder: false,
-          color: borderColor
-        },
-        ticks: { color: labelColor }
-      },
-      y: {
-        grid: {
-          borderColor,
-          display: false,
-          drawBorder: false
-        },
-        ticks: { color: labelColor }
-      }
-    },
-    plugins: {
-      legend: {
-        align: 'end',
-        position: 'top',
-        labels: { color: legendColor }
-      }
     }
-  }
 
-  const data: ChartData<'bar'> = {
-    labels: ['MON', 'TUE', 'WED ', 'THU', 'FRI'],
-    datasets: [
-      {
-        maxBarThickness: 15,
-        label: 'Market Data',
-        backgroundColor: warning,
-        borderColor: 'transparent',
-        data: [710, 350, 580, 460, 120]
-      },
-      {
-        maxBarThickness: 15,
-        backgroundColor: info,
-        label: 'Personal Data',
-        borderColor: 'transparent',
-        data: [430, 590, 510, 240, 360]
-      }
-    ]
-  }
+    const data: ChartData<'bar'> = {
+        labels: ['MON', 'TUE', 'WED ', 'THU', 'FRI'],
+        datasets: [
+            {
+                maxBarThickness: 15,
+                label: 'Market Data',
+                backgroundColor: warning,
+                borderColor: 'transparent',
+                data: [710, 350, 580, 460, 120]
+            },
+            {
+                maxBarThickness: 15,
+                backgroundColor: info,
+                label: 'Personal Data',
+                borderColor: 'transparent',
+                data: [430, 590, 510, 240, 360]
+            }
+        ]
+    }
 
-  return (
-    <Card>
-      <CardHeader title='Balance' subheader='$74,123' />
-      <CardContent>
-        <Bar data={data} height={400} options={options} />
-      </CardContent>
-    </Card>
-  )
+    return (
+        <Card>
+            <CardHeader title='Balance' subheader='$74,123' />
+            <CardContent>
+                <Bar data={data} height={400} options={options} />
+            </CardContent>
+        </Card>
+    )
 }
 
 export default ChartjsHorizontalBarChart

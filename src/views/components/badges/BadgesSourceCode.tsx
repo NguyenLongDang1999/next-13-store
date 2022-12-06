@@ -1,6 +1,6 @@
 export const BadgesBasicJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 
@@ -31,12 +31,12 @@ const BadgesBasic = () => {
 
 export default BadgesBasic
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesMaxValueJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
@@ -66,12 +66,12 @@ const BadgesMaxValue = () => {
 
 export default BadgesMaxValue
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesAlignmentJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 
@@ -96,12 +96,12 @@ const BadgesAlignment = () => {
 
 export default BadgesAlignment
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesLightJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
 
@@ -142,12 +142,12 @@ const BadgesLight = () => {
 
 export default BadgesLight
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesVisibilityJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState, Fragment } from 'react'
 
 // ** MUI Imports
@@ -211,12 +211,12 @@ const BadgesVisibility = () => {
 
 export default BadgesVisibility
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesOverlapJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
@@ -249,12 +249,12 @@ const BadgesOverlap = () => {
 
 export default BadgesOverlap
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesDotJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
@@ -277,12 +277,12 @@ const BadgesDot = () => {
 
 export default BadgesDot
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesAlignmentTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 
@@ -307,12 +307,12 @@ const BadgesAlignment = () => {
 
 export default BadgesAlignment
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesBasicTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 
@@ -343,12 +343,12 @@ const BadgesBasic = () => {
 
 export default BadgesBasic
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesMaxValueTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
@@ -378,12 +378,12 @@ const BadgesMaxValue = () => {
 
 export default BadgesMaxValue
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesDotTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
@@ -406,12 +406,12 @@ const BadgesDot = () => {
 
 export default BadgesDot
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesOverlapTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
@@ -444,12 +444,12 @@ const BadgesOverlap = () => {
 
 export default BadgesOverlap
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesVisibilityTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState, Fragment } from 'react'
 
 // ** MUI Imports
@@ -513,12 +513,12 @@ const BadgesVisibility = () => {
 
 export default BadgesVisibility
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const BadgesLightTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
 
@@ -559,5 +559,5 @@ const BadgesLight = () => {
 
 export default BadgesLight
 `}</code>
-  </pre>
+    </pre>
 )

@@ -39,69 +39,69 @@ import MuiAutocomplete from './autocomplete'
 import MuiToggleButton from './toggleButton'
 
 const Overrides = (theme: Theme, settings: Settings) => {
-  const { skin } = settings
+    const { skin } = settings
 
-  const fab = MuiFab(theme)
-  const chip = MuiChip(theme)
-  const list = MuiList(theme)
-  const tabs = MuiTabs(theme)
-  const input = MuiInput(theme)
-  const tables = MuiTable(theme)
-  const alerts = MuiAlerts(theme)
-  const button = MuiButton(theme)
-  const rating = MuiRating(theme)
-  const select = MuiSelect(theme)
-  const avatars = MuiAvatar(theme)
-  const progress = Progress(theme)
-  const divider = MuiDivider(theme)
-  const menu = MuiMenu(theme, skin)
-  const tooltip = MuiTooltip(theme)
-  const cards = MuiCard(theme, skin)
-  const backdrop = MuiBackdrop(theme)
-  const dataGrid = MuiDataGrid(theme)
-  const switches = MuiSwitches(theme)
-  const timeline = MuiTimeline(theme)
-  const accordion = MuiAccordion(theme)
-  const dialog = MuiDialog(theme, skin)
-  const pagination = MuiPagination(theme)
-  const popover = MuiPopover(theme, skin)
-  const snackbar = MuiSnackbar(theme, skin)
-  const autocomplete = MuiAutocomplete(theme, skin)
+    const fab = MuiFab(theme)
+    const chip = MuiChip(theme)
+    const list = MuiList(theme)
+    const tabs = MuiTabs(theme)
+    const input = MuiInput(theme)
+    const tables = MuiTable(theme)
+    const alerts = MuiAlerts(theme)
+    const button = MuiButton(theme)
+    const rating = MuiRating(theme)
+    const select = MuiSelect(theme)
+    const avatars = MuiAvatar(theme)
+    const progress = Progress(theme)
+    const divider = MuiDivider(theme)
+    const menu = MuiMenu(theme, skin)
+    const tooltip = MuiTooltip(theme)
+    const cards = MuiCard(theme, skin)
+    const backdrop = MuiBackdrop(theme)
+    const dataGrid = MuiDataGrid(theme)
+    const switches = MuiSwitches(theme)
+    const timeline = MuiTimeline(theme)
+    const accordion = MuiAccordion(theme)
+    const dialog = MuiDialog(theme, skin)
+    const pagination = MuiPagination(theme)
+    const popover = MuiPopover(theme, skin)
+    const snackbar = MuiSnackbar(theme, skin)
+    const autocomplete = MuiAutocomplete(theme, skin)
 
-  return Object.assign(
-    fab,
-    chip,
-    list,
-    menu,
-    tabs,
-    cards,
-    input,
-    select,
-    alerts,
-    button,
-    dialog,
-    rating,
-    tables,
-    avatars,
-    divider,
-    popover,
-    tooltip,
-    MuiLink,
-    backdrop,
-    dataGrid,
-    MuiPaper,
-    progress,
-    snackbar,
-    switches,
-    timeline,
-    accordion,
-    pagination,
-    autocomplete,
-    MuiTypography,
-    MuiBreadcrumbs,
-    MuiButtonGroup,
-    MuiToggleButton
-  )
+    return Object.assign(
+        fab,
+        chip,
+        list,
+        menu,
+        tabs,
+        cards,
+        input,
+        select,
+        alerts,
+        button,
+        dialog,
+        rating,
+        tables,
+        avatars,
+        divider,
+        popover,
+        tooltip,
+        MuiLink,
+        backdrop,
+        dataGrid,
+        MuiPaper,
+        progress,
+        snackbar,
+        switches,
+        timeline,
+        accordion,
+        pagination,
+        autocomplete,
+        MuiTypography,
+        MuiBreadcrumbs,
+        MuiButtonGroup,
+        MuiToggleButton
+    )
 }
 
 export default Overrides

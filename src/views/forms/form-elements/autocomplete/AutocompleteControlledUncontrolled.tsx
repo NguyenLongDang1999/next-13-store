@@ -15,33 +15,33 @@ interface FilmOptionType {
 }
 
 const AutocompleteControlledUncontrolled = () => {
-  // ** State
-  const [value, setValue] = useState<FilmOptionType | null>(null)
+    // ** State
+    const [value, setValue] = useState<FilmOptionType | null>(null)
 
-  const handleChange = (event: SyntheticEvent, newValue: FilmOptionType | null) => {
-    setValue(newValue)
-  }
+    const handleChange = (event: SyntheticEvent, newValue: FilmOptionType | null) => {
+        setValue(newValue)
+    }
 
-  return (
-    <Box className='demo-space-x' sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      <Autocomplete
-        value={value}
-        sx={{ width: 250 }}
-        options={top100Films}
-        onChange={handleChange}
-        id='autocomplete-controlled'
-        getOptionLabel={option => option.title}
-        renderInput={params => <TextField {...params} label='Controlled' />}
-      />
-      <Autocomplete
-        sx={{ width: 250 }}
-        options={top100Films}
-        id='autocomplete-uncontrolled'
-        getOptionLabel={option => option.title}
-        renderInput={params => <TextField {...params} label='Uncontrolled' />}
-      />
-    </Box>
-  )
+    return (
+        <Box className='demo-space-x' sx={{ display: 'flex', flexWrap: 'wrap' }}>
+            <Autocomplete
+                value={value}
+                sx={{ width: 250 }}
+                options={top100Films}
+                onChange={handleChange}
+                id='autocomplete-controlled'
+                getOptionLabel={option => option.title}
+                renderInput={params => <TextField {...params} label='Controlled' />}
+            />
+            <Autocomplete
+                sx={{ width: 250 }}
+                options={top100Films}
+                id='autocomplete-uncontrolled'
+                getOptionLabel={option => option.title}
+                renderInput={params => <TextField {...params} label='Uncontrolled' />}
+            />
+        </Box>
+    )
 }
 
 export default AutocompleteControlledUncontrolled

@@ -2,7 +2,7 @@
 import Checkout from 'src/views/pages/wizard-examples/checkout'
 
 const WizardExamples = () => {
-  return <Checkout />
+    return <Checkout />
 }
 
 export default WizardExamples

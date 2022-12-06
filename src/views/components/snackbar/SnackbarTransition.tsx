@@ -9,16 +9,16 @@ import Fade, { FadeProps } from '@mui/material/Fade'
 import Slide, { SlideProps } from '@mui/material/Slide'
 
 const GrowTransition = (props: GrowProps) => {
-  return <Grow {...props} />
+    return <Grow {...props} />
 }
 
 const SlideTransition = (props: SlideProps) => {
-  return <Slide {...props} direction='up' />
+    return <Slide {...props} direction='up' />
 }
 
 const SnackbarTransition = () => {
-  // ** State
-  const [state, setState] = useState<{
+    // ** State
+    const [state, setState] = useState<{
     open: boolean
     Transition: ComponentType<
       FadeProps & {
@@ -26,55 +26,55 @@ const SnackbarTransition = () => {
       }
     >
   }>({
-    open: false,
-    Transition: Fade
+      open: false,
+      Transition: Fade
   })
 
-  const handleClick =
+    const handleClick =
     (
-      Transition: ComponentType<
+        Transition: ComponentType<
         FadeProps & {
           children?: ReactElement<any>
         }
       >
     ) =>
-    () => {
-      setState({
-        open: true,
-        Transition
-      })
+        () => {
+            setState({
+                open: true,
+                Transition
+            })
+        }
+
+    const handleClose = () => {
+        setState({
+            ...state,
+            open: false
+        })
     }
 
-  const handleClose = () => {
-    setState({
-      ...state,
-      open: false
-    })
-  }
-
-  return (
-    <Fragment>
-      <div className='demo-space-x'>
-        <Button variant='outlined' onClick={handleClick(GrowTransition)}>
+    return (
+        <Fragment>
+            <div className='demo-space-x'>
+                <Button variant='outlined' onClick={handleClick(GrowTransition)}>
           Grow Transition
-        </Button>
-        <Button variant='outlined' onClick={handleClick(Fade)}>
+                </Button>
+                <Button variant='outlined' onClick={handleClick(Fade)}>
           Fade Transition
-        </Button>
-        <Button variant='outlined' onClick={handleClick(SlideTransition)}>
+                </Button>
+                <Button variant='outlined' onClick={handleClick(SlideTransition)}>
           Slide Transition
-        </Button>
-      </div>
-      <Snackbar
-        open={state.open}
-        onClose={handleClose}
-        message='I love snacks'
-        autoHideDuration={3000}
-        key={state.Transition.name}
-        TransitionComponent={state.Transition}
-      />
-    </Fragment>
-  )
+                </Button>
+            </div>
+            <Snackbar
+                open={state.open}
+                onClose={handleClose}
+                message='I love snacks'
+                autoHideDuration={3000}
+                key={state.Transition.name}
+                TransitionComponent={state.Transition}
+            />
+        </Fragment>
+    )
 }
 
 export default SnackbarTransition

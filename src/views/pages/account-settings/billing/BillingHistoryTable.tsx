@@ -66,134 +66,134 @@ interface CellType {
 
 // ** Styled component for the link in the dataTable
 const StyledLink = styled(Link)(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.primary.main
+    textDecoration: 'none',
+    color: theme.palette.primary.main
 }))
 
 // ** Vars
 const invoiceStatusObj: InvoiceStatusObj = {
-  Sent: { color: 'secondary', icon: 'mdi:send' },
-  Paid: { color: 'success', icon: 'mdi:check' },
-  Draft: { color: 'primary', icon: 'mdi:content-save-outline' },
-  'Partial Payment': { color: 'warning', icon: 'mdi:chart-pie' },
-  'Past Due': { color: 'error', icon: 'mdi:information-outline' },
-  Downloaded: { color: 'info', icon: 'mdi:arrow-down' }
+    Sent: { color: 'secondary', icon: 'mdi:send' },
+    Paid: { color: 'success', icon: 'mdi:check' },
+    Draft: { color: 'primary', icon: 'mdi:content-save-outline' },
+    'Partial Payment': { color: 'warning', icon: 'mdi:chart-pie' },
+    'Past Due': { color: 'error', icon: 'mdi:information-outline' },
+    Downloaded: { color: 'info', icon: 'mdi:arrow-down' }
 }
 
 // ** renders client column
 const renderClient = (row: InvoiceType) => {
-  if (row.avatar.length) {
-    return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: '1.875rem', height: '1.875rem' }} />
-  } else {
-    return (
-      <CustomAvatar
-        skin='light'
-        color={(row.avatarColor as ThemeColor) || ('primary' as ThemeColor)}
-        sx={{ mr: 3, fontSize: '.8rem', width: '1.875rem', height: '1.875rem' }}
-      >
-        {getInitials(row.name || 'John Doe')}
-      </CustomAvatar>
-    )
-  }
+    if (row.avatar.length) {
+        return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: '1.875rem', height: '1.875rem' }} />
+    } else {
+        return (
+            <CustomAvatar
+                skin='light'
+                color={(row.avatarColor as ThemeColor) || ('primary' as ThemeColor)}
+                sx={{ mr: 3, fontSize: '.8rem', width: '1.875rem', height: '1.875rem' }}
+            >
+                {getInitials(row.name || 'John Doe')}
+            </CustomAvatar>
+        )
+    }
 }
 
 const defaultColumns = [
-  {
-    flex: 0.1,
-    field: 'id',
-    minWidth: 80,
-    headerName: '#',
-    renderCell: ({ row }: CellType) => <StyledLink href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</StyledLink>
-  },
-  {
-    flex: 0.1,
-    minWidth: 80,
-    field: 'invoiceStatus',
-    renderHeader: () => <Icon icon='mdi:trending-up' fontSize={20} />,
-    renderCell: ({ row }: CellType) => {
-      const { dueDate, balance, invoiceStatus } = row
+    {
+        flex: 0.1,
+        field: 'id',
+        minWidth: 80,
+        headerName: '#',
+        renderCell: ({ row }: CellType) => <StyledLink href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</StyledLink>
+    },
+    {
+        flex: 0.1,
+        minWidth: 80,
+        field: 'invoiceStatus',
+        renderHeader: () => <Icon icon='mdi:trending-up' fontSize={20} />,
+        renderCell: ({ row }: CellType) => {
+            const { dueDate, balance, invoiceStatus } = row
 
-      const color = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].color : 'primary'
+            const color = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].color : 'primary'
 
-      return (
-        <Tooltip
-          title={
-            <div>
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
-                {invoiceStatus}
-              </Typography>
-              <br />
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+            return (
+                <Tooltip
+                    title={
+                        <div>
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+                                {invoiceStatus}
+                            </Typography>
+                            <br />
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
                 Balance:
-              </Typography>{' '}
-              {balance}
-              <br />
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+                            </Typography>{' '}
+                            {balance}
+                            <br />
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
                 Due Date:
-              </Typography>{' '}
-              {dueDate}
-            </div>
-          }
-        >
-          <CustomAvatar skin='light' color={color} sx={{ width: '1.875rem', height: '1.875rem' }}>
-            <Icon icon={invoiceStatusObj[invoiceStatus].icon} fontSize='1rem' />
-          </CustomAvatar>
-        </Tooltip>
-      )
-    }
-  },
-  {
-    flex: 0.25,
-    field: 'name',
-    minWidth: 300,
-    headerName: 'Client',
-    renderCell: ({ row }: CellType) => {
-      const { name, companyEmail } = row
+                            </Typography>{' '}
+                            {dueDate}
+                        </div>
+                    }
+                >
+                    <CustomAvatar skin='light' color={color} sx={{ width: '1.875rem', height: '1.875rem' }}>
+                        <Icon icon={invoiceStatusObj[invoiceStatus].icon} fontSize='1rem' />
+                    </CustomAvatar>
+                </Tooltip>
+            )
+        }
+    },
+    {
+        flex: 0.25,
+        field: 'name',
+        minWidth: 300,
+        headerName: 'Client',
+        renderCell: ({ row }: CellType) => {
+            const { name, companyEmail } = row
 
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {renderClient(row)}
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography noWrap variant='body2' sx={{ color: 'text.primary', fontWeight: 600 }}>
-              {name}
-            </Typography>
-            <Typography noWrap variant='caption'>
-              {companyEmail}
-            </Typography>
-          </Box>
-        </Box>
-      )
+            return (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    {renderClient(row)}
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                        <Typography noWrap variant='body2' sx={{ color: 'text.primary', fontWeight: 600 }}>
+                            {name}
+                        </Typography>
+                        <Typography noWrap variant='caption'>
+                            {companyEmail}
+                        </Typography>
+                    </Box>
+                </Box>
+            )
+        }
+    },
+    {
+        flex: 0.1,
+        minWidth: 90,
+        field: 'total',
+        headerName: 'Total',
+        renderCell: ({ row }: CellType) => <Typography variant='body2'>{`$${row.total || 0}`}</Typography>
+    },
+    {
+        flex: 0.15,
+        minWidth: 125,
+        field: 'issuedDate',
+        headerName: 'Issued Date',
+        renderCell: ({ row }: CellType) => <Typography variant='body2'>{row.issuedDate}</Typography>
+    },
+    {
+        flex: 0.1,
+        minWidth: 90,
+        field: 'balance',
+        headerName: 'Balance',
+        renderCell: ({ row }: CellType) => {
+            return row.balance !== 0 ? (
+                <Typography variant='body2' sx={{ color: 'text.primary' }}>
+                    {row.balance}
+                </Typography>
+            ) : (
+                <CustomChip size='small' skin='light' color='success' label='Paid' />
+            )
+        }
     }
-  },
-  {
-    flex: 0.1,
-    minWidth: 90,
-    field: 'total',
-    headerName: 'Total',
-    renderCell: ({ row }: CellType) => <Typography variant='body2'>{`$${row.total || 0}`}</Typography>
-  },
-  {
-    flex: 0.15,
-    minWidth: 125,
-    field: 'issuedDate',
-    headerName: 'Issued Date',
-    renderCell: ({ row }: CellType) => <Typography variant='body2'>{row.issuedDate}</Typography>
-  },
-  {
-    flex: 0.1,
-    minWidth: 90,
-    field: 'balance',
-    headerName: 'Balance',
-    renderCell: ({ row }: CellType) => {
-      return row.balance !== 0 ? (
-        <Typography variant='body2' sx={{ color: 'text.primary' }}>
-          {row.balance}
-        </Typography>
-      ) : (
-        <CustomChip size='small' skin='light' color='success' label='Paid' />
-      )
-    }
-  }
 ]
 
 /* eslint-disable */
@@ -211,140 +211,140 @@ const CustomInput = forwardRef((props: CustomInputProps, ref) => {
 /* eslint-enable */
 
 const BillingHistoryTable = () => {
-  // ** State
-  const [value, setValue] = useState<string>('')
-  const [pageSize, setPageSize] = useState<number>(10)
-  const [statusValue, setStatusValue] = useState<string>('')
+    // ** State
+    const [value, setValue] = useState<string>('')
+    const [pageSize, setPageSize] = useState<number>(10)
+    const [statusValue, setStatusValue] = useState<string>('')
 
-  // ** Hooks
-  const dispatch = useDispatch<AppDispatch>()
-  const store = useSelector((state: RootState) => state.invoice)
+    // ** Hooks
+    const dispatch = useDispatch<AppDispatch>()
+    const store = useSelector((state: RootState) => state.invoice)
 
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        q: value,
-        status: statusValue
-      })
-    )
-  }, [dispatch, statusValue, value])
+    useEffect(() => {
+        dispatch(
+            fetchData({
+                q: value,
+                status: statusValue
+            })
+        )
+    }, [dispatch, statusValue, value])
 
-  const handleFilter = (val: string) => {
-    setValue(val)
-  }
-
-  const handleStatusValue = (e: SelectChangeEvent) => {
-    setStatusValue(e.target.value)
-  }
-
-  const columns = [
-    ...defaultColumns,
-    {
-      flex: 0.1,
-      minWidth: 130,
-      sortable: false,
-      field: 'actions',
-      headerName: 'Actions',
-      renderCell: ({ row }: CellType) => (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Tooltip title='Delete Invoice'>
-            <IconButton size='small' onClick={() => dispatch(deleteInvoice(row.id))}>
-              <Icon icon='mdi:delete-outline' fontSize={20} />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title='View'>
-            <IconButton size='small' component={Link} href={`/apps/invoice/preview/${row.id}`}>
-              <Icon icon='mdi:eye-outline' fontSize={20} />
-            </IconButton>
-          </Tooltip>
-          <OptionsMenu
-            iconProps={{ fontSize: 20 }}
-            iconButtonProps={{ size: 'small' }}
-            menuProps={{ sx: { '& .MuiMenuItem-root svg': { mr: 2 } } }}
-            options={[
-              {
-                text: 'Download',
-                icon: <Icon icon='mdi:download' fontSize={20} />
-              },
-              {
-                text: 'Edit',
-                href: `/apps/invoice/edit/${row.id}`,
-                icon: <Icon icon='mdi:pencil-outline' fontSize={20} />
-              },
-              {
-                text: 'Duplicate',
-                icon: <Icon icon='mdi:content-copy' fontSize={20} />
-              }
-            ]}
-          />
-        </Box>
-      )
+    const handleFilter = (val: string) => {
+        setValue(val)
     }
-  ]
 
-  return (
-    <Card>
-      <CardHeader title='Billing History' />
-      <Divider sx={{ m: '0 !important' }} />
-      <CardContent>
-        <Box
-          sx={{
-            gap: 4,
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}
-        >
-          <Button component={Link} variant='contained' href='/apps/invoice/add' startIcon={<Icon icon='mdi:plus' />}>
+    const handleStatusValue = (e: SelectChangeEvent) => {
+        setStatusValue(e.target.value)
+    }
+
+    const columns = [
+        ...defaultColumns,
+        {
+            flex: 0.1,
+            minWidth: 130,
+            sortable: false,
+            field: 'actions',
+            headerName: 'Actions',
+            renderCell: ({ row }: CellType) => (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Tooltip title='Delete Invoice'>
+                        <IconButton size='small' onClick={() => dispatch(deleteInvoice(row.id))}>
+                            <Icon icon='mdi:delete-outline' fontSize={20} />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title='View'>
+                        <IconButton size='small' component={Link} href={`/apps/invoice/preview/${row.id}`}>
+                            <Icon icon='mdi:eye-outline' fontSize={20} />
+                        </IconButton>
+                    </Tooltip>
+                    <OptionsMenu
+                        iconProps={{ fontSize: 20 }}
+                        iconButtonProps={{ size: 'small' }}
+                        menuProps={{ sx: { '& .MuiMenuItem-root svg': { mr: 2 } } }}
+                        options={[
+                            {
+                                text: 'Download',
+                                icon: <Icon icon='mdi:download' fontSize={20} />
+                            },
+                            {
+                                text: 'Edit',
+                                href: `/apps/invoice/edit/${row.id}`,
+                                icon: <Icon icon='mdi:pencil-outline' fontSize={20} />
+                            },
+                            {
+                                text: 'Duplicate',
+                                icon: <Icon icon='mdi:content-copy' fontSize={20} />
+                            }
+                        ]}
+                    />
+                </Box>
+            )
+        }
+    ]
+
+    return (
+        <Card>
+            <CardHeader title='Billing History' />
+            <Divider sx={{ m: '0 !important' }} />
+            <CardContent>
+                <Box
+                    sx={{
+                        gap: 4,
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                    }}
+                >
+                    <Button component={Link} variant='contained' href='/apps/invoice/add' startIcon={<Icon icon='mdi:plus' />}>
             Create Invoice
-          </Button>
-          <Box
-            sx={{
-              gap: 4,
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center'
-            }}
-          >
-            <TextField
-              size='small'
-              value={value}
-              placeholder='Search Invoice'
-              onChange={e => handleFilter(e.target.value)}
+                    </Button>
+                    <Box
+                        sx={{
+                            gap: 4,
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <TextField
+                            size='small'
+                            value={value}
+                            placeholder='Search Invoice'
+                            onChange={e => handleFilter(e.target.value)}
+                        />
+                        <FormControl size='small'>
+                            <InputLabel id='invoice-status-select'>Invoice Status</InputLabel>
+                            <Select
+                                sx={{ pr: 4 }}
+                                value={statusValue}
+                                label='Invoice Status'
+                                onChange={handleStatusValue}
+                                labelId='invoice-status-select'
+                            >
+                                <MenuItem value=''>none</MenuItem>
+                                <MenuItem value='downloaded'>Downloaded</MenuItem>
+                                <MenuItem value='draft'>Draft</MenuItem>
+                                <MenuItem value='paid'>Paid</MenuItem>
+                                <MenuItem value='past due'>Past Due</MenuItem>
+                                <MenuItem value='partial payment'>Partial Payment</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </Box>
+            </CardContent>
+            <DataGrid
+                autoHeight
+                pagination
+                rows={store.data}
+                columns={columns}
+                disableSelectionOnClick
+                pageSize={Number(pageSize)}
+                rowsPerPageOptions={[10, 25, 50]}
+                onPageSizeChange={newPageSize => setPageSize(newPageSize)}
             />
-            <FormControl size='small'>
-              <InputLabel id='invoice-status-select'>Invoice Status</InputLabel>
-              <Select
-                sx={{ pr: 4 }}
-                value={statusValue}
-                label='Invoice Status'
-                onChange={handleStatusValue}
-                labelId='invoice-status-select'
-              >
-                <MenuItem value=''>none</MenuItem>
-                <MenuItem value='downloaded'>Downloaded</MenuItem>
-                <MenuItem value='draft'>Draft</MenuItem>
-                <MenuItem value='paid'>Paid</MenuItem>
-                <MenuItem value='past due'>Past Due</MenuItem>
-                <MenuItem value='partial payment'>Partial Payment</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </Box>
-      </CardContent>
-      <DataGrid
-        autoHeight
-        pagination
-        rows={store.data}
-        columns={columns}
-        disableSelectionOnClick
-        pageSize={Number(pageSize)}
-        rowsPerPageOptions={[10, 25, 50]}
-        onPageSizeChange={newPageSize => setPageSize(newPageSize)}
-      />
-    </Card>
-  )
+        </Card>
+    )
 }
 
 export default BillingHistoryTable

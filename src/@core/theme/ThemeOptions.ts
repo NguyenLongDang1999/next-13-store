@@ -15,62 +15,62 @@ import shadows from './shadows'
 import breakpoints from './breakpoints'
 
 const themeOptions = (settings: Settings): ThemeOptions => {
-  // ** Vars
-  const { skin, mode, direction, themeColor } = settings
+    // ** Vars
+    const { skin, mode, direction, themeColor } = settings
 
-  // ** Create New object before removing user component overrides and typography objects from userThemeOptions
-  const userThemeConfig: any = Object.assign({}, UserThemeOptions())
+    // ** Create New object before removing user component overrides and typography objects from userThemeOptions
+    const userThemeConfig: any = Object.assign({}, UserThemeOptions())
 
-  const userFontFamily = userThemeConfig.typography?.fontFamily
+    const userFontFamily = userThemeConfig.typography?.fontFamily
 
-  // ** Remove component overrides and typography objects from userThemeOptions
-  delete userThemeConfig.components
-  delete userThemeConfig.typography
+    // ** Remove component overrides and typography objects from userThemeOptions
+    delete userThemeConfig.components
+    delete userThemeConfig.typography
 
-  const mergedThemeConfig = deepmerge(
-    {
-      direction,
-      palette: palette(mode === 'semi-dark' ? 'light' : mode, skin),
-      typography: {
-        fontFamily:
+    const mergedThemeConfig = deepmerge(
+        {
+            direction,
+            palette: palette(mode === 'semi-dark' ? 'light' : mode, skin),
+            typography: {
+                fontFamily:
           userFontFamily ||
           [
-            'Inter',
-            'sans-serif',
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"'
+              'Inter',
+              'sans-serif',
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"Segoe UI"',
+              'Roboto',
+              '"Helvetica Neue"',
+              'Arial',
+              'sans-serif',
+              '"Apple Color Emoji"',
+              '"Segoe UI Emoji"',
+              '"Segoe UI Symbol"'
           ].join(',')
-      },
-      shadows: shadows(mode),
-      ...spacing,
-      breakpoints: breakpoints(),
-      shape: {
-        borderRadius: 10
-      },
-      mixins: {
-        toolbar: {
-          minHeight: 64
-        }
-      }
-    },
-    userThemeConfig
-  )
+            },
+            shadows: shadows(mode),
+            ...spacing,
+            breakpoints: breakpoints(),
+            shape: {
+                borderRadius: 10
+            },
+            mixins: {
+                toolbar: {
+                    minHeight: 64
+                }
+            }
+        },
+        userThemeConfig
+    )
 
-  return deepmerge(mergedThemeConfig, {
-    palette: {
-      primary: {
-        ...mergedThemeConfig.palette[themeColor]
-      }
-    }
-  })
+    return deepmerge(mergedThemeConfig, {
+        palette: {
+            primary: {
+                ...mergedThemeConfig.palette[themeColor]
+            }
+        }
+    })
 }
 
 export default themeOptions

@@ -1,11 +1,11 @@
 export default {
-  MuiBreadcrumbs: {
-    styleOverrides: {
-      li: {
-        '& > .MuiLink-root': {
-          textDecoration: 'none'
+    MuiBreadcrumbs: {
+        styleOverrides: {
+            li: {
+                '& > .MuiLink-root': {
+                    textDecoration: 'none'
+                }
+            }
         }
-      }
     }
-  }
 }

@@ -10,18 +10,18 @@ import calendar from 'src/store/apps/calendar'
 import permissions from 'src/store/apps/permissions'
 
 export const store = configureStore({
-  reducer: {
-    user,
-    chat,
-    email,
-    invoice,
-    calendar,
-    permissions
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: false
-    })
+    reducer: {
+        user,
+        chat,
+        email,
+        invoice,
+        calendar,
+        permissions
+    },
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false
+        })
 })
 
 export type AppDispatch = typeof store.dispatch

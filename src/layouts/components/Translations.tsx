@@ -6,10 +6,10 @@ interface Props {
 }
 
 const Translations = ({ text }: Props) => {
-  // ** Hook
-  const { t } = useTranslation()
+    // ** Hook
+    const { t } = useTranslation()
 
-  return <>{`${t(text)}`}</>
+    return <>{`${t(text)}`}</>
 }
 
 export default Translations

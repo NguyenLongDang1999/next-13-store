@@ -8,18 +8,18 @@ import axios from 'axios'
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 
 const ServerSideNavItems = () => {
-  // ** State
-  const [menuItems, setMenuItems] = useState<VerticalNavItemsType>([])
+    // ** State
+    const [menuItems, setMenuItems] = useState<VerticalNavItemsType>([])
 
-  useEffect(() => {
-    axios.get('/api/vertical-nav/data').then(response => {
-      const menuArray = response.data
+    useEffect(() => {
+        axios.get('/api/vertical-nav/data').then(response => {
+            const menuArray = response.data
 
-      setMenuItems(menuArray)
-    })
-  }, [])
+            setMenuItems(menuArray)
+        })
+    }, [])
 
-  return { menuItems }
+    return { menuItems }
 }
 
 export default ServerSideNavItems

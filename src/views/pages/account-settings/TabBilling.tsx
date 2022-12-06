@@ -11,25 +11,25 @@ import BillingAddressCard from 'src/views/pages/account-settings/billing/Billing
 import BillingHistoryTable from 'src/views/pages/account-settings/billing/BillingHistoryTable'
 
 const TabBilling = ({ apiPricingPlanData }: { apiPricingPlanData: PricingPlanType[] }) => {
-  return (
-    <Grid container spacing={6}>
-      <Grid item xs={12}>
-        <CurrentPlanCard data={apiPricingPlanData} />
-      </Grid>
+    return (
+        <Grid container spacing={6}>
+            <Grid item xs={12}>
+                <CurrentPlanCard data={apiPricingPlanData} />
+            </Grid>
 
-      <Grid item xs={12}>
-        <PaymentMethodCard />
-      </Grid>
+            <Grid item xs={12}>
+                <PaymentMethodCard />
+            </Grid>
 
-      <Grid item xs={12}>
-        <BillingAddressCard />
-      </Grid>
+            <Grid item xs={12}>
+                <BillingAddressCard />
+            </Grid>
 
-      <Grid item xs={12}>
-        <BillingHistoryTable />
-      </Grid>
-    </Grid>
-  )
+            <Grid item xs={12}>
+                <BillingHistoryTable />
+            </Grid>
+        </Grid>
+    )
 }
 
 export default TabBilling

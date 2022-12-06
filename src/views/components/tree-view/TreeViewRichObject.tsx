@@ -16,45 +16,45 @@ interface RenderTree {
 }
 
 const data: RenderTree = {
-  id: 'root',
-  name: 'Parent',
-  children: [
-    {
-      id: '1',
-      name: 'Child - 1'
-    },
-    {
-      id: '3',
-      name: 'Child - 3',
-      children: [
+    id: 'root',
+    name: 'Parent',
+    children: [
         {
-          id: '4',
-          name: 'Child - 4'
+            id: '1',
+            name: 'Child - 1'
+        },
+        {
+            id: '3',
+            name: 'Child - 3',
+            children: [
+                {
+                    id: '4',
+                    name: 'Child - 4'
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 
 const TreeViewRichObject = ({ direction }: Props) => {
-  const renderTree = (nodes: RenderTree) => (
-    <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-      {Array.isArray(nodes.children) ? nodes.children.map(node => renderTree(node)) : null}
-    </TreeItem>
-  )
+    const renderTree = (nodes: RenderTree) => (
+        <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
+            {Array.isArray(nodes.children) ? nodes.children.map(node => renderTree(node)) : null}
+        </TreeItem>
+    )
 
-  const ExpandIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right'
+    const ExpandIcon = direction === 'rtl' ? 'mdi:chevron-left' : 'mdi:chevron-right'
 
-  return (
-    <TreeView
-      sx={{ minHeight: 240 }}
-      defaultExpanded={['root']}
-      defaultExpandIcon={<Icon icon={ExpandIcon} />}
-      defaultCollapseIcon={<Icon icon='mdi:chevron-down' />}
-    >
-      {renderTree(data)}
-    </TreeView>
-  )
+    return (
+        <TreeView
+            sx={{ minHeight: 240 }}
+            defaultExpanded={['root']}
+            defaultExpandIcon={<Icon icon={ExpandIcon} />}
+            defaultCollapseIcon={<Icon icon='mdi:chevron-down' />}
+        >
+            {renderTree(data)}
+        </TreeView>
+    )
 }
 
 export default TreeViewRichObject

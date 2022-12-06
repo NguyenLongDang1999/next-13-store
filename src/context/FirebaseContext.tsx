@@ -5,17 +5,17 @@ import { createContext, useContext, ReactNode } from 'react'
 import useFirebaseAuth from 'src/hooks/useFirebaseAuth'
 
 const authUserContext: any = createContext({
-  authUser: null,
-  loading: true,
-  signOut: async () => Promise.resolve(),
-  signInWithEmailAndPassword: async () => Promise.resolve(),
-  createUserWithEmailAndPassword: async () => Promise.resolve()
+    authUser: null,
+    loading: true,
+    signOut: async () => Promise.resolve(),
+    signInWithEmailAndPassword: async () => Promise.resolve(),
+    createUserWithEmailAndPassword: async () => Promise.resolve()
 })
 
 export const FirebaseAuthProvider = ({ children }: { children: ReactNode }) => {
-  const auth = useFirebaseAuth()
+    const auth = useFirebaseAuth()
 
-  return <authUserContext.Provider value={auth}>{children}</authUserContext.Provider>
+    return <authUserContext.Provider value={auth}>{children}</authUserContext.Provider>
 }
 
 // custom hook to use the authUserContext and access authUser and loading

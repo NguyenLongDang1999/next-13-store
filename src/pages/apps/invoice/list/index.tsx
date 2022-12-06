@@ -71,142 +71,142 @@ interface CellType {
 
 // ** Styled component for the link in the dataTable
 const StyledLink = styled(Link)(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.primary.main
+    textDecoration: 'none',
+    color: theme.palette.primary.main
 }))
 
 // ** Vars
 const invoiceStatusObj: InvoiceStatusObj = {
-  Sent: { color: 'secondary', icon: 'mdi:send' },
-  Paid: { color: 'success', icon: 'mdi:check' },
-  Draft: { color: 'primary', icon: 'mdi:content-save-outline' },
-  'Partial Payment': { color: 'warning', icon: 'mdi:chart-pie' },
-  'Past Due': { color: 'error', icon: 'mdi:information-outline' },
-  Downloaded: { color: 'info', icon: 'mdi:arrow-down' }
+    Sent: { color: 'secondary', icon: 'mdi:send' },
+    Paid: { color: 'success', icon: 'mdi:check' },
+    Draft: { color: 'primary', icon: 'mdi:content-save-outline' },
+    'Partial Payment': { color: 'warning', icon: 'mdi:chart-pie' },
+    'Past Due': { color: 'error', icon: 'mdi:information-outline' },
+    Downloaded: { color: 'info', icon: 'mdi:arrow-down' }
 }
 
 // ** renders client column
 const renderClient = (row: InvoiceType) => {
-  if (row.avatar.length) {
-    return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
-  } else {
-    return (
-      <CustomAvatar
-        skin='light'
-        color={(row.avatarColor as ThemeColor) || ('primary' as ThemeColor)}
-        sx={{ mr: 3, fontSize: '1rem', width: 34, height: 34 }}
-      >
-        {getInitials(row.name || 'John Doe')}
-      </CustomAvatar>
-    )
-  }
+    if (row.avatar.length) {
+        return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
+    } else {
+        return (
+            <CustomAvatar
+                skin='light'
+                color={(row.avatarColor as ThemeColor) || ('primary' as ThemeColor)}
+                sx={{ mr: 3, fontSize: '1rem', width: 34, height: 34 }}
+            >
+                {getInitials(row.name || 'John Doe')}
+            </CustomAvatar>
+        )
+    }
 }
 
 const defaultColumns = [
-  {
-    flex: 0.1,
-    field: 'id',
-    minWidth: 80,
-    headerName: '#',
-    renderCell: ({ row }: CellType) => <StyledLink href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</StyledLink>
-  },
-  {
-    flex: 0.1,
-    minWidth: 80,
-    field: 'invoiceStatus',
-    renderHeader: () => (
-      <Box sx={{ display: 'flex', color: 'action.active' }}>
-        <Icon icon='mdi:trending-up' fontSize={20} />
-      </Box>
-    ),
-    renderCell: ({ row }: CellType) => {
-      const { dueDate, balance, invoiceStatus } = row
+    {
+        flex: 0.1,
+        field: 'id',
+        minWidth: 80,
+        headerName: '#',
+        renderCell: ({ row }: CellType) => <StyledLink href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</StyledLink>
+    },
+    {
+        flex: 0.1,
+        minWidth: 80,
+        field: 'invoiceStatus',
+        renderHeader: () => (
+            <Box sx={{ display: 'flex', color: 'action.active' }}>
+                <Icon icon='mdi:trending-up' fontSize={20} />
+            </Box>
+        ),
+        renderCell: ({ row }: CellType) => {
+            const { dueDate, balance, invoiceStatus } = row
 
-      const color = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].color : 'primary'
+            const color = invoiceStatusObj[invoiceStatus] ? invoiceStatusObj[invoiceStatus].color : 'primary'
 
-      return (
-        <Tooltip
-          title={
-            <div>
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
-                {invoiceStatus}
-              </Typography>
-              <br />
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+            return (
+                <Tooltip
+                    title={
+                        <div>
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+                                {invoiceStatus}
+                            </Typography>
+                            <br />
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
                 Balance:
-              </Typography>{' '}
-              {balance}
-              <br />
-              <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
+                            </Typography>{' '}
+                            {balance}
+                            <br />
+                            <Typography variant='caption' sx={{ color: 'common.white', fontWeight: 600 }}>
                 Due Date:
-              </Typography>{' '}
-              {dueDate}
-            </div>
-          }
-        >
-          <CustomAvatar skin='light' color={color} sx={{ width: 34, height: 34 }}>
-            <Icon icon={invoiceStatusObj[invoiceStatus].icon} fontSize='1.25rem' />
-          </CustomAvatar>
-        </Tooltip>
-      )
-    }
-  },
-  {
-    flex: 0.25,
-    field: 'name',
-    minWidth: 300,
-    headerName: 'Client',
-    renderCell: ({ row }: CellType) => {
-      const { name, companyEmail } = row
+                            </Typography>{' '}
+                            {dueDate}
+                        </div>
+                    }
+                >
+                    <CustomAvatar skin='light' color={color} sx={{ width: 34, height: 34 }}>
+                        <Icon icon={invoiceStatusObj[invoiceStatus].icon} fontSize='1.25rem' />
+                    </CustomAvatar>
+                </Tooltip>
+            )
+        }
+    },
+    {
+        flex: 0.25,
+        field: 'name',
+        minWidth: 300,
+        headerName: 'Client',
+        renderCell: ({ row }: CellType) => {
+            const { name, companyEmail } = row
 
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {renderClient(row)}
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography
-              noWrap
-              variant='body2'
-              sx={{ color: 'text.primary', fontWeight: 500, lineHeight: '22px', letterSpacing: '.1px' }}
-            >
-              {name}
-            </Typography>
-            <Typography noWrap variant='caption'>
-              {companyEmail}
-            </Typography>
-          </Box>
-        </Box>
-      )
+            return (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    {renderClient(row)}
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                        <Typography
+                            noWrap
+                            variant='body2'
+                            sx={{ color: 'text.primary', fontWeight: 500, lineHeight: '22px', letterSpacing: '.1px' }}
+                        >
+                            {name}
+                        </Typography>
+                        <Typography noWrap variant='caption'>
+                            {companyEmail}
+                        </Typography>
+                    </Box>
+                </Box>
+            )
+        }
+    },
+    {
+        flex: 0.1,
+        minWidth: 90,
+        field: 'total',
+        headerName: 'Total',
+        renderCell: ({ row }: CellType) => <Typography variant='body2'>{`$${row.total || 0}`}</Typography>
+    },
+    {
+        flex: 0.15,
+        minWidth: 125,
+        field: 'issuedDate',
+        headerName: 'Issued Date',
+        renderCell: ({ row }: CellType) => <Typography variant='body2'>{row.issuedDate}</Typography>
+    },
+    {
+        flex: 0.1,
+        minWidth: 90,
+        field: 'balance',
+        headerName: 'Balance',
+        renderCell: ({ row }: CellType) => {
+            return row.balance !== 0 ? (
+                <Typography variant='body2' sx={{ color: 'text.primary' }}>
+                    {row.balance}
+                </Typography>
+            ) : (
+                <CustomChip size='small' skin='light' color='success' label='Paid' />
+            )
+        }
     }
-  },
-  {
-    flex: 0.1,
-    minWidth: 90,
-    field: 'total',
-    headerName: 'Total',
-    renderCell: ({ row }: CellType) => <Typography variant='body2'>{`$${row.total || 0}`}</Typography>
-  },
-  {
-    flex: 0.15,
-    minWidth: 125,
-    field: 'issuedDate',
-    headerName: 'Issued Date',
-    renderCell: ({ row }: CellType) => <Typography variant='body2'>{row.issuedDate}</Typography>
-  },
-  {
-    flex: 0.1,
-    minWidth: 90,
-    field: 'balance',
-    headerName: 'Balance',
-    renderCell: ({ row }: CellType) => {
-      return row.balance !== 0 ? (
-        <Typography variant='body2' sx={{ color: 'text.primary' }}>
-          {row.balance}
-        </Typography>
-      ) : (
-        <CustomChip size='small' skin='light' color='success' label='Paid' />
-      )
-    }
-  }
 ]
 
 /* eslint-disable */
@@ -224,166 +224,166 @@ const CustomInput = forwardRef((props: CustomInputProps, ref) => {
 /* eslint-enable */
 
 const InvoiceList = () => {
-  // ** State
-  const [dates, setDates] = useState<Date[]>([])
-  const [value, setValue] = useState<string>('')
-  const [pageSize, setPageSize] = useState<number>(10)
-  const [statusValue, setStatusValue] = useState<string>('')
-  const [endDateRange, setEndDateRange] = useState<DateType>(null)
-  const [selectedRows, setSelectedRows] = useState<GridRowId[]>([])
-  const [startDateRange, setStartDateRange] = useState<DateType>(null)
+    // ** State
+    const [dates, setDates] = useState<Date[]>([])
+    const [value, setValue] = useState<string>('')
+    const [pageSize, setPageSize] = useState<number>(10)
+    const [statusValue, setStatusValue] = useState<string>('')
+    const [endDateRange, setEndDateRange] = useState<DateType>(null)
+    const [selectedRows, setSelectedRows] = useState<GridRowId[]>([])
+    const [startDateRange, setStartDateRange] = useState<DateType>(null)
 
-  // ** Hooks
-  const dispatch = useDispatch<AppDispatch>()
-  const store = useSelector((state: RootState) => state.invoice)
+    // ** Hooks
+    const dispatch = useDispatch<AppDispatch>()
+    const store = useSelector((state: RootState) => state.invoice)
 
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        dates,
-        q: value,
-        status: statusValue
-      })
+    useEffect(() => {
+        dispatch(
+            fetchData({
+                dates,
+                q: value,
+                status: statusValue
+            })
+        )
+    }, [dispatch, statusValue, value, dates])
+
+    const handleFilter = (val: string) => {
+        setValue(val)
+    }
+
+    const handleStatusValue = (e: SelectChangeEvent) => {
+        setStatusValue(e.target.value)
+    }
+
+    const handleOnChangeRange = (dates: any) => {
+        const [start, end] = dates
+        if (start !== null && end !== null) {
+            setDates(dates)
+        }
+        setStartDateRange(start)
+        setEndDateRange(end)
+    }
+
+    const columns = [
+        ...defaultColumns,
+        {
+            flex: 0.1,
+            minWidth: 130,
+            sortable: false,
+            field: 'actions',
+            headerName: 'Actions',
+            renderCell: ({ row }: CellType) => (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Tooltip title='Delete Invoice'>
+                        <IconButton size='small' sx={{ mr: 0.5 }} onClick={() => dispatch(deleteInvoice(row.id))}>
+                            <Icon icon='mdi:delete-outline' />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title='View'>
+                        <IconButton size='small' component={Link} sx={{ mr: 0.5 }} href={`/apps/invoice/preview/${row.id}`}>
+                            <Icon icon='mdi:eye-outline' />
+                        </IconButton>
+                    </Tooltip>
+                    <OptionsMenu
+                        iconProps={{ fontSize: 20 }}
+                        iconButtonProps={{ size: 'small' }}
+                        menuProps={{ sx: { '& .MuiMenuItem-root svg': { mr: 2 } } }}
+                        options={[
+                            {
+                                text: 'Download',
+                                icon: <Icon icon='mdi:download' fontSize={20} />
+                            },
+                            {
+                                text: 'Edit',
+                                href: `/apps/invoice/edit/${row.id}`,
+                                icon: <Icon icon='mdi:pencil-outline' fontSize={20} />
+                            },
+                            {
+                                text: 'Duplicate',
+                                icon: <Icon icon='mdi:content-copy' fontSize={20} />
+                            }
+                        ]}
+                    />
+                </Box>
+            )
+        }
+    ]
+
+    return (
+        <DatePickerWrapper>
+            <Grid container spacing={6}>
+                <Grid item xs={12}>
+                    <Card>
+                        <CardHeader title='Filters' />
+                        <CardContent>
+                            <Grid container spacing={6}>
+                                <Grid item xs={12} sm={6}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id='invoice-status-select'>Invoice Status</InputLabel>
+
+                                        <Select
+                                            fullWidth
+                                            value={statusValue}
+                                            sx={{ mr: 4, mb: 2 }}
+                                            label='Invoice Status'
+                                            onChange={handleStatusValue}
+                                            labelId='invoice-status-select'
+                                        >
+                                            <MenuItem value=''>none</MenuItem>
+                                            <MenuItem value='downloaded'>Downloaded</MenuItem>
+                                            <MenuItem value='draft'>Draft</MenuItem>
+                                            <MenuItem value='paid'>Paid</MenuItem>
+                                            <MenuItem value='past due'>Past Due</MenuItem>
+                                            <MenuItem value='partial payment'>Partial Payment</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <DatePicker
+                                        isClearable
+                                        selectsRange
+                                        monthsShown={2}
+                                        endDate={endDateRange}
+                                        selected={startDateRange}
+                                        startDate={startDateRange}
+                                        shouldCloseOnSelect={false}
+                                        id='date-range-picker-months'
+                                        onChange={handleOnChangeRange}
+                                        customInput={
+                                            <CustomInput
+                                                dates={dates}
+                                                setDates={setDates}
+                                                label='Invoice Date'
+                                                end={endDateRange as number | Date}
+                                                start={startDateRange as number | Date}
+                                            />
+                                        }
+                                    />
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12}>
+                    <Card>
+                        <TableHeader value={value} selectedRows={selectedRows} handleFilter={handleFilter} />
+                        <DataGrid
+                            autoHeight
+                            pagination
+                            rows={store.data}
+                            columns={columns}
+                            checkboxSelection
+                            disableSelectionOnClick
+                            pageSize={Number(pageSize)}
+                            rowsPerPageOptions={[10, 25, 50]}
+                            onSelectionModelChange={rows => setSelectedRows(rows)}
+                            onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+                        />
+                    </Card>
+                </Grid>
+            </Grid>
+        </DatePickerWrapper>
     )
-  }, [dispatch, statusValue, value, dates])
-
-  const handleFilter = (val: string) => {
-    setValue(val)
-  }
-
-  const handleStatusValue = (e: SelectChangeEvent) => {
-    setStatusValue(e.target.value)
-  }
-
-  const handleOnChangeRange = (dates: any) => {
-    const [start, end] = dates
-    if (start !== null && end !== null) {
-      setDates(dates)
-    }
-    setStartDateRange(start)
-    setEndDateRange(end)
-  }
-
-  const columns = [
-    ...defaultColumns,
-    {
-      flex: 0.1,
-      minWidth: 130,
-      sortable: false,
-      field: 'actions',
-      headerName: 'Actions',
-      renderCell: ({ row }: CellType) => (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Tooltip title='Delete Invoice'>
-            <IconButton size='small' sx={{ mr: 0.5 }} onClick={() => dispatch(deleteInvoice(row.id))}>
-              <Icon icon='mdi:delete-outline' />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title='View'>
-            <IconButton size='small' component={Link} sx={{ mr: 0.5 }} href={`/apps/invoice/preview/${row.id}`}>
-              <Icon icon='mdi:eye-outline' />
-            </IconButton>
-          </Tooltip>
-          <OptionsMenu
-            iconProps={{ fontSize: 20 }}
-            iconButtonProps={{ size: 'small' }}
-            menuProps={{ sx: { '& .MuiMenuItem-root svg': { mr: 2 } } }}
-            options={[
-              {
-                text: 'Download',
-                icon: <Icon icon='mdi:download' fontSize={20} />
-              },
-              {
-                text: 'Edit',
-                href: `/apps/invoice/edit/${row.id}`,
-                icon: <Icon icon='mdi:pencil-outline' fontSize={20} />
-              },
-              {
-                text: 'Duplicate',
-                icon: <Icon icon='mdi:content-copy' fontSize={20} />
-              }
-            ]}
-          />
-        </Box>
-      )
-    }
-  ]
-
-  return (
-    <DatePickerWrapper>
-      <Grid container spacing={6}>
-        <Grid item xs={12}>
-          <Card>
-            <CardHeader title='Filters' />
-            <CardContent>
-              <Grid container spacing={6}>
-                <Grid item xs={12} sm={6}>
-                  <FormControl fullWidth>
-                    <InputLabel id='invoice-status-select'>Invoice Status</InputLabel>
-
-                    <Select
-                      fullWidth
-                      value={statusValue}
-                      sx={{ mr: 4, mb: 2 }}
-                      label='Invoice Status'
-                      onChange={handleStatusValue}
-                      labelId='invoice-status-select'
-                    >
-                      <MenuItem value=''>none</MenuItem>
-                      <MenuItem value='downloaded'>Downloaded</MenuItem>
-                      <MenuItem value='draft'>Draft</MenuItem>
-                      <MenuItem value='paid'>Paid</MenuItem>
-                      <MenuItem value='past due'>Past Due</MenuItem>
-                      <MenuItem value='partial payment'>Partial Payment</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <DatePicker
-                    isClearable
-                    selectsRange
-                    monthsShown={2}
-                    endDate={endDateRange}
-                    selected={startDateRange}
-                    startDate={startDateRange}
-                    shouldCloseOnSelect={false}
-                    id='date-range-picker-months'
-                    onChange={handleOnChangeRange}
-                    customInput={
-                      <CustomInput
-                        dates={dates}
-                        setDates={setDates}
-                        label='Invoice Date'
-                        end={endDateRange as number | Date}
-                        start={startDateRange as number | Date}
-                      />
-                    }
-                  />
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12}>
-          <Card>
-            <TableHeader value={value} selectedRows={selectedRows} handleFilter={handleFilter} />
-            <DataGrid
-              autoHeight
-              pagination
-              rows={store.data}
-              columns={columns}
-              checkboxSelection
-              disableSelectionOnClick
-              pageSize={Number(pageSize)}
-              rowsPerPageOptions={[10, 25, 50]}
-              onSelectionModelChange={rows => setSelectedRows(rows)}
-              onPageSizeChange={newPageSize => setPageSize(newPageSize)}
-            />
-          </Card>
-        </Grid>
-      </Grid>
-    </DatePickerWrapper>
-  )
 }
 
 export default InvoiceList

@@ -1,6 +1,6 @@
 export const ListDenseJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment } from 'react'
 
 // ** MUI Imports
@@ -60,12 +60,12 @@ const ListDense = () => {
 
 export default ListDense
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListItemSelectedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -136,12 +136,12 @@ const ListItemSelected = () => {
 
 export default ListItemSelected
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListProgressJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import ListItem from '@mui/material/ListItem'
@@ -243,12 +243,12 @@ const ListProgress = () => {
 
 export default ListProgress
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListUsersJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -388,12 +388,12 @@ const ListUsers = () => {
 
 export default ListUsers
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListNestedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState } from 'react'
 
 // ** MUI Imports
@@ -474,12 +474,12 @@ const ListNested = () => {
 
 export default ListNested
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListWithCheckboxJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -569,12 +569,12 @@ const ListWithCheckbox = () => {
 
 export default ListWithCheckbox
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListWithSwitchJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -670,12 +670,12 @@ const ListWithSwitch = () => {
 
 export default ListWithSwitch
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListStickySubheaderJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -703,12 +703,12 @@ const ListWithSwitch = () => {
 
 export default ListWithSwitch
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListSimpleJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment } from 'react'
 
 // ** MUI Imports
@@ -768,12 +768,12 @@ const ListSimple = () => {
 
 export default ListSimple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListSecondaryJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import List from '@mui/material/List'
 import Avatar from '@mui/material/Avatar'
 import ListItem from '@mui/material/ListItem'
@@ -827,12 +827,12 @@ const ListSecondary = () => {
 
 export default ListSecondary
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListDenseTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment } from 'react'
 
 // ** MUI Imports
@@ -892,12 +892,12 @@ const ListDense = () => {
 
 export default ListDense
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListItemSelectedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -968,12 +968,12 @@ const ListItemSelected = () => {
 
 export default ListItemSelected
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListProgressTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import ListItem from '@mui/material/ListItem'
@@ -1075,12 +1075,12 @@ const ListProgress = () => {
 
 export default ListProgress
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListNestedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState } from 'react'
 
 // ** MUI Imports
@@ -1161,12 +1161,12 @@ const ListNested = () => {
 
 export default ListNested
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListSecondaryTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import List from '@mui/material/List'
 import Avatar from '@mui/material/Avatar'
 import ListItem from '@mui/material/ListItem'
@@ -1220,12 +1220,12 @@ const ListSecondary = () => {
 
 export default ListSecondary
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListStickySubheaderTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -1253,12 +1253,12 @@ const ListWithSwitch = () => {
 
 export default ListWithSwitch
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListUsersTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -1398,12 +1398,12 @@ const ListUsers = () => {
 
 export default ListUsers
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListWithCheckboxTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -1495,12 +1495,12 @@ const ListWithCheckbox = () => {
 
 export default ListWithCheckbox
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListWithSwitchTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -1598,12 +1598,12 @@ const ListWithSwitch = () => {
 
 export default ListWithSwitch
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ListSimpleTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment } from 'react'
 
 // ** MUI Imports
@@ -1663,5 +1663,5 @@ const ListSimple = () => {
 
 export default ListSimple
 `}</code>
-  </pre>
+    </pre>
 )

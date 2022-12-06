@@ -15,21 +15,21 @@ interface Props {
 }
 
 const CardStatsVertical = ({ data }: Props) => {
-  if (data) {
-    return (
-      <Grid container spacing={6}>
-        {data.map((item: CardStatsVerticalProps, index: number) => {
-          return (
-            <Grid item xs={12} sm={4} lg={2} key={index}>
-              <CardStatisticsVertical {...item} icon={<Icon icon={item.icon as string} />} />
+    if (data) {
+        return (
+            <Grid container spacing={6}>
+                {data.map((item: CardStatsVerticalProps, index: number) => {
+                    return (
+                        <Grid item xs={12} sm={4} lg={2} key={index}>
+                            <CardStatisticsVertical {...item} icon={<Icon icon={item.icon as string} />} />
+                        </Grid>
+                    )
+                })}
             </Grid>
-          )
-        })}
-      </Grid>
-    )
-  } else {
-    return null
-  }
+        )
+    } else {
+        return null
+    }
 }
 
 export default CardStatsVertical

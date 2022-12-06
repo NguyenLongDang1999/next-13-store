@@ -8,16 +8,16 @@ import { ThemeOptions } from '@mui/system'
 // import { useSettings } from 'src/@core/hooks/useSettings'
 
 const UserThemeOptions = (): ThemeOptions => {
-  // ** To use mode (light/dark/semi-dark), skin(default/bordered), direction(ltr/rtl), etc. for conditional styles, uncomment below line
-  // const { settings } = useSettings()
+    // ** To use mode (light/dark/semi-dark), skin(default/bordered), direction(ltr/rtl), etc. for conditional styles, uncomment below line
+    // const { settings } = useSettings()
 
-  // ** To use mode (light/dark/semi-dark), skin(default/bordered), direction(ltr/rtl), etc. for conditional styles, uncomment below line
-  // const { mode, skin } = settings
+    // ** To use mode (light/dark/semi-dark), skin(default/bordered), direction(ltr/rtl), etc. for conditional styles, uncomment below line
+    // const { mode, skin } = settings
 
-  // ** To use core palette, uncomment the below line
-  // const palette = corePalette(mode, skin)
+    // ** To use core palette, uncomment the below line
+    // const palette = corePalette(mode, skin)
 
-  return {
+    return {
     /*
     palette:{
       primary: {
@@ -176,7 +176,7 @@ const UserThemeOptions = (): ThemeOptions => {
       appBar: 1200,
       drawer: 1100
     } */
-  }
+    }
 }
 
 export default UserThemeOptions

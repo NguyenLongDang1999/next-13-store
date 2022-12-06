@@ -80,82 +80,82 @@ const clientSideEmotionCache = createEmotionCache()
 
 // ** Pace Loader
 if (themeConfig.routingLoader) {
-  Router.events.on('routeChangeStart', () => {
-    NProgress.start()
-  })
-  Router.events.on('routeChangeError', () => {
-    NProgress.done()
-  })
-  Router.events.on('routeChangeComplete', () => {
-    NProgress.done()
-  })
+    Router.events.on('routeChangeStart', () => {
+        NProgress.start()
+    })
+    Router.events.on('routeChangeError', () => {
+        NProgress.done()
+    })
+    Router.events.on('routeChangeComplete', () => {
+        NProgress.done()
+    })
 }
 
 const Guard = ({ children, authGuard, guestGuard }: GuardProps) => {
-  if (guestGuard) {
-    return <GuestGuard fallback={<Spinner />}>{children}</GuestGuard>
-  } else if (!guestGuard && !authGuard) {
-    return <>{children}</>
-  } else {
-    return <AuthGuard fallback={<Spinner />}>{children}</AuthGuard>
-  }
+    if (guestGuard) {
+        return <GuestGuard fallback={<Spinner />}>{children}</GuestGuard>
+    } else if (!guestGuard && !authGuard) {
+        return <>{children}</>
+    } else {
+        return <AuthGuard fallback={<Spinner />}>{children}</AuthGuard>
+    }
 }
 
 // ** Configure JSS & ClassName
 const App = (props: ExtendedAppProps) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+    const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
-  // Variables
-  const contentHeightFixed = Component.contentHeightFixed ?? false
-  const getLayout =
+    // Variables
+    const contentHeightFixed = Component.contentHeightFixed ?? false
+    const getLayout =
     Component.getLayout ?? (page => <UserLayout contentHeightFixed={contentHeightFixed}>{page}</UserLayout>)
 
-  const setConfig = Component.setConfig ?? undefined
+    const setConfig = Component.setConfig ?? undefined
 
-  const authGuard = Component.authGuard ?? true
+    const authGuard = Component.authGuard ?? true
 
-  const guestGuard = Component.guestGuard ?? false
+    const guestGuard = Component.guestGuard ?? false
 
-  const aclAbilities = Component.acl ?? defaultACLObj
+    const aclAbilities = Component.acl ?? defaultACLObj
 
-  return (
-    <Provider store={store}>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
-          <meta
-            name='description'
-            content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
-          />
-          <meta name='keywords' content='Material Design, MUI, Admin Template, React Admin Template' />
-          <meta name='viewport' content='initial-scale=1, width=device-width' />
-        </Head>
+    return (
+        <Provider store={store}>
+            <CacheProvider value={emotionCache}>
+                <Head>
+                    <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
+                    <meta
+                        name='description'
+                        content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
+                    />
+                    <meta name='keywords' content='Material Design, MUI, Admin Template, React Admin Template' />
+                    <meta name='viewport' content='initial-scale=1, width=device-width' />
+                </Head>
 
-        <AuthProvider>
-          <SettingsProvider {...(setConfig ? { pageSettings: setConfig() } : {})}>
-            <SettingsConsumer>
-              {({ settings }) => {
-                return (
-                  <ThemeComponent settings={settings}>
-                    <WindowWrapper>
-                      <Guard authGuard={authGuard} guestGuard={guestGuard}>
-                        <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard}>
-                          {getLayout(<Component {...pageProps} />)}
-                        </AclGuard>
-                      </Guard>
-                    </WindowWrapper>
-                    <ReactHotToast>
-                      <Toaster position={settings.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />
-                    </ReactHotToast>
-                  </ThemeComponent>
-                )
-              }}
-            </SettingsConsumer>
-          </SettingsProvider>
-        </AuthProvider>
-      </CacheProvider>
-    </Provider>
-  )
+                <AuthProvider>
+                    <SettingsProvider {...(setConfig ? { pageSettings: setConfig() } : {})}>
+                        <SettingsConsumer>
+                            {({ settings }) => {
+                                return (
+                                    <ThemeComponent settings={settings}>
+                                        <WindowWrapper>
+                                            <Guard authGuard={authGuard} guestGuard={guestGuard}>
+                                                <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard}>
+                                                    {getLayout(<Component {...pageProps} />)}
+                                                </AclGuard>
+                                            </Guard>
+                                        </WindowWrapper>
+                                        <ReactHotToast>
+                                            <Toaster position={settings.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />
+                                        </ReactHotToast>
+                                    </ThemeComponent>
+                                )
+                            }}
+                        </SettingsConsumer>
+                    </SettingsProvider>
+                </AuthProvider>
+            </CacheProvider>
+        </Provider>
+    )
 }
 
 export default App

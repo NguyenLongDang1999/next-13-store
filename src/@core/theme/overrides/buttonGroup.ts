@@ -1,9 +1,9 @@
 export default {
-  MuiButtonGroup: {
-    styleOverrides: {
-      root: {
-        borderRadius: 8
-      }
+    MuiButtonGroup: {
+        styleOverrides: {
+            root: {
+                borderRadius: 8
+            }
+        }
     }
-  }
 }

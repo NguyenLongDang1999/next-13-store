@@ -13,13 +13,13 @@ interface Props {
 }
 
 const CanViewNavLink = (props: Props) => {
-  // ** Props
-  const { children, navLink } = props
+    // ** Props
+    const { children, navLink } = props
 
-  // ** Hook
-  const ability = useContext(AbilityContext)
+    // ** Hook
+    const ability = useContext(AbilityContext)
 
-  return ability && ability.can(navLink?.action, navLink?.subject) ? <>{children}</> : null
+    return ability && ability.can(navLink?.action, navLink?.subject) ? <>{children}</> : null
 }
 
 export default CanViewNavLink

@@ -23,54 +23,54 @@ import ApexRadialBarChart from 'src/views/charts/apex-charts/ApexRadialBarChart'
 import ApexCandlestickChart from 'src/views/charts/apex-charts/ApexCandlestickChart'
 
 const ApexCharts = () => {
-  return (
-    <ApexChartWrapper>
-      <DatePickerWrapper>
-        <Grid container spacing={6} className='match-height'>
-          <PageHeader
-            title={
-              <Typography variant='h5'>
-                <Link href='https://github.com/apexcharts/react-apexcharts' target='_blank'>
+    return (
+        <ApexChartWrapper>
+            <DatePickerWrapper>
+                <Grid container spacing={6} className='match-height'>
+                    <PageHeader
+                        title={
+                            <Typography variant='h5'>
+                                <Link href='https://github.com/apexcharts/react-apexcharts' target='_blank'>
                   React ApexCharts
-                </Link>
-              </Typography>
-            }
-            subtitle={<Typography variant='body2'>React Component for ApexCharts</Typography>}
-          />
-          <Grid item xs={12}>
-            <ApexAreaChart />
-          </Grid>
-          <Grid item xs={12}>
-            <ApexColumnChart />
-          </Grid>
-          <Grid item xs={12}>
-            <ApexScatterChart />
-          </Grid>
-          <Grid item xs={12}>
-            <ApexLineChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexBarChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexCandlestickChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexHeatmapChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexRadialBarChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexRadarChart />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ApexDonutChart />
-          </Grid>
-        </Grid>
-      </DatePickerWrapper>
-    </ApexChartWrapper>
-  )
+                                </Link>
+                            </Typography>
+                        }
+                        subtitle={<Typography variant='body2'>React Component for ApexCharts</Typography>}
+                    />
+                    <Grid item xs={12}>
+                        <ApexAreaChart />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ApexColumnChart />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ApexScatterChart />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ApexLineChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexBarChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexCandlestickChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexHeatmapChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexRadialBarChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexRadarChart />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <ApexDonutChart />
+                    </Grid>
+                </Grid>
+            </DatePickerWrapper>
+        </ApexChartWrapper>
+    )
 }
 
 export default ApexCharts

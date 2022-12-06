@@ -14,37 +14,37 @@ import CardContent from '@mui/material/CardContent'
 import Icon from 'src/@core/components/icon'
 
 const CardActionClose = () => {
-  // ** State
-  const [visibility, setVisibility] = useState<boolean>(true)
+    // ** State
+    const [visibility, setVisibility] = useState<boolean>(true)
 
-  return (
-    <Fade in={visibility} timeout={300}>
-      <Card>
-        <CardHeader
-          title='Remove Card'
-          action={
-            <IconButton
-              size='small'
-              aria-label='collapse'
-              sx={{ color: 'text.secondary' }}
-              onClick={() => setVisibility(false)}
-            >
-              <Icon icon='mdi:close' fontSize={20} />
-            </IconButton>
-          }
-        />
-        <CardContent>
-          <Typography variant='body2'>
+    return (
+        <Fade in={visibility} timeout={300}>
+            <Card>
+                <CardHeader
+                    title='Remove Card'
+                    action={
+                        <IconButton
+                            size='small'
+                            aria-label='collapse'
+                            sx={{ color: 'text.secondary' }}
+                            onClick={() => setVisibility(false)}
+                        >
+                            <Icon icon='mdi:close' fontSize={20} />
+                        </IconButton>
+                    }
+                />
+                <CardContent>
+                    <Typography variant='body2'>
             You can specifically add remove action using <code>actionRemove</code> prop Click on{' '}
-            <Box component='span' sx={{ verticalAlign: 'top' }}>
-              <Icon icon='mdi:close' fontSize={20} />
-            </Box>{' '}
+                        <Box component='span' sx={{ verticalAlign: 'top' }}>
+                            <Icon icon='mdi:close' fontSize={20} />
+                        </Box>{' '}
             icon to see it in action
-          </Typography>
-        </CardContent>
-      </Card>
-    </Fade>
-  )
+                    </Typography>
+                </CardContent>
+            </Card>
+        </Fade>
+    )
 }
 
 export default CardActionClose

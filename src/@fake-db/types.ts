@@ -1,9 +1,9 @@
 // Type Imports
 import { ThemeColor } from 'src/@core/layouts/types'
 import {
-  CardStatsCharacterProps,
-  CardStatsHorizontalProps,
-  CardStatsVerticalProps
+    CardStatsCharacterProps,
+    CardStatsHorizontalProps,
+    CardStatsVerticalProps
 } from 'src/@core/components/card-statistics/types'
 
 // Template Search

@@ -11,31 +11,31 @@ import UserProfile from 'src/views/pages/user-profile/UserProfile'
 import { UserProfileActiveTab } from 'src/@fake-db/types'
 
 const UserProfileTab = ({ tab, data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <UserProfile tab={tab} data={data} />
+    return <UserProfile tab={tab} data={data} />
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  return {
-    paths: [
-      { params: { tab: 'profile' } },
-      { params: { tab: 'teams' } },
-      { params: { tab: 'projects' } },
-      { params: { tab: 'connections' } }
-    ],
-    fallback: false
-  }
+    return {
+        paths: [
+            { params: { tab: 'profile' } },
+            { params: { tab: 'teams' } },
+            { params: { tab: 'projects' } },
+            { params: { tab: 'connections' } }
+        ],
+        fallback: false
+    }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const res = await axios.get('/pages/profile', { params: { tab: params?.tab } })
-  const data: UserProfileActiveTab = res.data
+    const res = await axios.get('/pages/profile', { params: { tab: params?.tab } })
+    const data: UserProfileActiveTab = res.data
 
-  return {
-    props: {
-      data,
-      tab: params?.tab
+    return {
+        props: {
+            data,
+            tab: params?.tab
+        }
     }
-  }
 }
 
 export default UserProfileTab

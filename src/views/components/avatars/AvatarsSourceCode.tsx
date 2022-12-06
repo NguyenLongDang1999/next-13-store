@@ -1,6 +1,6 @@
 export const AvatarsGroupedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
@@ -34,12 +34,12 @@ const AvatarsGrouped = () => {
 
 export default AvatarsGrouped
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsGroupedPullUpJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
@@ -57,12 +57,12 @@ const AvatarsGroupedPullUp = () => {
 
 export default AvatarsGroupedPullUp
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsGroupedPullUpWithTooltipJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import AvatarGroup from '@mui/material/AvatarGroup'
@@ -91,12 +91,12 @@ const AvatarsGroupedPullUpWithTooltip = () => {
 
 export default AvatarsGroupedPullUpWithTooltip
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsIconJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -124,12 +124,12 @@ const AvatarsIcon = () => {
 
 export default AvatarsIcon
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsImageJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -145,12 +145,12 @@ const AvatarsImage = () => {
 
 export default AvatarsImage
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsSizesJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -166,12 +166,12 @@ const AvatarsSizes = () => {
 
 export default AvatarsSizes
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsLetterJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import MuiAvatar from '@mui/material/Avatar'
 
@@ -195,12 +195,12 @@ const AvatarsLetter = () => {
 
 export default AvatarsLetter
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsVariantsJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 
 // ** Icon Imports
@@ -230,12 +230,12 @@ const AvatarsVariants = () => {
 
 export default AvatarsVariants
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsWithBadgeJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
@@ -285,12 +285,12 @@ const AvatarsWithBadge = () => {
 
 export default AvatarsWithBadge
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsGroupedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
@@ -324,12 +324,12 @@ const AvatarsGrouped = () => {
 
 export default AvatarsGrouped
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsGroupedPullUpTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 
@@ -347,12 +347,12 @@ const AvatarsGroupedPullUp = () => {
 
 export default AvatarsGroupedPullUp
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsGroupedPullUpWithTooltipTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import AvatarGroup from '@mui/material/AvatarGroup'
@@ -381,12 +381,12 @@ const AvatarsGroupedPullUpWithTooltip = () => {
 
 export default AvatarsGroupedPullUpWithTooltip
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsLetterTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import MuiAvatar from '@mui/material/Avatar'
 
@@ -410,12 +410,12 @@ const AvatarsLetter = () => {
 
 export default AvatarsLetter
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsIconTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -443,12 +443,12 @@ const AvatarsIcon = () => {
 
 export default AvatarsIcon
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsWithBadgeTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
@@ -498,12 +498,12 @@ const AvatarsWithBadge = () => {
 
 export default AvatarsWithBadge
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsImageTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -519,12 +519,12 @@ const AvatarsImage = () => {
 
 export default AvatarsImage
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsSizesTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
@@ -540,12 +540,12 @@ const AvatarsSizes = () => {
 
 export default AvatarsSizes
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AvatarsVariantsTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 
 // ** Icon Imports
@@ -575,5 +575,5 @@ const AvatarsVariants = () => {
 
 export default AvatarsVariants
 `}</code>
-  </pre>
+    </pre>
 )

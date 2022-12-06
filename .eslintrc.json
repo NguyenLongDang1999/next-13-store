@@ -13,6 +13,10 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "indent": [
+      "error",
+      4
+    ],
     // add new line above comment
     "lines-around-comment": [
       "error",

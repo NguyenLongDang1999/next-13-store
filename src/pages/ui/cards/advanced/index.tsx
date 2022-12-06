@@ -17,49 +17,49 @@ import CardSocialNetworkVisits from 'src/views/ui/cards/advanced/CardSocialNetwo
 import CardSubscribersByCountries from 'src/views/ui/cards/advanced/CardSubscribersByCountries'
 
 const CardsAdvanced = () => {
-  return (
-    <Grid container spacing={6} className='match-height'>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardTransactions />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardPlanUpgrade />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardMeetingSchedule />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardProjectStatistics />
-      </Grid>
-      <Grid item xs={12} lg={8}>
-        <CardTopReferralSources />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardTotalEarnings />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardSocialNetworkVisits />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardGeneralStatistics />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardSalesInCountries />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardPaymentHistory />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardSubscribersByCountries />
-      </Grid>
-      <Grid item xs={12} md={6} lg={8}>
-        <CardActivityTimeline />
-      </Grid>
-      <Grid item xs={12} md={6} lg={4}>
-        <CardFinanceApp />
-      </Grid>
-    </Grid>
-  )
+    return (
+        <Grid container spacing={6} className='match-height'>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardTransactions />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardPlanUpgrade />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardMeetingSchedule />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardProjectStatistics />
+            </Grid>
+            <Grid item xs={12} lg={8}>
+                <CardTopReferralSources />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardTotalEarnings />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardSocialNetworkVisits />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardGeneralStatistics />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardSalesInCountries />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardPaymentHistory />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardSubscribersByCountries />
+            </Grid>
+            <Grid item xs={12} md={6} lg={8}>
+                <CardActivityTimeline />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+                <CardFinanceApp />
+            </Grid>
+        </Grid>
+    )
 }
 
 export default CardsAdvanced

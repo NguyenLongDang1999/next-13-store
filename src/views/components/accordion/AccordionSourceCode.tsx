@@ -1,6 +1,6 @@
 export const AccordionActionsJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -95,12 +95,12 @@ const AccordionActions = () => {
 
 export default AccordionActions
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionControlledJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -175,12 +175,12 @@ const AccordionControlled = () => {
 
 export default AccordionControlled
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionCustomizedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -305,12 +305,12 @@ const AccordionCustomized = () => {
 
 export default AccordionCustomized
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionSimpleJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Accordion from '@mui/material/Accordion'
 import Typography from '@mui/material/Typography'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -375,12 +375,12 @@ const AccordionSimple = () => {
 
 export default AccordionSimple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionControlledTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { SyntheticEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -455,12 +455,12 @@ const AccordionControlled = () => {
 
 export default AccordionControlled
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionCustomizedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { SyntheticEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -586,12 +586,12 @@ const AccordionCustomized = () => {
 
 export default AccordionCustomized
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionActionsTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { SyntheticEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -686,12 +686,12 @@ const AccordionActions = () => {
 
 export default AccordionActions
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const AccordionSimpleTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Accordion from '@mui/material/Accordion'
 import Typography from '@mui/material/Typography'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -756,5 +756,5 @@ const AccordionSimple = () => {
 
 export default AccordionSimple
 `}</code>
-  </pre>
+    </pre>
 )

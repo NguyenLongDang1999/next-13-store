@@ -8,22 +8,22 @@ import CardCongratulationsJohn from 'src/views/ui/cards/gamification/CardCongrat
 import CardCongratulationsDaisy from 'src/views/ui/cards/gamification/CardCongratulationsDaisy'
 
 const CardGamification = () => {
-  return (
-    <Grid container spacing={6} className='match-height'>
-      <Grid item xs={12} md={4}>
-        <CardAward />
-      </Grid>
-      <Grid item xs={12} md={8}>
-        <CardCongratulationsJohn />
-      </Grid>
-      <Grid item xs={12} md={8}>
-        <CardCongratulationsDaisy />
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <CardUpgradeAccount />
-      </Grid>
-    </Grid>
-  )
+    return (
+        <Grid container spacing={6} className='match-height'>
+            <Grid item xs={12} md={4}>
+                <CardAward />
+            </Grid>
+            <Grid item xs={12} md={8}>
+                <CardCongratulationsJohn />
+            </Grid>
+            <Grid item xs={12} md={8}>
+                <CardCongratulationsDaisy />
+            </Grid>
+            <Grid item xs={12} md={4}>
+                <CardUpgradeAccount />
+            </Grid>
+        </Grid>
+    )
 }
 
 export default CardGamification

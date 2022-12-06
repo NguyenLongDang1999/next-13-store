@@ -27,76 +27,76 @@ interface SaleDataType {
 }
 
 const salesData: SaleDataType[] = [
-  {
-    stats: '8,458',
-    color: 'primary',
-    title: 'Customers',
-    icon: <Icon icon='mdi:account-outline' />
-  },
-  {
-    stats: '$28.5k',
-    color: 'warning',
-    title: 'Total Profit',
-    icon: <Icon icon='mdi:poll' />
-  },
-  {
-    color: 'info',
-    stats: '2,450k',
-    title: 'Transactions',
-    icon: <Icon icon='mdi:trending-up' />
-  }
+    {
+        stats: '8,458',
+        color: 'primary',
+        title: 'Customers',
+        icon: <Icon icon='mdi:account-outline' />
+    },
+    {
+        stats: '$28.5k',
+        color: 'warning',
+        title: 'Total Profit',
+        icon: <Icon icon='mdi:poll' />
+    },
+    {
+        color: 'info',
+        stats: '2,450k',
+        title: 'Transactions',
+        icon: <Icon icon='mdi:trending-up' />
+    }
 ]
 
 const renderStats = () => {
-  return salesData.map((sale: SaleDataType, index: number) => (
-    <Grid item xs={12} sm={4} key={index}>
-      <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-        <CustomAvatar skin='light' variant='rounded' color={sale.color} sx={{ mr: 4 }}>
-          {sale.icon}
-        </CustomAvatar>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='h6' sx={{ fontWeight: 600 }}>
-            {sale.stats}
-          </Typography>
-          <Typography variant='caption'>{sale.title}</Typography>
-        </Box>
-      </Box>
-    </Grid>
-  ))
+    return salesData.map((sale: SaleDataType, index: number) => (
+        <Grid item xs={12} sm={4} key={index}>
+            <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
+                <CustomAvatar skin='light' variant='rounded' color={sale.color} sx={{ mr: 4 }}>
+                    {sale.icon}
+                </CustomAvatar>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Typography variant='h6' sx={{ fontWeight: 600 }}>
+                        {sale.stats}
+                    </Typography>
+                    <Typography variant='caption'>{sale.title}</Typography>
+                </Box>
+            </Box>
+        </Grid>
+    ))
 }
 
 const EcommerceSalesOverview = () => {
-  return (
-    <Card>
-      <CardHeader
-        sx={{ pb: 3.25 }}
-        title='Sales Overview'
-        titleTypographyProps={{ variant: 'h6' }}
-        action={
-          <OptionsMenu
-            options={['Last 28 Days', 'Last Month', 'Last Year']}
-            iconButtonProps={{ size: 'small', className: 'card-more-options' }}
-          />
-        }
-        subheader={
-          <Box sx={{ display: 'flex', alignItems: 'center', '& svg': { color: 'success.main' } }}>
-            <Typography variant='caption' sx={{ mr: 1.5 }}>
+    return (
+        <Card>
+            <CardHeader
+                sx={{ pb: 3.25 }}
+                title='Sales Overview'
+                titleTypographyProps={{ variant: 'h6' }}
+                action={
+                    <OptionsMenu
+                        options={['Last 28 Days', 'Last Month', 'Last Year']}
+                        iconButtonProps={{ size: 'small', className: 'card-more-options' }}
+                    />
+                }
+                subheader={
+                    <Box sx={{ display: 'flex', alignItems: 'center', '& svg': { color: 'success.main' } }}>
+                        <Typography variant='caption' sx={{ mr: 1.5 }}>
               Total 42.5k Sales
-            </Typography>
-            <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
+                        </Typography>
+                        <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
               +18%
-            </Typography>
-            <Icon icon='mdi:chevron-up' fontSize={20} />
-          </Box>
-        }
-      />
-      <CardContent>
-        <Grid container spacing={6}>
-          {renderStats()}
-        </Grid>
-      </CardContent>
-    </Card>
-  )
+                        </Typography>
+                        <Icon icon='mdi:chevron-up' fontSize={20} />
+                    </Box>
+                }
+            />
+            <CardContent>
+                <Grid container spacing={6}>
+                    {renderStats()}
+                </Grid>
+            </CardContent>
+        </Card>
+    )
 }
 
 export default EcommerceSalesOverview

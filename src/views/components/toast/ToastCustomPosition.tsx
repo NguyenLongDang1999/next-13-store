@@ -10,24 +10,24 @@ import Icon from 'src/@core/components/icon'
 import toast from 'react-hot-toast'
 
 const ToastCustomPosition = () => {
-  const handleClick = () => {
-    return toast.success('Always at the bottom.', {
-      position: 'bottom-right'
-    })
-  }
+    const handleClick = () => {
+        return toast.success('Always at the bottom.', {
+            position: 'bottom-right'
+        })
+    }
 
-  return (
-    <Box
-      sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
-    >
-      <Icon icon='mdi:view-grid-plus-outline' fontSize='2rem' />
-      <Typography sx={{ mb: 4, fontWeight: 600 }}>Custom Position</Typography>
-      <Typography sx={{ mb: 3 }}>You can change the toast's position as you like.</Typography>
-      <Button sx={{ mb: 8 }} variant='contained' onClick={handleClick}>
+    return (
+        <Box
+            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
+        >
+            <Icon icon='mdi:view-grid-plus-outline' fontSize='2rem' />
+            <Typography sx={{ mb: 4, fontWeight: 600 }}>Custom Position</Typography>
+            <Typography sx={{ mb: 3 }}>You can change the toast's position as you like.</Typography>
+            <Button sx={{ mb: 8 }} variant='contained' onClick={handleClick}>
         Position
-      </Button>
-    </Box>
-  )
+            </Button>
+        </Box>
+    )
 }
 
 export default ToastCustomPosition

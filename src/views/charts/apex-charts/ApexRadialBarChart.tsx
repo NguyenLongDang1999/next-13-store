@@ -14,88 +14,88 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 
 const radialBarColors = {
-  series1: '#fdd835',
-  series2: '#40CDFA',
-  series3: '#00d4bd',
-  series4: '#7367f0',
-  series5: '#FFA1A1'
+    series1: '#fdd835',
+    series2: '#40CDFA',
+    series3: '#00d4bd',
+    series4: '#7367f0',
+    series5: '#FFA1A1'
 }
 
 const ApexRadialBarChart = () => {
-  // ** Hook
-  const theme = useTheme()
+    // ** Hook
+    const theme = useTheme()
 
-  const options: ApexOptions = {
-    stroke: { lineCap: 'round' },
-    labels: ['Comments', 'Replies', 'Shares'],
-    legend: {
-      show: true,
-      position: 'bottom',
-      labels: {
-        colors: theme.palette.text.secondary
-      },
-      markers: {
-        offsetX: -3
-      },
-      itemMargin: {
-        vertical: 3,
-        horizontal: 10
-      }
-    },
-    colors: [radialBarColors.series1, radialBarColors.series2, radialBarColors.series4],
-    plotOptions: {
-      radialBar: {
-        hollow: { size: '30%' },
-        track: {
-          margin: 15,
-          background: hexToRGBA(theme.palette.customColors.trackBg, 1)
-        },
-        dataLabels: {
-          name: {
-            fontSize: '2rem'
-          },
-          value: {
-            fontSize: '1rem',
-            color: theme.palette.text.secondary
-          },
-          total: {
+    const options: ApexOptions = {
+        stroke: { lineCap: 'round' },
+        labels: ['Comments', 'Replies', 'Shares'],
+        legend: {
             show: true,
-            fontWeight: 400,
-            label: 'Comments',
-            fontSize: '1.125rem',
-            color: theme.palette.text.primary,
-            formatter: function (w) {
-              const totalValue =
+            position: 'bottom',
+            labels: {
+                colors: theme.palette.text.secondary
+            },
+            markers: {
+                offsetX: -3
+            },
+            itemMargin: {
+                vertical: 3,
+                horizontal: 10
+            }
+        },
+        colors: [radialBarColors.series1, radialBarColors.series2, radialBarColors.series4],
+        plotOptions: {
+            radialBar: {
+                hollow: { size: '30%' },
+                track: {
+                    margin: 15,
+                    background: hexToRGBA(theme.palette.customColors.trackBg, 1)
+                },
+                dataLabels: {
+                    name: {
+                        fontSize: '2rem'
+                    },
+                    value: {
+                        fontSize: '1rem',
+                        color: theme.palette.text.secondary
+                    },
+                    total: {
+                        show: true,
+                        fontWeight: 400,
+                        label: 'Comments',
+                        fontSize: '1.125rem',
+                        color: theme.palette.text.primary,
+                        formatter: function (w) {
+                            const totalValue =
                 w.globals.seriesTotals.reduce((a: any, b: any) => {
-                  return a + b
+                    return a + b
                 }, 0) / w.globals.series.length
 
-              if (totalValue % 1 === 0) {
-                return totalValue + '%'
-              } else {
-                return totalValue.toFixed(2) + '%'
-              }
+                            if (totalValue % 1 === 0) {
+                                return totalValue + '%'
+                            } else {
+                                return totalValue.toFixed(2) + '%'
+                            }
+                        }
+                    }
+                }
             }
-          }
+        },
+        grid: {
+            padding: {
+                top: -35,
+                bottom: -30
+            }
         }
-      }
-    },
-    grid: {
-      padding: {
-        top: -35,
-        bottom: -30
-      }
     }
-  }
 
-  return (
-    <Card>
-      <CardHeader title='Statistics' />
-      <CardContent>
-        <ReactApexcharts type='radialBar' height={400} options={options} series={[80, 50, 35]} />
-      </CardContent>
-    </Card>
-  )
+    return (
+        <Card>
+            <CardHeader title='Statistics' />
+            <CardContent>
+                <ReactApexcharts type='radialBar' height={400} options={options} series={[80, 50, 35]} />
+            </CardContent>
+        </Card>
+    )
 }
 
 export default ApexRadialBarChart

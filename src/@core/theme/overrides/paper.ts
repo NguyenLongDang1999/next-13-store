@@ -1,9 +1,9 @@
 export default {
-  MuiPaper: {
-    styleOverrides: {
-      root: {
-        backgroundImage: 'none'
-      }
+    MuiPaper: {
+        styleOverrides: {
+            root: {
+                backgroundImage: 'none'
+            }
+        }
     }
-  }
 }

@@ -11,35 +11,35 @@ import Icon from 'src/@core/components/icon'
 import toast from 'react-hot-toast'
 
 const ToastThemed = () => {
-  // ** Hook
-  const theme = useTheme()
+    // ** Hook
+    const theme = useTheme()
 
-  const handleClick = () => {
-    return toast.success('Look at me, I have brand styles.', {
-      style: {
-        padding: '16px',
-        color: theme.palette.primary.main,
-        border: `1px solid ${theme.palette.primary.main}`
-      },
-      iconTheme: {
-        primary: theme.palette.primary.main,
-        secondary: theme.palette.primary.contrastText
-      }
-    })
-  }
+    const handleClick = () => {
+        return toast.success('Look at me, I have brand styles.', {
+            style: {
+                padding: '16px',
+                color: theme.palette.primary.main,
+                border: `1px solid ${theme.palette.primary.main}`
+            },
+            iconTheme: {
+                primary: theme.palette.primary.main,
+                secondary: theme.palette.primary.contrastText
+            }
+        })
+    }
 
-  return (
-    <Box
-      sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
-    >
-      <Icon icon='mdi:palette-outline' fontSize='2rem' />
-      <Typography sx={{ mb: 4, fontWeight: 600 }}>Themed</Typography>
-      <Typography sx={{ mb: 3 }}>Customize the default styles the way you want.</Typography>
-      <Button sx={{ mb: 8 }} variant='contained' onClick={handleClick}>
+    return (
+        <Box
+            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
+        >
+            <Icon icon='mdi:palette-outline' fontSize='2rem' />
+            <Typography sx={{ mb: 4, fontWeight: 600 }}>Themed</Typography>
+            <Typography sx={{ mb: 3 }}>Customize the default styles the way you want.</Typography>
+            <Button sx={{ mb: 8 }} variant='contained' onClick={handleClick}>
         Themed
-      </Button>
-    </Box>
-  )
+            </Button>
+        </Box>
+    )
 }
 
 export default ToastThemed

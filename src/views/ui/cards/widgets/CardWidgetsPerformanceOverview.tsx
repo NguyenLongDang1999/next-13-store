@@ -20,68 +20,68 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 
 const CardWidgetsPerformanceOverview = () => {
-  // ** Hook
-  const theme = useTheme()
+    // ** Hook
+    const theme = useTheme()
 
-  const options: ApexOptions = {
-    chart: {
-      parentHeightOffset: 0,
-      toolbar: { show: false }
-    },
-    stroke: {
-      curve: 'stepline'
-    },
-    colors: [hexToRGBA(theme.palette.warning.main, 1)],
-    grid: {
-      yaxis: {
-        lines: { show: false }
-      }
-    },
-    xaxis: {
-      labels: { show: false },
-      axisTicks: { show: false },
-      axisBorder: { show: false }
-    },
-    yaxis: {
-      labels: { show: false }
-    }
-  }
-
-  return (
-    <Card>
-      <CardHeader
-        title='Performance Overview'
-        action={
-          <OptionsMenu
-            options={['Last 28 Days', 'Last Month', 'Last Year']}
-            iconButtonProps={{ size: 'small', className: 'card-more-options' }}
-          />
+    const options: ApexOptions = {
+        chart: {
+            parentHeightOffset: 0,
+            toolbar: { show: false }
+        },
+        stroke: {
+            curve: 'stepline'
+        },
+        colors: [hexToRGBA(theme.palette.warning.main, 1)],
+        grid: {
+            yaxis: {
+                lines: { show: false }
+            }
+        },
+        xaxis: {
+            labels: { show: false },
+            axisTicks: { show: false },
+            axisBorder: { show: false }
+        },
+        yaxis: {
+            labels: { show: false }
         }
-      />
-      <CardContent>
-        <ReactApexcharts
-          type='line'
-          height={202}
-          options={options}
-          series={[{ data: [7, 65, 40, 7, 40, 80, 45, 65, 65] }]}
-        />
-        <Box
-          sx={{
-            mt: 4,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            '& svg': { mr: 1.5, color: 'warning.main' }
-          }}
-        >
-          <Icon icon='mdi:circle' fontSize='0.75rem' />
-          <Typography variant='body2' sx={{ color: 'text.disabled' }}>
+    }
+
+    return (
+        <Card>
+            <CardHeader
+                title='Performance Overview'
+                action={
+                    <OptionsMenu
+                        options={['Last 28 Days', 'Last Month', 'Last Year']}
+                        iconButtonProps={{ size: 'small', className: 'card-more-options' }}
+                    />
+                }
+            />
+            <CardContent>
+                <ReactApexcharts
+                    type='line'
+                    height={202}
+                    options={options}
+                    series={[{ data: [7, 65, 40, 7, 40, 80, 45, 65, 65] }]}
+                />
+                <Box
+                    sx={{
+                        mt: 4,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        '& svg': { mr: 1.5, color: 'warning.main' }
+                    }}
+                >
+                    <Icon icon='mdi:circle' fontSize='0.75rem' />
+                    <Typography variant='body2' sx={{ color: 'text.disabled' }}>
             Avarage cost per interaction is $5.65
-          </Typography>
-        </Box>
-      </CardContent>
-    </Card>
-  )
+                    </Typography>
+                </Box>
+            </CardContent>
+        </Card>
+    )
 }
 
 export default CardWidgetsPerformanceOverview

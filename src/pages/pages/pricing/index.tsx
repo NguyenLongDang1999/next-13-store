@@ -24,53 +24,53 @@ import PricingFooter from 'src/views/pages/pricing/PricingFooter'
 
 // ** Styled Components
 const CardContent = styled(MuiCardContent)<CardContentProps>(({ theme }) => ({
-  padding: `${theme.spacing(20, 36)} !important`,
-  [theme.breakpoints.down('xl')]: {
-    padding: `${theme.spacing(20)} !important`
-  },
-  [theme.breakpoints.down('sm')]: {
-    padding: `${theme.spacing(10, 5)} !important`
-  }
+    padding: `${theme.spacing(20, 36)} !important`,
+    [theme.breakpoints.down('xl')]: {
+        padding: `${theme.spacing(20)} !important`
+    },
+    [theme.breakpoints.down('sm')]: {
+        padding: `${theme.spacing(10, 5)} !important`
+    }
 }))
 
 const Pricing = ({ apiData }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // ** States
-  const [plan, setPlan] = useState<'monthly' | 'annually'>('annually')
+    // ** States
+    const [plan, setPlan] = useState<'monthly' | 'annually'>('annually')
 
-  const handleChange = (e: ChangeEvent<{ checked: boolean }>) => {
-    if (e.target.checked) {
-      setPlan('annually')
-    } else {
-      setPlan('monthly')
+    const handleChange = (e: ChangeEvent<{ checked: boolean }>) => {
+        if (e.target.checked) {
+            setPlan('annually')
+        } else {
+            setPlan('monthly')
+        }
     }
-  }
 
-  return (
-    <Card>
-      <CardContent>
-        <PricingHeader plan={plan} handleChange={handleChange} />
-        <PricingPlans plan={plan} data={apiData.pricingPlans} />
-      </CardContent>
-      <PricingCTA />
-      <CardContent>
-        <PricingTable data={apiData} />
-      </CardContent>
-      <CardContent sx={{ backgroundColor: 'action.hover' }}>
-        <PricingFooter data={apiData} />
-      </CardContent>
-    </Card>
-  )
+    return (
+        <Card>
+            <CardContent>
+                <PricingHeader plan={plan} handleChange={handleChange} />
+                <PricingPlans plan={plan} data={apiData.pricingPlans} />
+            </CardContent>
+            <PricingCTA />
+            <CardContent>
+                <PricingTable data={apiData} />
+            </CardContent>
+            <CardContent sx={{ backgroundColor: 'action.hover' }}>
+                <PricingFooter data={apiData} />
+            </CardContent>
+        </Card>
+    )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get('/pages/pricing')
-  const apiData: PricingDataType = res.data
+    const res = await axios.get('/pages/pricing')
+    const apiData: PricingDataType = res.data
 
-  return {
-    props: {
-      apiData
+    return {
+        props: {
+            apiData
+        }
     }
-  }
 }
 
 export default Pricing

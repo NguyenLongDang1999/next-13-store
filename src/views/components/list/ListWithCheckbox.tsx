@@ -12,80 +12,80 @@ import ListItemAvatar from '@mui/material/ListItemAvatar'
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction'
 
 const ListWithCheckbox = () => {
-  // ** State
-  const [checked, setChecked] = useState<number[]>([0])
+    // ** State
+    const [checked, setChecked] = useState<number[]>([0])
 
-  const handleToggle = (value: number) => () => {
-    const currentIndex = checked.indexOf(value)
-    const newChecked = [...checked]
+    const handleToggle = (value: number) => () => {
+        const currentIndex = checked.indexOf(value)
+        const newChecked = [...checked]
 
-    if (currentIndex === -1) {
-      newChecked.push(value)
-    } else {
-      newChecked.splice(currentIndex, 1)
+        if (currentIndex === -1) {
+            newChecked.push(value)
+        } else {
+            newChecked.splice(currentIndex, 1)
+        }
+
+        setChecked(newChecked)
     }
 
-    setChecked(newChecked)
-  }
-
-  return (
-    <List>
-      <ListItem disablePadding>
-        <ListItemButton onClick={handleToggle(0)}>
-          <ListItemAvatar>
-            <Avatar src='/images/avatars/2.png' alt='Caroline Black' sx={{ height: 32, width: 32 }} />
-          </ListItemAvatar>
-          <ListItemText id='checkbox-list-label-0' primary='Caroline Black' />
-          <ListItemSecondaryAction>
-            <Checkbox
-              edge='end'
-              tabIndex={-1}
-              disableRipple
-              onChange={handleToggle(0)}
-              checked={checked.indexOf(0) !== -1}
-              inputProps={{ 'aria-labelledby': 'checkbox-list-label-0' }}
-            />
-          </ListItemSecondaryAction>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton onClick={handleToggle(1)}>
-          <ListItemAvatar>
-            <Avatar src='/images/avatars/1.png' alt='Alfred Copeland' sx={{ height: 32, width: 32 }} />
-          </ListItemAvatar>
-          <ListItemText id='checkbox-list-label-1' primary='Alfred Copeland' />
-          <ListItemSecondaryAction>
-            <Checkbox
-              edge='end'
-              tabIndex={-1}
-              disableRipple
-              onChange={handleToggle(1)}
-              checked={checked.indexOf(1) !== -1}
-              inputProps={{ 'aria-labelledby': 'checkbox-list-label-1' }}
-            />
-          </ListItemSecondaryAction>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton onClick={handleToggle(2)}>
-          <ListItemAvatar>
-            <Avatar src='/images/avatars/8.png' alt='Celia Schneider' sx={{ height: 32, width: 32 }} />
-          </ListItemAvatar>
-          <ListItemText id='checkbox-list-label-2' primary='Celia Schneider' />
-          <ListItemSecondaryAction>
-            <Checkbox
-              edge='end'
-              tabIndex={-1}
-              disableRipple
-              onChange={handleToggle(2)}
-              checked={checked.indexOf(2) !== -1}
-              inputProps={{ 'aria-labelledby': 'checkbox-list-label-2' }}
-            />
-          </ListItemSecondaryAction>
-        </ListItemButton>
-      </ListItem>
-    </List>
-  )
+    return (
+        <List>
+            <ListItem disablePadding>
+                <ListItemButton onClick={handleToggle(0)}>
+                    <ListItemAvatar>
+                        <Avatar src='/images/avatars/2.png' alt='Caroline Black' sx={{ height: 32, width: 32 }} />
+                    </ListItemAvatar>
+                    <ListItemText id='checkbox-list-label-0' primary='Caroline Black' />
+                    <ListItemSecondaryAction>
+                        <Checkbox
+                            edge='end'
+                            tabIndex={-1}
+                            disableRipple
+                            onChange={handleToggle(0)}
+                            checked={checked.indexOf(0) !== -1}
+                            inputProps={{ 'aria-labelledby': 'checkbox-list-label-0' }}
+                        />
+                    </ListItemSecondaryAction>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={handleToggle(1)}>
+                    <ListItemAvatar>
+                        <Avatar src='/images/avatars/1.png' alt='Alfred Copeland' sx={{ height: 32, width: 32 }} />
+                    </ListItemAvatar>
+                    <ListItemText id='checkbox-list-label-1' primary='Alfred Copeland' />
+                    <ListItemSecondaryAction>
+                        <Checkbox
+                            edge='end'
+                            tabIndex={-1}
+                            disableRipple
+                            onChange={handleToggle(1)}
+                            checked={checked.indexOf(1) !== -1}
+                            inputProps={{ 'aria-labelledby': 'checkbox-list-label-1' }}
+                        />
+                    </ListItemSecondaryAction>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={handleToggle(2)}>
+                    <ListItemAvatar>
+                        <Avatar src='/images/avatars/8.png' alt='Celia Schneider' sx={{ height: 32, width: 32 }} />
+                    </ListItemAvatar>
+                    <ListItemText id='checkbox-list-label-2' primary='Celia Schneider' />
+                    <ListItemSecondaryAction>
+                        <Checkbox
+                            edge='end'
+                            tabIndex={-1}
+                            disableRipple
+                            onChange={handleToggle(2)}
+                            checked={checked.indexOf(2) !== -1}
+                            inputProps={{ 'aria-labelledby': 'checkbox-list-label-2' }}
+                        />
+                    </ListItemSecondaryAction>
+                </ListItemButton>
+            </ListItem>
+        </List>
+    )
 }
 
 export default ListWithCheckbox

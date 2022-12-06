@@ -8,22 +8,22 @@ import CardStatsSalesProfit from 'src/views/ui/cards/statistics/CardStatsSalesPr
 import CardStatsOrdersImpressions from 'src/views/ui/cards/statistics/CardStatsOrdersImpressions'
 
 const CardStatisticsCharts2 = () => {
-  return (
-    <Grid container spacing={6}>
-      <Grid item xs={12} sm={6} lg={3}>
-        <CardStatsSalesProfit />
-      </Grid>
-      <Grid item xs={12} sm={6} lg={3}>
-        <CardStatsTotalVisits />
-      </Grid>
-      <Grid item xs={12} sm={6} lg={3}>
-        <CardStatsSalesMonth />
-      </Grid>
-      <Grid item xs={12} sm={6} lg={3}>
-        <CardStatsOrdersImpressions />
-      </Grid>
-    </Grid>
-  )
+    return (
+        <Grid container spacing={6}>
+            <Grid item xs={12} sm={6} lg={3}>
+                <CardStatsSalesProfit />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+                <CardStatsTotalVisits />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+                <CardStatsSalesMonth />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3}>
+                <CardStatsOrdersImpressions />
+            </Grid>
+        </Grid>
+    )
 }
 
 export default CardStatisticsCharts2

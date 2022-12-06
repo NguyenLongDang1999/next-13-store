@@ -1,6 +1,6 @@
 export const ToastBlankJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -28,12 +28,12 @@ const ToastSimple = () => {
 
 export default ToastSimple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastCustomPositionJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -67,12 +67,12 @@ const ToastCustomPosition = () => {
 
 export default ToastCustomPosition
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastEmojiJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -100,12 +100,12 @@ const ToastEmoji = () => {
 
 export default ToastEmoji
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastCustomJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Avatar from '@mui/material/Avatar'
@@ -159,12 +159,12 @@ const ToastCustom = () => {
 
 export default ToastCustom
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastPromiseJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -210,12 +210,12 @@ const ToastPromise = () => {
 
 export default ToastPromise
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastSuccessJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -243,12 +243,12 @@ const ToastSuccess = () => {
 
 export default ToastSuccess
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastThemedJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTheme } from '@mui/material/styles'
@@ -294,12 +294,12 @@ const ToastThemed = () => {
 
 export default ToastThemed
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastMultiLineJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -333,12 +333,12 @@ const ToastMultiLine = () => {
 
 export default ToastMultiLine
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastErrorJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -366,12 +366,12 @@ const ToastError = () => {
 
 export default ToastError
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastCustomPositionTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -405,12 +405,12 @@ const ToastCustomPosition = () => {
 
 export default ToastCustomPosition
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastEmojiTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -438,12 +438,12 @@ const ToastEmoji = () => {
 
 export default ToastEmoji
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastBlankTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -471,12 +471,12 @@ const ToastSimple = () => {
 
 export default ToastSimple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastPromiseTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -522,12 +522,12 @@ const ToastPromise = () => {
 
 export default ToastPromise
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastCustomTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Avatar from '@mui/material/Avatar'
@@ -581,12 +581,12 @@ const ToastCustom = () => {
 
 export default ToastCustom
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastErrorTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -614,12 +614,12 @@ const ToastError = () => {
 
 export default ToastError
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastSuccessTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -647,12 +647,12 @@ const ToastSuccess = () => {
 
 export default ToastSuccess
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastMultiLineTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -686,12 +686,12 @@ const ToastMultiLine = () => {
 
 export default ToastMultiLine
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const ToastThemedTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** MUI Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** MUI Imports
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useTheme } from '@mui/material/styles'
@@ -737,5 +737,5 @@ const ToastThemed = () => {
 
 export default ToastThemed
 `}</code>
-  </pre>
+    </pre>
 )

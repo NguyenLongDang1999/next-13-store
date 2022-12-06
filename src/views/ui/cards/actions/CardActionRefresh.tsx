@@ -15,54 +15,54 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Icon from 'src/@core/components/icon'
 
 const CardActionRefresh = () => {
-  // ** State
-  const [reload, setReload] = useState<boolean>(false)
+    // ** State
+    const [reload, setReload] = useState<boolean>(false)
 
-  const handleBackDrop = () => {
-    setReload(true)
+    const handleBackDrop = () => {
+        setReload(true)
 
-    setTimeout(() => {
-      setReload(false)
-    }, 2000)
-  }
+        setTimeout(() => {
+            setReload(false)
+        }, 2000)
+    }
 
-  return (
-    <Card sx={{ position: 'relative' }}>
-      <CardHeader
-        title='Refresh Content'
-        action={
-          <IconButton
-            size='small'
-            aria-label='collapse'
-            sx={{ color: 'text.secondary' }}
-            onClick={() => handleBackDrop()}
-          >
-            <Icon icon='mdi:refresh' fontSize={20} />
-          </IconButton>
-        }
-      />
-      <CardContent>
-        <Typography variant='body2'>
+    return (
+        <Card sx={{ position: 'relative' }}>
+            <CardHeader
+                title='Refresh Content'
+                action={
+                    <IconButton
+                        size='small'
+                        aria-label='collapse'
+                        sx={{ color: 'text.secondary' }}
+                        onClick={() => handleBackDrop()}
+                    >
+                        <Icon icon='mdi:refresh' fontSize={20} />
+                    </IconButton>
+                }
+            />
+            <CardContent>
+                <Typography variant='body2'>
           You can specifically add refresh action using <code>actionRefresh</code> prop Click on{' '}
-          <Box component='span' sx={{ verticalAlign: 'top' }}>
-            <Icon icon='mdi:refresh' fontSize={20} />
-          </Box>{' '}
+                    <Box component='span' sx={{ verticalAlign: 'top' }}>
+                        <Icon icon='mdi:refresh' fontSize={20} />
+                    </Box>{' '}
           icon to see it in action
-        </Typography>
-      </CardContent>
+                </Typography>
+            </CardContent>
 
-      <Backdrop
-        open={reload}
-        sx={{
-          position: 'absolute',
-          color: 'common.white',
-          zIndex: theme => theme.zIndex.mobileStepper - 1
-        }}
-      >
-        <CircularProgress color='inherit' />
-      </Backdrop>
-    </Card>
-  )
+            <Backdrop
+                open={reload}
+                sx={{
+                    position: 'absolute',
+                    color: 'common.white',
+                    zIndex: theme => theme.zIndex.mobileStepper - 1
+                }}
+            >
+                <CircularProgress color='inherit' />
+            </Backdrop>
+        </Card>
+    )
 }
 
 export default CardActionRefresh

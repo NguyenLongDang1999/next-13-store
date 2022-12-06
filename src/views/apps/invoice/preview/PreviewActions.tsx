@@ -16,54 +16,54 @@ interface Props {
 }
 
 const PreviewActions = ({ id, toggleSendInvoiceDrawer, toggleAddPaymentDrawer }: Props) => {
-  return (
-    <Card>
-      <CardContent>
-        <Button
-          fullWidth
-          sx={{ mb: 3.5 }}
-          variant='contained'
-          onClick={toggleSendInvoiceDrawer}
-          startIcon={<Icon icon='mdi:send-outline' />}
-        >
+    return (
+        <Card>
+            <CardContent>
+                <Button
+                    fullWidth
+                    sx={{ mb: 3.5 }}
+                    variant='contained'
+                    onClick={toggleSendInvoiceDrawer}
+                    startIcon={<Icon icon='mdi:send-outline' />}
+                >
           Send Invoice
-        </Button>
-        <Button fullWidth sx={{ mb: 3.5 }} color='secondary' variant='outlined'>
+                </Button>
+                <Button fullWidth sx={{ mb: 3.5 }} color='secondary' variant='outlined'>
           Download
-        </Button>
-        <Button
-          fullWidth
-          target='_blank'
-          sx={{ mb: 3.5 }}
-          component={Link}
-          color='secondary'
-          variant='outlined'
-          href={`/apps/invoice/print/${id}`}
-        >
+                </Button>
+                <Button
+                    fullWidth
+                    target='_blank'
+                    sx={{ mb: 3.5 }}
+                    component={Link}
+                    color='secondary'
+                    variant='outlined'
+                    href={`/apps/invoice/print/${id}`}
+                >
           Print
-        </Button>
-        <Button
-          fullWidth
-          sx={{ mb: 3.5 }}
-          component={Link}
-          color='secondary'
-          variant='outlined'
-          href={`/apps/invoice/edit/${id}`}
-        >
+                </Button>
+                <Button
+                    fullWidth
+                    sx={{ mb: 3.5 }}
+                    component={Link}
+                    color='secondary'
+                    variant='outlined'
+                    href={`/apps/invoice/edit/${id}`}
+                >
           Edit Invoice
-        </Button>
-        <Button
-          fullWidth
-          color='success'
-          variant='contained'
-          onClick={toggleAddPaymentDrawer}
-          startIcon={<Icon icon='mdi:currency-usd' />}
-        >
+                </Button>
+                <Button
+                    fullWidth
+                    color='success'
+                    variant='contained'
+                    onClick={toggleAddPaymentDrawer}
+                    startIcon={<Icon icon='mdi:currency-usd' />}
+                >
           Add Payment
-        </Button>
-      </CardContent>
-    </Card>
-  )
+                </Button>
+            </CardContent>
+        </Card>
+    )
 }
 
 export default PreviewActions

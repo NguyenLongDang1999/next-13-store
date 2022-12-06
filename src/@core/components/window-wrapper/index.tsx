@@ -9,27 +9,27 @@ interface Props {
 }
 
 const WindowWrapper = ({ children }: Props) => {
-  // ** State
-  const [windowReadyFlag, setWindowReadyFlag] = useState<boolean>(false)
+    // ** State
+    const [windowReadyFlag, setWindowReadyFlag] = useState<boolean>(false)
 
-  const router = useRouter()
+    const router = useRouter()
 
-  useEffect(
-    () => {
-      if (typeof window !== 'undefined') {
-        setWindowReadyFlag(true)
-      }
-    },
+    useEffect(
+        () => {
+            if (typeof window !== 'undefined') {
+                setWindowReadyFlag(true)
+            }
+        },
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [router.route]
-  )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [router.route]
+    )
 
-  if (windowReadyFlag) {
-    return <>{children}</>
-  } else {
-    return null
-  }
+    if (windowReadyFlag) {
+        return <>{children}</>
+    } else {
+        return null
+    }
 }
 
 export default WindowWrapper

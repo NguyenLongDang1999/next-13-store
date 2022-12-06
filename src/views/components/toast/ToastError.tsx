@@ -10,18 +10,18 @@ import Icon from 'src/@core/components/icon'
 import toast from 'react-hot-toast'
 
 const ToastError = () => {
-  return (
-    <Box
-      sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
-    >
-      <Icon icon='mdi:close' fontSize='2rem' />
-      <Typography sx={{ mb: 4, fontWeight: 600 }}>Error</Typography>
-      <Typography sx={{ mb: 3 }}>Creates a notification with an animated error icon.</Typography>
-      <Button sx={{ mb: 8 }} color='error' variant='contained' onClick={() => toast.error("This didn't work.")}>
+    return (
+        <Box
+            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column', '& svg': { mb: 2 } }}
+        >
+            <Icon icon='mdi:close' fontSize='2rem' />
+            <Typography sx={{ mb: 4, fontWeight: 600 }}>Error</Typography>
+            <Typography sx={{ mb: 3 }}>Creates a notification with an animated error icon.</Typography>
+            <Button sx={{ mb: 8 }} color='error' variant='contained' onClick={() => toast.error("This didn't work.")}>
         Error
-      </Button>
-    </Box>
-  )
+            </Button>
+        </Box>
+    )
 }
 
 export default ToastError

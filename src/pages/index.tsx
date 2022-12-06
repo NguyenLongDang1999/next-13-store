@@ -14,26 +14,26 @@ import { useAuth } from 'src/hooks/useAuth'
  *  Set Home URL based on User Roles
  */
 export const getHomeRoute = (role: string) => {
-  if (role === 'client') return '/acl'
-  else return '/dashboards/crm'
+    if (role === 'client') return '/acl'
+    else return '/dashboards/crm'
 }
 
 const Home = () => {
-  // ** Hooks
-  const auth = useAuth()
-  const router = useRouter()
+    // ** Hooks
+    const auth = useAuth()
+    const router = useRouter()
 
-  useEffect(() => {
-    if (auth.user && auth.user.role) {
-      const homeRoute = getHomeRoute(auth.user.role)
+    useEffect(() => {
+        if (auth.user && auth.user.role) {
+            const homeRoute = getHomeRoute(auth.user.role)
 
-      // Redirect user to Home URL
-      router.replace(homeRoute)
-    }
+            // Redirect user to Home URL
+            router.replace(homeRoute)
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    }, [])
 
-  return <Spinner sx={{ height: '100%' }} />
+    return <Spinner sx={{ height: '100%' }} />
 }
 
 export default Home

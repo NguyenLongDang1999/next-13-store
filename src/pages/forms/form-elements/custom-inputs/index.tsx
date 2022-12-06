@@ -16,76 +16,76 @@ import CustomCheckboxIcons from 'src/views/forms/form-elements/custom-inputs/Cus
 import * as source from 'src/views/forms/form-elements/custom-inputs/CustomInputsSourceCode'
 
 const CustomInputs = () => {
-  return (
-    <Grid container spacing={6} className='match-height'>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Radios'
-          code={{
-            tsx: source.CustomRadioBasicTSXCode,
-            jsx: source.CustomRadioBasicJSXCode
-          }}
-        >
-          <CustomRadioBasic />
-        </CardSnippet>
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Checkboxes'
-          code={{
-            tsx: source.CustomCheckboxBasicTSXCode,
-            jsx: source.CustomCheckboxBasicJSXCode
-          }}
-        >
-          <CustomCheckboxBasic />
-        </CardSnippet>
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Radios with Icons'
-          code={{
-            tsx: source.CustomRadioIconsTSXCode,
-            jsx: source.CustomRadioIconsJSXCode
-          }}
-        >
-          <CustomRadioIcons />
-        </CardSnippet>
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Checkboxes with Icons'
-          code={{
-            tsx: source.CustomCheckboxIconsTSXCode,
-            jsx: source.CustomCheckboxIconsJSXCode
-          }}
-        >
-          <CustomCheckboxIcons />
-        </CardSnippet>
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Radios with Images'
-          code={{
-            tsx: source.CustomRadioImgTSXCode,
-            jsx: source.CustomRadioImgJSXCode
-          }}
-        >
-          <CustomRadioImg />
-        </CardSnippet>
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <CardSnippet
-          title='Custom Checkboxes with Images'
-          code={{
-            tsx: source.CustomCheckboxImgTSXCode,
-            jsx: source.CustomCheckboxImgJSXCode
-          }}
-        >
-          <CustomCheckboxImg />
-        </CardSnippet>
-      </Grid>
-    </Grid>
-  )
+    return (
+        <Grid container spacing={6} className='match-height'>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Radios'
+                    code={{
+                        tsx: source.CustomRadioBasicTSXCode,
+                        jsx: source.CustomRadioBasicJSXCode
+                    }}
+                >
+                    <CustomRadioBasic />
+                </CardSnippet>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Checkboxes'
+                    code={{
+                        tsx: source.CustomCheckboxBasicTSXCode,
+                        jsx: source.CustomCheckboxBasicJSXCode
+                    }}
+                >
+                    <CustomCheckboxBasic />
+                </CardSnippet>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Radios with Icons'
+                    code={{
+                        tsx: source.CustomRadioIconsTSXCode,
+                        jsx: source.CustomRadioIconsJSXCode
+                    }}
+                >
+                    <CustomRadioIcons />
+                </CardSnippet>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Checkboxes with Icons'
+                    code={{
+                        tsx: source.CustomCheckboxIconsTSXCode,
+                        jsx: source.CustomCheckboxIconsJSXCode
+                    }}
+                >
+                    <CustomCheckboxIcons />
+                </CardSnippet>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Radios with Images'
+                    code={{
+                        tsx: source.CustomRadioImgTSXCode,
+                        jsx: source.CustomRadioImgJSXCode
+                    }}
+                >
+                    <CustomRadioImg />
+                </CardSnippet>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <CardSnippet
+                    title='Custom Checkboxes with Images'
+                    code={{
+                        tsx: source.CustomCheckboxImgTSXCode,
+                        jsx: source.CustomCheckboxImgJSXCode
+                    }}
+                >
+                    <CustomCheckboxImg />
+                </CardSnippet>
+            </Grid>
+        </Grid>
+    )
 }
 
 export default CustomInputs

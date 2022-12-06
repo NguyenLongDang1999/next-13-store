@@ -26,163 +26,163 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import Icon from 'src/@core/components/icon'
 
 const Transition = forwardRef(function Transition(
-  props: FadeProps & { children?: ReactElement<any, any> },
-  ref: Ref<unknown>
+    props: FadeProps & { children?: ReactElement<any, any> },
+    ref: Ref<unknown>
 ) {
-  return <Fade ref={ref} {...props} />
+    return <Fade ref={ref} {...props} />
 })
 
 const DialogEditUserInfo = () => {
-  // ** States
-  const [show, setShow] = useState<boolean>(false)
-  const [languages, setLanguages] = useState<string[]>([])
+    // ** States
+    const [show, setShow] = useState<boolean>(false)
+    const [languages, setLanguages] = useState<string[]>([])
 
-  const handleChange = (event: SelectChangeEvent<typeof languages>) => {
-    const {
-      target: { value }
-    } = event
-    setLanguages(typeof value === 'string' ? value.split(',') : value)
-  }
+    const handleChange = (event: SelectChangeEvent<typeof languages>) => {
+        const {
+            target: { value }
+        } = event
+        setLanguages(typeof value === 'string' ? value.split(',') : value)
+    }
 
-  return (
-    <Card>
-      <CardContent sx={{ textAlign: 'center', '& svg': { mb: 2 } }}>
-        <Icon icon='mdi:account-outline' fontSize='2rem' />
-        <Typography variant='h6' sx={{ mb: 4 }}>
+    return (
+        <Card>
+            <CardContent sx={{ textAlign: 'center', '& svg': { mb: 2 } }}>
+                <Icon icon='mdi:account-outline' fontSize='2rem' />
+                <Typography variant='h6' sx={{ mb: 4 }}>
           Edit User Info
-        </Typography>
-        <Typography sx={{ mb: 3 }}>Use this modal to modify the existing user&prime;s current information.</Typography>
-        <Button variant='contained' onClick={() => setShow(true)}>
+                </Typography>
+                <Typography sx={{ mb: 3 }}>Use this modal to modify the existing user&prime;s current information.</Typography>
+                <Button variant='contained' onClick={() => setShow(true)}>
           Show
-        </Button>
-      </CardContent>
-      <Dialog
-        fullWidth
-        open={show}
-        maxWidth='md'
-        scroll='body'
-        onClose={() => setShow(false)}
-        TransitionComponent={Transition}
-        onBackdropClick={() => setShow(false)}
-      >
-        <DialogContent sx={{ pb: 6, px: { xs: 8, sm: 15 }, pt: { xs: 8, sm: 12.5 }, position: 'relative' }}>
-          <IconButton
-            size='small'
-            onClick={() => setShow(false)}
-            sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
-          >
-            <Icon icon='mdi:close' />
-          </IconButton>
-          <Box sx={{ mb: 8, textAlign: 'center' }}>
-            <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
-              Edit User Information
-            </Typography>
-            <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
-          </Box>
-          <Grid container spacing={6}>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth defaultValue='Oliver' label='First Name' placeholder='John' />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth defaultValue='Queen' label='Last Name' placeholder='Doe' />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField fullWidth defaultValue='oliverQueen' label='Username' placeholder='johnDoe' />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField
+                </Button>
+            </CardContent>
+            <Dialog
                 fullWidth
-                label='Billing Email'
-                placeholder='johnDoe@email.com'
-                defaultValue='oliverQueen@email.com'
-              />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id='status-select'>Status</InputLabel>
-                <Select defaultValue='Status' fullWidth labelId='status-select' label='Status'>
-                  <MenuItem value='Status'>Status</MenuItem>
-                  <MenuItem value='Active'>Active</MenuItem>
-                  <MenuItem value='Inactive'>Inactive</MenuItem>
-                  <MenuItem value='Suspended'>Suspended</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Tax ID' placeholder='Tax-7490' defaultValue='Tax-8894' />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Contact' placeholder='+ 123 456 7890' defaultValue='+1 609 933 4422' />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id='language-select'>Language</InputLabel>
-                <Select
-                  multiple
-                  fullWidth
-                  label='Language'
-                  value={languages}
-                  onChange={handleChange}
-                  labelId='language-select'
-                  renderValue={selected => (
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                      {selected.map(value => (
-                        <Chip key={value} label={value} />
-                      ))}
+                open={show}
+                maxWidth='md'
+                scroll='body'
+                onClose={() => setShow(false)}
+                TransitionComponent={Transition}
+                onBackdropClick={() => setShow(false)}
+            >
+                <DialogContent sx={{ pb: 6, px: { xs: 8, sm: 15 }, pt: { xs: 8, sm: 12.5 }, position: 'relative' }}>
+                    <IconButton
+                        size='small'
+                        onClick={() => setShow(false)}
+                        sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
+                    >
+                        <Icon icon='mdi:close' />
+                    </IconButton>
+                    <Box sx={{ mb: 8, textAlign: 'center' }}>
+                        <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
+              Edit User Information
+                        </Typography>
+                        <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
                     </Box>
-                  )}
-                >
-                  <MenuItem value='English'>English</MenuItem>
-                  <MenuItem value='Spanish'>Spanish</MenuItem>
-                  <MenuItem value='French'>French</MenuItem>
-                  <MenuItem value='German'>German</MenuItem>
-                  <MenuItem value='Hindi'>Hindi</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id='country-select'>Country</InputLabel>
-                <Select
-                  fullWidth
-                  label='Country'
-                  placeholder='UK'
-                  labelId='country-select'
-                  defaultValue='Select Country'
-                >
-                  <MenuItem value='Select Country'>Select Country</MenuItem>
-                  <MenuItem value='France'>France</MenuItem>
-                  <MenuItem value='Russia'>Russia</MenuItem>
-                  <MenuItem value='China'>China</MenuItem>
-                  <MenuItem value='UK'>UK</MenuItem>
-                  <MenuItem value='US'>US</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Switch defaultChecked />}
-                label='Make this default shipping address'
-                sx={{
-                  '& .MuiFormControlLabel-label': {
-                    color: 'text.secondary'
-                  }
-                }}
-              />
-            </Grid>
-          </Grid>
-        </DialogContent>
-        <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
-          <Button variant='contained' sx={{ mr: 2 }} onClick={() => setShow(false)}>
+                    <Grid container spacing={6}>
+                        <Grid item sm={6} xs={12}>
+                            <TextField fullWidth defaultValue='Oliver' label='First Name' placeholder='John' />
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <TextField fullWidth defaultValue='Queen' label='Last Name' placeholder='Doe' />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField fullWidth defaultValue='oliverQueen' label='Username' placeholder='johnDoe' />
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <TextField
+                                fullWidth
+                                label='Billing Email'
+                                placeholder='johnDoe@email.com'
+                                defaultValue='oliverQueen@email.com'
+                            />
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <FormControl fullWidth>
+                                <InputLabel id='status-select'>Status</InputLabel>
+                                <Select defaultValue='Status' fullWidth labelId='status-select' label='Status'>
+                                    <MenuItem value='Status'>Status</MenuItem>
+                                    <MenuItem value='Active'>Active</MenuItem>
+                                    <MenuItem value='Inactive'>Inactive</MenuItem>
+                                    <MenuItem value='Suspended'>Suspended</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <TextField fullWidth label='Tax ID' placeholder='Tax-7490' defaultValue='Tax-8894' />
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <TextField fullWidth label='Contact' placeholder='+ 123 456 7890' defaultValue='+1 609 933 4422' />
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <FormControl fullWidth>
+                                <InputLabel id='language-select'>Language</InputLabel>
+                                <Select
+                                    multiple
+                                    fullWidth
+                                    label='Language'
+                                    value={languages}
+                                    onChange={handleChange}
+                                    labelId='language-select'
+                                    renderValue={selected => (
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                            {selected.map(value => (
+                                                <Chip key={value} label={value} />
+                                            ))}
+                                        </Box>
+                                    )}
+                                >
+                                    <MenuItem value='English'>English</MenuItem>
+                                    <MenuItem value='Spanish'>Spanish</MenuItem>
+                                    <MenuItem value='French'>French</MenuItem>
+                                    <MenuItem value='German'>German</MenuItem>
+                                    <MenuItem value='Hindi'>Hindi</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item sm={6} xs={12}>
+                            <FormControl fullWidth>
+                                <InputLabel id='country-select'>Country</InputLabel>
+                                <Select
+                                    fullWidth
+                                    label='Country'
+                                    placeholder='UK'
+                                    labelId='country-select'
+                                    defaultValue='Select Country'
+                                >
+                                    <MenuItem value='Select Country'>Select Country</MenuItem>
+                                    <MenuItem value='France'>France</MenuItem>
+                                    <MenuItem value='Russia'>Russia</MenuItem>
+                                    <MenuItem value='China'>China</MenuItem>
+                                    <MenuItem value='UK'>UK</MenuItem>
+                                    <MenuItem value='US'>US</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={<Switch defaultChecked />}
+                                label='Make this default shipping address'
+                                sx={{
+                                    '& .MuiFormControlLabel-label': {
+                                        color: 'text.secondary'
+                                    }
+                                }}
+                            />
+                        </Grid>
+                    </Grid>
+                </DialogContent>
+                <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
+                    <Button variant='contained' sx={{ mr: 2 }} onClick={() => setShow(false)}>
             Submit
-          </Button>
-          <Button variant='outlined' color='secondary' onClick={() => setShow(false)}>
+                    </Button>
+                    <Button variant='outlined' color='secondary' onClick={() => setShow(false)}>
             Discard
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </Card>
-  )
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </Card>
+    )
 }
 
 export default DialogEditUserInfo

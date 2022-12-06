@@ -30,128 +30,128 @@ import TabConnections from 'src/views/pages/account-settings/TabConnections'
 import TabNotifications from 'src/views/pages/account-settings/TabNotifications'
 
 const TabList = styled(MuiTabList)<TabListProps>(({ theme }) => ({
-  '& .MuiTabs-indicator': {
-    display: 'none'
-  },
-  '& .Mui-selected': {
-    backgroundColor: theme.palette.primary.main,
-    color: `${theme.palette.common.white} !important`
-  },
-  '& .MuiTab-root': {
-    minWidth: 65,
-    minHeight: 38,
-    borderRadius: theme.shape.borderRadius,
-    [theme.breakpoints.up('md')]: {
-      minWidth: 130
+    '& .MuiTabs-indicator': {
+        display: 'none'
+    },
+    '& .Mui-selected': {
+        backgroundColor: theme.palette.primary.main,
+        color: `${theme.palette.common.white} !important`
+    },
+    '& .MuiTab-root': {
+        minWidth: 65,
+        minHeight: 38,
+        borderRadius: theme.shape.borderRadius,
+        [theme.breakpoints.up('md')]: {
+            minWidth: 130
+        }
     }
-  }
 }))
 
 const AccountSettings = ({ tab, apiPricingPlanData }: { tab: string; apiPricingPlanData: PricingPlanType[] }) => {
-  // ** State
-  const [activeTab, setActiveTab] = useState<string>(tab)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+    // ** State
+    const [activeTab, setActiveTab] = useState<string>(tab)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  // ** Hooks
-  const router = useRouter()
-  const hideText = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
+    // ** Hooks
+    const router = useRouter()
+    const hideText = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
-  const handleChange = (event: SyntheticEvent, value: string) => {
-    setIsLoading(true)
-    router.push(`/pages/account-settings/${value.toLowerCase()}`).then(() => setIsLoading(false))
-  }
-
-  useEffect(() => {
-    if (tab && tab !== activeTab) {
-      setActiveTab(tab)
+    const handleChange = (event: SyntheticEvent, value: string) => {
+        setIsLoading(true)
+        router.push(`/pages/account-settings/${value.toLowerCase()}`).then(() => setIsLoading(false))
     }
+
+    useEffect(() => {
+        if (tab && tab !== activeTab) {
+            setActiveTab(tab)
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab])
+    }, [tab])
 
-  const tabContentList: { [key: string]: ReactElement } = {
-    account: <TabAccount />,
-    security: <TabSecurity />,
-    connections: <TabConnections />,
-    notifications: <TabNotifications />,
-    billing: <TabBilling apiPricingPlanData={apiPricingPlanData} />
-  }
+    const tabContentList: { [key: string]: ReactElement } = {
+        account: <TabAccount />,
+        security: <TabSecurity />,
+        connections: <TabConnections />,
+        notifications: <TabNotifications />,
+        billing: <TabBilling apiPricingPlanData={apiPricingPlanData} />
+    }
 
-  return (
-    <Grid container spacing={6}>
-      <Grid item xs={12}>
-        <TabContext value={activeTab}>
-          <Grid container spacing={6}>
+    return (
+        <Grid container spacing={6}>
             <Grid item xs={12}>
-              <TabList
-                variant='scrollable'
-                scrollButtons='auto'
-                onChange={handleChange}
-                aria-label='customized tabs example'
-              >
-                <Tab
-                  value='account'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                      <Icon icon='mdi:account-outline' />
-                      {!hideText && 'Account'}
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='security'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                      <Icon icon='mdi:lock-open-outline' />
-                      {!hideText && 'Security'}
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='billing'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                      <Icon icon='mdi:bookmark-outline' />
-                      {!hideText && 'Billing'}
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='notifications'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                      <Icon icon='mdi:bell-outline' />
-                      {!hideText && 'Notifications'}
-                    </Box>
-                  }
-                />
-                <Tab
-                  value='connections'
-                  label={
-                    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                      <Icon icon='mdi:link-variant' />
-                      {!hideText && 'Connections'}
-                    </Box>
-                  }
-                />
-              </TabList>
+                <TabContext value={activeTab}>
+                    <Grid container spacing={6}>
+                        <Grid item xs={12}>
+                            <TabList
+                                variant='scrollable'
+                                scrollButtons='auto'
+                                onChange={handleChange}
+                                aria-label='customized tabs example'
+                            >
+                                <Tab
+                                    value='account'
+                                    label={
+                                        <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
+                                            <Icon icon='mdi:account-outline' />
+                                            {!hideText && 'Account'}
+                                        </Box>
+                                    }
+                                />
+                                <Tab
+                                    value='security'
+                                    label={
+                                        <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
+                                            <Icon icon='mdi:lock-open-outline' />
+                                            {!hideText && 'Security'}
+                                        </Box>
+                                    }
+                                />
+                                <Tab
+                                    value='billing'
+                                    label={
+                                        <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
+                                            <Icon icon='mdi:bookmark-outline' />
+                                            {!hideText && 'Billing'}
+                                        </Box>
+                                    }
+                                />
+                                <Tab
+                                    value='notifications'
+                                    label={
+                                        <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
+                                            <Icon icon='mdi:bell-outline' />
+                                            {!hideText && 'Notifications'}
+                                        </Box>
+                                    }
+                                />
+                                <Tab
+                                    value='connections'
+                                    label={
+                                        <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
+                                            <Icon icon='mdi:link-variant' />
+                                            {!hideText && 'Connections'}
+                                        </Box>
+                                    }
+                                />
+                            </TabList>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {isLoading ? (
+                                <Box sx={{ mt: 6, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                                    <CircularProgress sx={{ mb: 4 }} />
+                                    <Typography>Loading...</Typography>
+                                </Box>
+                            ) : (
+                                <TabPanel sx={{ p: 0 }} value={activeTab}>
+                                    {tabContentList[activeTab]}
+                                </TabPanel>
+                            )}
+                        </Grid>
+                    </Grid>
+                </TabContext>
             </Grid>
-            <Grid item xs={12}>
-              {isLoading ? (
-                <Box sx={{ mt: 6, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                  <CircularProgress sx={{ mb: 4 }} />
-                  <Typography>Loading...</Typography>
-                </Box>
-              ) : (
-                <TabPanel sx={{ p: 0 }} value={activeTab}>
-                  {tabContentList[activeTab]}
-                </TabPanel>
-              )}
-            </Grid>
-          </Grid>
-        </TabContext>
-      </Grid>
-    </Grid>
-  )
+        </Grid>
+    )
 }
 
 export default AccountSettings

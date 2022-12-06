@@ -28,91 +28,91 @@ interface Props {
 }
 
 const Transition = forwardRef(function Transition(
-  props: FadeProps & { children?: ReactElement<any, any> },
-  ref: Ref<unknown>
+    props: FadeProps & { children?: ReactElement<any, any> },
+    ref: Ref<unknown>
 ) {
-  return <Fade ref={ref} {...props} />
+    return <Fade ref={ref} {...props} />
 })
 
 const DialogPricing = ({ data }: Props) => {
-  // ** States
-  const [show, setShow] = useState<boolean>(false)
-  const [plan, setPlan] = useState<'monthly' | 'annually'>('annually')
+    // ** States
+    const [show, setShow] = useState<boolean>(false)
+    const [plan, setPlan] = useState<'monthly' | 'annually'>('annually')
 
-  const handleChange = (e: ChangeEvent<{ checked: boolean }>) => {
-    if (e.target.checked) {
-      setPlan('annually')
-    } else {
-      setPlan('monthly')
+    const handleChange = (e: ChangeEvent<{ checked: boolean }>) => {
+        if (e.target.checked) {
+            setPlan('annually')
+        } else {
+            setPlan('monthly')
+        }
     }
-  }
 
-  return (
-    <Card>
-      <CardContent sx={{ textAlign: 'center', '& svg': { mb: 2 } }}>
-        <Icon icon='mdi:currency-usd' fontSize='2rem' />
-        <Typography variant='h6' sx={{ mb: 4 }}>
+    return (
+        <Card>
+            <CardContent sx={{ textAlign: 'center', '& svg': { mb: 2 } }}>
+                <Icon icon='mdi:currency-usd' fontSize='2rem' />
+                <Typography variant='h6' sx={{ mb: 4 }}>
           Pricing
-        </Typography>
-        <Typography sx={{ mb: 3 }}>Elegant pricing options dialog popup example, easy to use in any page.</Typography>
-        <Button variant='contained' onClick={() => setShow(true)}>
+                </Typography>
+                <Typography sx={{ mb: 3 }}>Elegant pricing options dialog popup example, easy to use in any page.</Typography>
+                <Button variant='contained' onClick={() => setShow(true)}>
           Show
-        </Button>
-      </CardContent>
-      <Dialog
-        fullWidth
-        open={show}
-        scroll='body'
-        maxWidth='lg'
-        onClose={() => setShow(false)}
-        TransitionComponent={Transition}
-        onBackdropClick={() => setShow(false)}
-      >
-        <DialogContent sx={{ px: { xs: 8, sm: 15 }, py: { xs: 8, sm: 12.5 }, position: 'relative' }}>
-          <IconButton
-            size='small'
-            onClick={() => setShow(false)}
-            sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
-          >
-            <Icon icon='mdi:close' />
-          </IconButton>
-          <Box sx={{ mb: 4, textAlign: 'center' }}>
-            <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
+                </Button>
+            </CardContent>
+            <Dialog
+                fullWidth
+                open={show}
+                scroll='body'
+                maxWidth='lg'
+                onClose={() => setShow(false)}
+                TransitionComponent={Transition}
+                onBackdropClick={() => setShow(false)}
+            >
+                <DialogContent sx={{ px: { xs: 8, sm: 15 }, py: { xs: 8, sm: 12.5 }, position: 'relative' }}>
+                    <IconButton
+                        size='small'
+                        onClick={() => setShow(false)}
+                        sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
+                    >
+                        <Icon icon='mdi:close' />
+                    </IconButton>
+                    <Box sx={{ mb: 4, textAlign: 'center' }}>
+                        <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
               Subscription Plan
-            </Typography>
-            <Typography variant='body2'>
+                        </Typography>
+                        <Typography variant='body2'>
               All plans include 40+ advanced tools and features to boost your product. Choose the best plan to fit your
               needs.
-            </Typography>
-          </Box>
-          <Box sx={{ mb: 7, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <InputLabel
-              htmlFor='modal-pricing-switch'
-              sx={{ fontWeight: 500, cursor: 'pointer', fontSize: '0.875rem' }}
-            >
+                        </Typography>
+                    </Box>
+                    <Box sx={{ mb: 7, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <InputLabel
+                            htmlFor='modal-pricing-switch'
+                            sx={{ fontWeight: 500, cursor: 'pointer', fontSize: '0.875rem' }}
+                        >
               Monthly
-            </InputLabel>
-            <Switch color='secondary' onChange={handleChange} id='modal-pricing-switch' checked={plan === 'annually'} />
-            <InputLabel
-              htmlFor='modal-pricing-switch'
-              sx={{ fontWeight: 500, cursor: 'pointer', fontSize: '0.875rem' }}
-            >
+                        </InputLabel>
+                        <Switch color='secondary' onChange={handleChange} id='modal-pricing-switch' checked={plan === 'annually'} />
+                        <InputLabel
+                            htmlFor='modal-pricing-switch'
+                            sx={{ fontWeight: 500, cursor: 'pointer', fontSize: '0.875rem' }}
+                        >
               Annually
-            </InputLabel>
-          </Box>
-          <PricingPlans data={data} plan={plan} />
-          <Box sx={{ mt: 6, textAlign: 'center' }}>
-            <Typography variant='body2' sx={{ mb: 2.5 }}>
+                        </InputLabel>
+                    </Box>
+                    <PricingPlans data={data} plan={plan} />
+                    <Box sx={{ mt: 6, textAlign: 'center' }}>
+                        <Typography variant='body2' sx={{ mb: 2.5 }}>
               Still Not Convinced? Start with a 14-day FREE trial!
-            </Typography>
-            <Button variant='contained' onClick={() => setShow(false)}>
+                        </Typography>
+                        <Button variant='contained' onClick={() => setShow(false)}>
               Start your trial
-            </Button>
-          </Box>
-        </DialogContent>
-      </Dialog>
-    </Card>
-  )
+                        </Button>
+                    </Box>
+                </DialogContent>
+            </Dialog>
+        </Card>
+    )
 }
 
 export default DialogPricing

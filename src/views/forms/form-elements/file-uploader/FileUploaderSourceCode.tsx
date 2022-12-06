@@ -1,6 +1,6 @@
 export const FileUploaderMultipleJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState } from 'react'
 
 // ** MUI Imports
@@ -127,12 +127,12 @@ const FileUploaderMultiple = () => {
 
 export default FileUploaderMultiple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const FileUploaderRestrictionsJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState } from 'react'
 
 // ** MUI Imports
@@ -260,12 +260,12 @@ const FileUploaderRestrictions = () => {
 
 export default FileUploaderRestrictions
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const FileUploaderSingleJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -347,12 +347,12 @@ const FileUploaderSingle = () => {
 
 export default FileUploaderSingle
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const FileUploaderMultipleTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState, SyntheticEvent } from 'react'
 
 // ** MUI Imports
@@ -485,12 +485,12 @@ const FileUploaderMultiple = () => {
 
 export default FileUploaderMultiple
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const FileUploaderRestrictionsTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { Fragment, useState } from 'react'
 
 // ** MUI Imports
@@ -624,12 +624,12 @@ const FileUploaderRestrictions = () => {
 
 export default FileUploaderRestrictions
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const FileUploaderSingleTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState, SyntheticEvent } from 'react'
 
 // ** MUI Imports
@@ -717,5 +717,5 @@ const FileUploaderSingle = () => {
 
 export default FileUploaderSingle
 `}</code>
-  </pre>
+    </pre>
 )

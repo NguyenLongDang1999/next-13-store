@@ -1,6 +1,6 @@
 export const CustomCheckboxBasicJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -58,12 +58,12 @@ const BasicCustomCheckbox = () => {
 
 export default BasicCustomCheckbox
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomCheckboxImgJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -121,12 +121,12 @@ const CustomCheckboxWithImages = () => {
 
 export default CustomCheckboxWithImages
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomCheckboxIconsJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -195,12 +195,12 @@ const CustomCheckboxWithIcons = () => {
 
 export default CustomCheckboxWithIcons
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioBasicJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -257,12 +257,12 @@ const BasicCustomRadio = () => {
 
 export default BasicCustomRadio
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioIconsJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -330,12 +330,12 @@ const CustomRadioWithIcons = () => {
 
 export default CustomRadioWithIcons
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioImgJSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -392,12 +392,12 @@ const CustomRadioWithImages = () => {
 
 export default CustomRadioWithImages
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomCheckboxImgTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -458,12 +458,12 @@ const CustomCheckboxWithImages = () => {
 
 export default CustomCheckboxWithImages
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioIconsTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { ChangeEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -540,12 +540,12 @@ const CustomRadioWithIcons = () => {
 
 export default CustomRadioWithIcons
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioBasicTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { ChangeEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -606,12 +606,12 @@ const BasicCustomRadio = () => {
 
 export default BasicCustomRadio
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomCheckboxIconsTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -688,12 +688,12 @@ const CustomCheckboxWithIcons = () => {
 
 export default CustomCheckboxWithIcons
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomRadioImgTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { ChangeEvent, useState } from 'react'
 
 // ** MUI Imports
@@ -754,12 +754,12 @@ const CustomRadioWithImages = () => {
 
 export default CustomRadioWithImages
 `}</code>
-  </pre>
+    </pre>
 )
 
 export const CustomCheckboxBasicTSXCode = (
-  <pre className='language-jsx'>
-    <code className='language-jsx'>{`// ** React Imports
+    <pre className='language-jsx'>
+        <code className='language-jsx'>{`// ** React Imports
 import { useState } from 'react'
 
 // ** MUI Imports
@@ -820,5 +820,5 @@ const BasicCustomCheckbox = () => {
 
 export default BasicCustomCheckbox
 `}</code>
-  </pre>
+    </pre>
 )
