@@ -30,20 +30,20 @@ import CanViewNavLink from 'src/layouts/components/acl/CanViewNavLink'
 import { handleURLQueries } from 'src/@core/layouts/utils'
 
 interface Props {
-  parent?: boolean
-  item: NavLink
-  navHover?: boolean
-  settings: Settings
-  navVisible?: boolean
-  collapsedNavWidth: number
-  navigationBorderWidth: number
-  toggleNavVisibility: () => void
-  isSubToSub?: NavGroup | undefined
+    parent?: boolean
+    item: NavLink
+    navHover?: boolean
+    settings: Settings
+    navVisible?: boolean
+    collapsedNavWidth: number
+    navigationBorderWidth: number
+    toggleNavVisibility: () => void
+    isSubToSub?: NavGroup | undefined
 }
 
 // ** Styled Components
 const MenuNavLink = styled(ListItemButton)<
-  ListItemButtonProps & { component?: ElementType; href: string; target?: '_blank' | undefined }
+    ListItemButtonProps & { component?: ElementType; href: string; target?: '_blank' | undefined }
 >(({ theme }) => ({
     width: '100%',
     borderRadius: 8,
@@ -132,6 +132,7 @@ const VerticalNavLink = ({
                 sx={{
                     mt: 1.5,
                     transition: 'padding .25s ease-in-out',
+                    textTransform: 'capitalize',
                     px: parent ? '0 !important' : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
                 }}
             >

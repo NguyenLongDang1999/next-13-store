@@ -1,35 +1,22 @@
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 
+const PATH_ADMIN = '/cms-portal-admin'
+
 const navigation = (): VerticalNavItemsType => {
     return [
         {
-            title: 'Dashboards',
+            title: 'Thống Kê',
             icon: 'mdi:home-outline',
-            badgeContent: 'new',
-            badgeColor: 'error',
-            children: [
-                {
-                    title: 'CRM',
-                    path: '/dashboards/crm'
-                },
-                {
-                    title: 'Analytics',
-                    path: '/dashboards/analytics'
-                },
-                {
-                    title: 'eCommerce',
-                    path: '/dashboards/ecommerce'
-                }
-            ]
+            path: PATH_ADMIN + '/dashboards/crm'
         },
         {
-            sectionTitle: 'Apps & Pages'
+            sectionTitle: 'ProductManagement.Name'
         },
         {
-            title: 'Email',
-            icon: 'mdi:email-outline',
-            path: '/apps/email'
+            title: 'ProductManagement.Category.Name',
+            icon: 'mdi:shape-outline',
+            path: PATH_ADMIN + '/category'
         }
     ]
 }

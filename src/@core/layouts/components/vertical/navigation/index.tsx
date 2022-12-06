@@ -23,24 +23,24 @@ import VerticalNavHeader from './VerticalNavHeader'
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 
 interface Props {
-  navWidth: number
-  navVisible: boolean
-  collapsedNavWidth: number
-  hidden: LayoutProps['hidden']
-  navigationBorderWidth: number
-  toggleNavVisibility: () => void
-  settings: LayoutProps['settings']
-  children: LayoutProps['children']
-  setNavVisible: (value: boolean) => void
-  saveSettings: LayoutProps['saveSettings']
-  navMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['content']
-  navMenuBranding: LayoutProps['verticalLayoutProps']['navMenu']['branding']
-  menuLockedIcon: LayoutProps['verticalLayoutProps']['navMenu']['lockedIcon']
-  verticalNavItems: LayoutProps['verticalLayoutProps']['navMenu']['navItems']
-  navMenuProps: LayoutProps['verticalLayoutProps']['navMenu']['componentProps']
-  menuUnlockedIcon: LayoutProps['verticalLayoutProps']['navMenu']['unlockedIcon']
-  afterNavMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['afterContent']
-  beforeNavMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['beforeContent']
+    navWidth: number
+    navVisible: boolean
+    collapsedNavWidth: number
+    hidden: LayoutProps['hidden']
+    navigationBorderWidth: number
+    toggleNavVisibility: () => void
+    settings: LayoutProps['settings']
+    children: LayoutProps['children']
+    setNavVisible: (value: boolean) => void
+    saveSettings: LayoutProps['saveSettings']
+    navMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['content']
+    navMenuBranding: LayoutProps['verticalLayoutProps']['navMenu']['branding']
+    menuLockedIcon: LayoutProps['verticalLayoutProps']['navMenu']['lockedIcon']
+    verticalNavItems: LayoutProps['verticalLayoutProps']['navMenu']['navItems']
+    navMenuProps: LayoutProps['verticalLayoutProps']['navMenu']['componentProps']
+    menuUnlockedIcon: LayoutProps['verticalLayoutProps']['navMenu']['unlockedIcon']
+    afterNavMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['afterContent']
+    beforeNavMenuContent: LayoutProps['verticalLayoutProps']['navMenu']['beforeContent']
 }
 
 const StyledBoxForShadow = styled(Box)<BoxProps>(({ theme }) => ({

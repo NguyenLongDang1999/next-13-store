@@ -1,0 +1,10 @@
+{
+    "Dashboards": "Trang thống kê",
+    "ProductManagement": {
+        "Name": "Quản lý sản phẩm",
+        "Category": {
+            "Management": "Quản lý danh mục",
+            "Name": "Danh mục"
+        }
+    }
+}

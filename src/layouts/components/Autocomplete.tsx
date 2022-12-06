@@ -24,7 +24,6 @@ import MuiAutocomplete, { AutocompleteRenderInputParams } from '@mui/material/Au
 import axios from 'axios'
 
 // ** Types Imports
-import { AppBarSearchType } from 'src/@fake-db/types'
 import { Settings } from 'src/@core/context/settingsContext'
 
 // ** Icon Imports
@@ -34,26 +33,26 @@ import Icon from 'src/@core/components/icon'
 import themeConfig from 'src/configs/themeConfig'
 
 interface Props {
-  hidden: boolean
-  settings: Settings
+    hidden: boolean
+    settings: Settings
 }
 
 interface DefaultSuggestionsProps {
-  setOpenDialog: (val: boolean) => void
+    setOpenDialog: (val: boolean) => void
 }
 
 interface NoResultProps {
-  value: string
-  setOpenDialog: (val: boolean) => void
+    value: string
+    setOpenDialog: (val: boolean) => void
 }
 
 interface DefaultSuggestionsType {
-  category: string
-  suggestions: {
-    link: string
-    icon: string
-    suggestion: string
-  }[]
+    category: string
+    suggestions: {
+        link: string
+        icon: string
+        suggestion: string
+    }[]
 }
 
 const defaultSuggestionsData: DefaultSuggestionsType[] = [
@@ -251,14 +250,14 @@ const NoResult = ({ value, setOpenDialog }: NoResultProps) => {
                 <Icon icon='mdi:file-remove-outline' fontSize='5rem' />
             </Box>
             <Typography variant='h6' sx={{ mb: 11.5, wordWrap: 'break-word' }}>
-        No results for{' '}
+                No results for{' '}
                 <Typography variant='h6' component='span' sx={{ wordWrap: 'break-word' }}>
                     {`"${value}"`}
                 </Typography>
             </Typography>
 
             <Typography variant='body2' sx={{ mb: 2.5, color: 'text.disabled' }}>
-        Try searching for
+                Try searching for
             </Typography>
             <List sx={{ py: 0 }}>
                 <ListItem sx={{ py: 2 }} disablePadding onClick={() => setOpenDialog(false)}>
@@ -276,7 +275,7 @@ const NoResult = ({ value, setOpenDialog }: NoResultProps) => {
                             <Icon icon='mdi:cart-outline' fontSize={20} />
                         </Box>
                         <Typography variant='body2' sx={{ color: 'text.primary' }}>
-              CRM Dashboard
+                            CRM Dashboard
                         </Typography>
                     </Box>
                 </ListItem>
@@ -295,7 +294,7 @@ const NoResult = ({ value, setOpenDialog }: NoResultProps) => {
                             <Icon icon='mdi:account-outline' fontSize={20} />
                         </Box>
                         <Typography variant='body2' sx={{ color: 'text.primary' }}>
-              User Profile
+                            User Profile
                         </Typography>
                     </Box>
                 </ListItem>
@@ -314,7 +313,7 @@ const NoResult = ({ value, setOpenDialog }: NoResultProps) => {
                             <Icon icon='mdi:account-cog-outline' fontSize={20} />
                         </Box>
                         <Typography variant='body2' sx={{ color: 'text.primary' }}>
-              Account Settings
+                            Account Settings
                         </Typography>
                     </Box>
                 </ListItem>
