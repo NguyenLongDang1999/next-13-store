@@ -2,14 +2,16 @@
 import { useTranslation } from 'react-i18next'
 
 interface Props {
-  text: string
+    text: string
+    message?: string
+    strLength?: number
 }
 
-const Translations = ({ text }: Props) => {
+const Translations = ({ text, message, strLength }: Props) => {
     // ** Hook
     const { t } = useTranslation()
 
-    return <>{`${t(text)}`}</>
+    return <>{`${t(text)} ${t(message ?? '', { strLength })}`}</>
 }
 
 export default Translations

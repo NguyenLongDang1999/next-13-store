@@ -7,18 +7,18 @@ import VerticalNavGroup from './VerticalNavGroup'
 import VerticalNavSectionTitle from './VerticalNavSectionTitle'
 
 interface Props {
-  parent?: NavGroup
-  navHover?: boolean
-  navVisible?: boolean
-  groupActive: string[]
-  isSubToSub?: NavGroup
-  currentActiveGroup: string[]
-  navigationBorderWidth: number
-  settings: LayoutProps['settings']
-  saveSettings: LayoutProps['saveSettings']
-  setGroupActive: (value: string[]) => void
-  setCurrentActiveGroup: (item: string[]) => void
-  verticalNavItems?: LayoutProps['verticalLayoutProps']['navMenu']['navItems']
+    parent?: NavGroup
+    navHover?: boolean
+    navVisible?: boolean
+    groupActive: string[]
+    isSubToSub?: NavGroup
+    currentActiveGroup: string[]
+    navigationBorderWidth: number
+    settings: LayoutProps['settings']
+    saveSettings: LayoutProps['saveSettings']
+    setGroupActive: (value: string[]) => void
+    setCurrentActiveGroup: (item: string[]) => void
+    verticalNavItems?: LayoutProps['verticalLayoutProps']['navMenu']['navItems']
 }
 
 const resolveNavItemComponent = (item: NavGroup | NavLink | NavSectionTitle) => {

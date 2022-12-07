@@ -29,3 +29,20 @@ code[class*='language-'] {
 .text-uppercase {
     text-transform: uppercase;
 }
+
+.text-label {
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.text-column-header {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.17px;
+    text-transform: uppercase;
+}

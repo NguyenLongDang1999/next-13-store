@@ -19,11 +19,11 @@ const isToday = (date: Date | string) => {
 
 export const formatDate = (
     value: Date | string,
-    formatting: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' }
+    formatting: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: '2-digit' }
 ) => {
     if (!value) return value
 
-    return new Intl.DateTimeFormat('en-US', formatting).format(new Date(value))
+    return new Intl.DateTimeFormat('vi-VN', formatting).format(new Date(value))
 }
 
 // ** Returns short month of passed date

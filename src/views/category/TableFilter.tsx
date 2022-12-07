@@ -1,30 +1,42 @@
 // ** React Imports
 import { useEffect, useState, useCallback } from 'react'
 
+// ** Next Import
+import Link from 'next/link'
+
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
 import { DataGrid, GridColumns, GridRenderCellParams } from '@mui/x-data-grid'
+
+// ** Icon Imports
+import Icon from 'src/@core/components/icon'
 
 // ** ThirdParty Components
 import axios from 'axios'
 
 // ** Custom Components
-import CustomChip from 'src/@core/components/mui/chip'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
 // ** Types Imports
 import { ThemeColor } from 'src/@core/layouts/types'
 
 // ** Utils Import
-import { getInitials } from 'src/@core/utils/get-initials'
+import { OptionPopular, OptionStatus } from 'src/utils/funcs'
+import { formatDate } from 'src/@core/utils/format'
+import { PAGE } from 'src/utils/enums'
+import { CategoryType } from 'src/types/apps/categoryTypes'
 
-interface StatusObj {
-    [key: number]: {
-        title: string
-        color: ThemeColor
-    }
+// ** Components Imports
+import SaveCategoryDialog from './SaveCategoryDialog'
+import Translations from 'src/layouts/components/Translations'
+
+interface CellType {
+    row: CategoryType
 }
 
 // ** renders client column
@@ -34,48 +46,47 @@ const renderClient = (params: GridRenderCellParams) => {
     const states = ['success', 'error', 'warning', 'info', 'primary', 'secondary']
     const color = states[stateNum]
 
-    // if (row.avatar.length) {
-    //     return <CustomAvatar src={`/images/avatars/${row.avatar}`} sx={{ mr: 3, width: '1.875rem', height: '1.875rem' }} />
-    // } else {
-    return (
-        <CustomAvatar
-            skin='light'
-            color={color as ThemeColor}
-            sx={{ mr: 3, fontSize: '.8rem', width: '1.875rem', height: '1.875rem' }}
-        >
-            {getInitials(row.full_name ? row.full_name : 'John Doe')}
-        </CustomAvatar>
-    )
+    if (row.image_uri) {
+        return <CustomAvatar
+            src={`https://storemee.b-cdn.net/category/${row.image_uri}`}
+            sx={{ mr: 3, width: '1.875rem', height: '1.875rem' }}
+        />
+    } else {
+        return (
+            <CustomAvatar
+                skin='light'
+                color={color as ThemeColor}
+                sx={{ mr: 3, fontSize: '.8rem', width: '1.875rem', height: '1.875rem' }}
+            />
+        )
 
-    // }
-}
-
-const statusObj: StatusObj = {
-    1: { title: 'current', color: 'primary' },
-    2: { title: 'professional', color: 'success' },
-    3: { title: 'rejected', color: 'error' },
-    4: { title: 'resigned', color: 'warning' },
-    5: { title: 'applied', color: 'info' }
+    }
 }
 
 const columns: GridColumns = [
     {
         flex: 0.25,
         minWidth: 290,
-        field: 'full_name',
-        headerName: 'Name',
+        field: 'name',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Category.Title' />
+            </div>
+        ),
         renderCell: (params: GridRenderCellParams) => {
             const { row } = params
 
             return (
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {renderClient(params)}
+
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                        <Typography noWrap variant='body2' sx={{ color: 'text.primary', fontWeight: 600 }}>
-                            {row.full_name}
-                        </Typography>
-                        <Typography noWrap variant='caption'>
-                            {row.email}
+                        <Typography
+                            noWrap
+                            variant='body2'
+                            sx={{ color: 'text.primary', textTransform: 'capitalize', fontWeight: 600 }}
+                        >
+                            {row.name}
                         </Typography>
                     </Box>
                 </Box>
@@ -85,33 +96,18 @@ const columns: GridColumns = [
     {
         flex: 0.175,
         minWidth: 120,
-        headerName: 'Date',
-        field: 'start_date',
+        field: 'parentCategory',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Category.Name' />
+            </div>
+        ),
         renderCell: (params: GridRenderCellParams) => (
-            <Typography variant='body2' sx={{ color: 'text.primary' }}>
-                {params.row.start_date}
-            </Typography>
-        )
-    },
-    {
-        flex: 0.175,
-        minWidth: 110,
-        field: 'salary',
-        headerName: 'Salary',
-        renderCell: (params: GridRenderCellParams) => (
-            <Typography variant='body2' sx={{ color: 'text.primary' }}>
-                {params.row.salary}
-            </Typography>
-        )
-    },
-    {
-        flex: 0.125,
-        field: 'age',
-        minWidth: 80,
-        headerName: 'Age',
-        renderCell: (params: GridRenderCellParams) => (
-            <Typography variant='body2' sx={{ color: 'text.primary' }}>
-                {params.row.age}
+            <Typography
+                variant='body2'
+                sx={{ color: 'text.primary', textTransform: 'capitalize' }}
+            >
+                {params.row.parentCategory?.name}
             </Typography>
         )
     },
@@ -119,41 +115,152 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 140,
         field: 'status',
-        headerName: 'Status',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Status' />
+            </div>
+        ),
         renderCell: (params: GridRenderCellParams) => {
-            const status = statusObj[params.row.status]
+            const status = OptionStatus[params.row.status]
 
             return (
-                <CustomChip
-                    size='small'
+                status &&
+                <CustomAvatar
                     skin='light'
                     color={status.color}
-                    label={status.title}
-                    sx={{ '& .MuiChip-label': { textTransform: 'capitalize' } }}
-                />
+                    sx={{ width: '1.875rem', height: '1.875rem' }}
+                >
+                    <Icon
+                        icon={status.icon}
+                        fontSize='1rem'
+                    />
+                </CustomAvatar>
             )
         }
+    },
+    {
+        flex: 0.175,
+        minWidth: 140,
+        field: 'popular',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Popular' />
+            </div>
+        ),
+        renderCell: (params: GridRenderCellParams) => {
+            const popular = OptionPopular[params.row.popular]
+
+            return (
+                popular &&
+                <CustomAvatar
+                    skin='light'
+                    color={popular.color}
+                    sx={{ width: '1.875rem', height: '1.875rem' }}
+                >
+                    <Icon
+                        icon={popular.icon}
+                        fontSize='1rem'
+                    />
+                </CustomAvatar>
+            )
+        }
+    },
+    {
+        flex: 0.175,
+        minWidth: 120,
+        field: 'created_at',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Created_at' />
+            </div>
+        ),
+        renderCell: (params: GridRenderCellParams) => (
+            <Typography
+                variant='body2'
+                sx={{ color: 'text.primary' }}
+            >
+                {formatDate(params.row.created_at)}
+            </Typography>
+        )
+    },
+    {
+        flex: 0.175,
+        minWidth: 120,
+        field: 'updated_at',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Updated_at' />
+            </div>
+        ),
+        renderCell: (params: GridRenderCellParams) => (
+            <Typography
+                variant='body2'
+                sx={{ color: 'text.primary' }}
+            >
+                {formatDate(params.row.updated_at)}
+            </Typography>
+        )
+    },
+    {
+        flex: 0.1,
+        minWidth: 130,
+        sortable: false,
+        field: 'actions',
+        renderHeader: () => (
+            <div className="MuiDataGrid-columnHeaderTitle text-column-header">
+                <Translations text='Action' />
+            </div>
+        ),
+        renderCell: ({ row }: CellType) => (
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Tooltip title='View'>
+                    <IconButton
+                        size='small'
+                        component={Link}
+                        href={`/apps/invoice/preview/${row.id}`}
+                    >
+                        <Icon
+                            icon='mdi:eye-outline'
+                            fontSize={20}
+                        />
+                    </IconButton>
+                </Tooltip>
+
+                <Tooltip title='Delete Invoice'>
+                    <IconButton size='small'>
+                        <Icon
+                            icon='mdi:delete-outline'
+                            fontSize={20}
+                        />
+                    </IconButton>
+                </Tooltip>
+            </Box>
+        )
     }
 ]
 
-const TableServerSide = () => {
+const TableFilter = () => {
     // ** State
     const [page, setPage] = useState(0)
-    const [total, setTotal] = useState<number>(0)
-    const [pageSize, setPageSize] = useState<number>(7)
+    const [total, setTotal] = useState<number>(PAGE.CURRENT)
+    const [pageSize, setPageSize] = useState<number>(PAGE.SIZE)
     const [rows, setRows] = useState([])
-
-    function loadServerRows(currentPage: number, data: []) {
-        return data.slice(currentPage * pageSize, (currentPage + 1) * pageSize)
-    }
+    const [show, setShow] = useState<boolean>(false)
 
     const fetchTableData = useCallback(
-        async () => {
+        async (page: number, pageSize: number) => {
             await axios
-                .get('http://localhost:5000/category')
+                .get('http://localhost:5000/category', {
+                    params: {
+                        page,
+                        pageSize
+                    }
+                })
                 .then(res => {
-                    setTotal(res.data.aggregations._count)
-                    setRows(loadServerRows(page, res.data.data))
+                    const { data } = res
+
+                    setRows(data.data)
+                    setTotal(data.aggregations._count)
                 })
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -161,22 +268,19 @@ const TableServerSide = () => {
     )
 
     useEffect(() => {
-        fetchTableData()
-    }, [fetchTableData])
-
-    // const handleSortModel = (newModel: GridSortModel) => {
-    //     if (newModel.length) {
-    //         setSort(newModel[0].sort)
-    //         setSortColumn(newModel[0].field)
-    //         fetchTableData(newModel[0].sort, newModel[0].field)
-    //     } else {
-    //         setSort('asc')
-    //         setSortColumn('full_name')
-    //     }
-    // }
+        fetchTableData(page, pageSize)
+    }, [fetchTableData, page, pageSize])
 
     return (
         <Card>
+            <Button
+                variant='contained'
+                startIcon={<Icon icon='mdi:plus' />}
+                onClick={() => setShow(true)}
+            >
+                <Translations text='Btn.Create' />
+            </Button>
+
             <DataGrid
                 autoHeight
                 pagination
@@ -189,8 +293,13 @@ const TableServerSide = () => {
                 onPageChange={newPage => setPage(newPage)}
                 onPageSizeChange={newPageSize => setPageSize(newPageSize)}
             />
+
+            <SaveCategoryDialog
+                show={show}
+                setShow={setShow}
+            />
         </Card>
     )
 }
 
-export default TableServerSide
+export default TableFilter

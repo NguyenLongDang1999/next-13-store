@@ -5,7 +5,6 @@ import Box from '@mui/material/Box'
 import { Settings } from 'src/@core/context/settingsContext'
 
 // ** Components
-import Autocomplete from 'src/layouts/components/Autocomplete'
 import ModeToggler from 'src/@core/layouts/components/shared-components/ModeToggler'
 import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown'
 import LanguageDropdown from 'src/@core/layouts/components/shared-components/LanguageDropdown'
@@ -15,9 +14,9 @@ import NotificationDropdown, {
 import ShortcutsDropdown, { ShortcutsType } from 'src/@core/layouts/components/shared-components/ShortcutsDropdown'
 
 interface Props {
-  hidden: boolean
-  settings: Settings
-  saveSettings: (values: Settings) => void
+    hidden: boolean
+    settings: Settings
+    saveSettings: (values: Settings) => void
 }
 
 const notifications: NotificationsType[] = [
@@ -118,11 +117,10 @@ const shortcuts: ShortcutsType[] = [
 
 const AppBarContent = (props: Props) => {
     // ** Props
-    const { hidden, settings, saveSettings } = props
+    const { settings, saveSettings } = props
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Autocomplete hidden={hidden} settings={settings} />
             <LanguageDropdown settings={settings} saveSettings={saveSettings} />
             <ModeToggler settings={settings} saveSettings={saveSettings} />
             <ShortcutsDropdown settings={settings} shortcuts={shortcuts} />

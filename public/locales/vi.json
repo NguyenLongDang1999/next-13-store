@@ -1,10 +1,37 @@
 {
-    "Dashboards": "Trang thống kê",
+    "Dashboards": "Thống kê",
     "ProductManagement": {
-        "Name": "Quản lý sản phẩm",
-        "Category": {
-            "Management": "Quản lý danh mục",
-            "Name": "Danh mục"
-        }
+        "Name": "Quản lý sản phẩm"
+    },
+    "Category": {
+        "Management": "Quản lý danh mục",
+        "Name": "Danh mục",
+        "Title": "Tiêu đề danh mục",
+        "Create": "Thêm Mới Danh Mục"
+    },
+    "Description": "Mô tả",
+    "Status": "Trạng Thái",
+    "Popular": "Phổ Biến",
+    "Publish": "Phát Hành",
+    "Created_at": "Ngày tạo",
+    "Updated_at": "Ngày sửa",
+    "Action": "Hành động",
+    "Meta": {
+        "Title": "Meta Title",
+        "Keyword": "Meta Keyword",
+        "Description": "Meta Description"
+    },
+    "Btn": {
+        "Save": "Lưu Lại",
+        "Cancel": "Hủy Bỏ",
+        "Search": "Tìm Kiếm",
+        "Reset": "Làm Mới",
+        "Create": "Thêm Mới",
+        "Update": "Chỉnh Sửa"
+    },
+    "Validate": {
+        "Required": "không được bỏ trống.",
+        "Min": "phải có ít nhất {{ strLength }} ký tự.",
+        "Max": "không được vượt quá {{ strLength }} ký tự."
     }
 }

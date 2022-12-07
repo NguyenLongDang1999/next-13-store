@@ -6,15 +6,15 @@ const PATH_ADMIN = '/cms-portal-admin'
 const navigation = (): VerticalNavItemsType => {
     return [
         {
-            title: 'Thống Kê',
+            title: 'Dashboards',
             icon: 'mdi:home-outline',
-            path: PATH_ADMIN + '/dashboards/crm'
+            path: PATH_ADMIN + '/dashboards'
         },
         {
             sectionTitle: 'ProductManagement.Name'
         },
         {
-            title: 'ProductManagement.Category.Name',
+            title: 'Category.Name',
             icon: 'mdi:shape-outline',
             path: PATH_ADMIN + '/category'
         }

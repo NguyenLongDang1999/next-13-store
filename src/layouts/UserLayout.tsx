@@ -25,8 +25,8 @@ import HorizontalAppBarContent from './components/horizontal/AppBarContent'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
 interface Props {
-  children: ReactNode
-  contentHeightFixed?: boolean
+    children: ReactNode
+    contentHeightFixed?: boolean
 }
 
 const UserLayout = ({ children, contentHeightFixed }: Props) => {
@@ -90,7 +90,7 @@ const UserLayout = ({ children, contentHeightFixed }: Props) => {
             })}
         >
             {children}
-      
+
         </Layout>
     )
 }
