@@ -1,3 +1,6 @@
+// ** React Imports
+import { KeyboardEvent } from 'react'
+
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -22,9 +25,36 @@ import toast from 'react-hot-toast'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
+// ** Icon Imports
+import Icon from 'src/@core/components/icon'
+
+// ** Utils Imports
+import { OptionPopular, OptionStatus, StrSlugify } from 'src/utils/funcs'
+
+// ** Store Imports
+import { useDispatch } from 'react-redux'
+
+// ** Types Imports
+import { AppDispatch } from 'src/store'
+
+// ** Actions Imports
+import { create } from 'src/store/apps/category'
+
 type Props = {
     show: boolean
     setShow: (val: boolean) => void
+}
+interface FormData {
+    name: string
+    slug: string
+    description?: string
+    image_uri?: string
+    parent_id?: string
+    status?: number
+    popular?: number
+    meta_title?: string
+    meta_keyword?: string
+    meta_description?: string
 }
 
 const defaultValues = {
@@ -33,8 +63,8 @@ const defaultValues = {
     description: '',
     image_uri: '',
     parent_id: '',
-    status: '',
-    popular: '',
+    status: Number(''),
+    popular: Number(''),
     meta_title: '',
     meta_keyword: '',
     meta_description: ''
@@ -48,19 +78,13 @@ const schema = yup.object().shape({
             message='Validate.Min'
             strLength={obj.min}
         />)
-        .max(50, obj => <Translations
+        .max(30, obj => <Translations
             text='Category.Title'
             message='Validate.Max'
             strLength={obj.max}
         />)
         .required(() => <Translations
             text='Category.Title'
-            message='Validate.Required'
-        />),
-    parent_id: yup
-        .string()
-        .required(() => <Translations
-            text='Category.Name'
             message='Validate.Required'
         />),
     description: yup
@@ -93,17 +117,16 @@ const schema = yup.object().shape({
         />)
 })
 
-// ** Icon Imports
-import Icon from 'src/@core/components/icon'
-import { OptionPopular, OptionStatus } from 'src/utils/funcs'
-
 const SaveCategoryDialog = (props: Props) => {
     // ** Props
     const { show, setShow } = props
 
-    // ** Hook
+    // ** Hooks
+    const dispatch = useDispatch<AppDispatch>()
     const {
+        reset,
         control,
+        setValue,
         handleSubmit,
         formState: { errors }
     } = useForm({
@@ -112,9 +135,18 @@ const SaveCategoryDialog = (props: Props) => {
         resolver: yupResolver(schema)
     })
 
-    const handleClose = () => setShow(false)
+    const handleClose = () => {
+        setShow(false)
+        reset(defaultValues)
+    }
 
-    const onSubmit = () => toast.success('Form Submitted')
+    const onSubmit = (data: FormData) => {
+        dispatch(create({ ...data }))
+        toast.success(<Translations text="Message.Success" />)
+        handleClose()
+    }
+
+    const slugify = (event: KeyboardEvent<HTMLInputElement>) => setValue('slug', StrSlugify((event.target as HTMLInputElement).value))
 
     return (
         <>
@@ -125,25 +157,25 @@ const SaveCategoryDialog = (props: Props) => {
                 scroll='body'
                 onClose={handleClose}
             >
-                <DialogContent sx={{ pb: 6, px: { xs: 8, sm: 15 }, pt: { xs: 8, sm: 12.5 }, position: 'relative' }}>
-                    <IconButton
-                        size='small'
-                        onClick={handleClose}
-                        sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
-                    >
-                        <Icon icon='mdi:close' />
-                    </IconButton>
-
-                    <Box sx={{ mb: 8, textAlign: 'center' }}>
-                        <Typography
-                            variant='h6'
-                            sx={{ mb: 3, lineHeight: '2rem', textTransform: 'uppercase' }}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <DialogContent sx={{ pb: 6, px: { xs: 8, sm: 15 }, pt: { xs: 8, sm: 12.5 }, position: 'relative' }}>
+                        <IconButton
+                            size='small'
+                            onClick={handleClose}
+                            sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
                         >
-                            <Translations text='Category.Create' />
-                        </Typography>
-                    </Box>
+                            <Icon icon='mdi:close' />
+                        </IconButton>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Box sx={{ mb: 8, textAlign: 'center' }}>
+                            <Typography
+                                variant='h6'
+                                sx={{ mb: 3, lineHeight: '2rem', textTransform: 'uppercase' }}
+                            >
+                                <Translations text='Category.Create' />
+                            </Typography>
+                        </Box>
+
                         <Grid
                             container
                             spacing={6}
@@ -169,6 +201,7 @@ const SaveCategoryDialog = (props: Props) => {
                                                 value={value}
                                                 id='name'
                                                 onChange={onChange}
+                                                onKeyUp={slugify}
                                                 error={Boolean(errors.name)}
                                                 aria-describedby='validation-schema-name'
                                             />
@@ -415,25 +448,26 @@ const SaveCategoryDialog = (props: Props) => {
                                 </FormControl>
                             </Grid>
                         </Grid>
-                    </form>
-                </DialogContent>
+                    </DialogContent>
 
-                <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
-                    <Button
-                        variant='contained'
-                        sx={{ mr: 2 }}
-                    >
-                        <Translations text='Btn.Save' />
-                    </Button>
+                    <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
+                        <Button
+                            variant='contained'
+                            sx={{ mr: 2 }}
+                            type='submit'
+                        >
+                            <Translations text='Btn.Save' />
+                        </Button>
 
-                    <Button
-                        variant='outlined'
-                        color='secondary'
-                        onClick={handleClose}
-                    >
-                        <Translations text='Btn.Cancel' />
-                    </Button>
-                </DialogActions>
+                        <Button
+                            variant='outlined'
+                            color='secondary'
+                            onClick={handleClose}
+                        >
+                            <Translations text='Btn.Cancel' />
+                        </Button>
+                    </DialogActions>
+                </form>
             </Dialog>
         </>
     )

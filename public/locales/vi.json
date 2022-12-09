@@ -33,5 +33,8 @@
         "Required": "không được bỏ trống.",
         "Min": "phải có ít nhất {{ strLength }} ký tự.",
         "Max": "không được vượt quá {{ strLength }} ký tự."
+    },
+    "Message": {
+        "Success": "Dữ Liệu Đã Được Lưu Lại Thành Công."
     }
 }

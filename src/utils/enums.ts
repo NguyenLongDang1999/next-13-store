@@ -12,3 +12,7 @@ export enum PAGE {
     CURRENT = 0,
     SIZE = 10
 }
+
+export enum API {
+    CATEGORY = 'category'
+}

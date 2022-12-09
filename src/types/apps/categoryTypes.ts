@@ -7,3 +7,16 @@ export type CategoryType = {
     created_at: string
     updated_at: string
 }
+
+export type CategoryInputType = {
+    name: string
+    slug: string
+    image_uri?: string
+    description?: string
+    parent_id?: string
+    status?: number
+    popular?: number
+    meta_title?: string
+    meta_keyword?: string
+    meta_description?: string
+}

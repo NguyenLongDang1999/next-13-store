@@ -1,5 +1,8 @@
 // ** React Imports
-import { useEffect, useState, useCallback } from 'react'
+import { useState } from 'react'
+
+// ** SWR Imports
+import { useCategory } from 'src/swr/category'
 
 // ** Next Import
 import Link from 'next/link'
@@ -16,9 +19,6 @@ import { DataGrid, GridColumns, GridRenderCellParams } from '@mui/x-data-grid'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-// ** ThirdParty Components
-import axios from 'axios'
-
 // ** Custom Components
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
@@ -26,9 +26,9 @@ import CustomAvatar from 'src/@core/components/mui/avatar'
 import { ThemeColor } from 'src/@core/layouts/types'
 
 // ** Utils Import
+import { PAGE } from 'src/utils/enums'
 import { OptionPopular, OptionStatus } from 'src/utils/funcs'
 import { formatDate } from 'src/@core/utils/format'
-import { PAGE } from 'src/utils/enums'
 import { CategoryType } from 'src/types/apps/categoryTypes'
 
 // ** Components Imports
@@ -68,6 +68,8 @@ const columns: GridColumns = [
         flex: 0.25,
         minWidth: 290,
         field: 'name',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Category.Title' />
@@ -97,6 +99,8 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 120,
         field: 'parentCategory',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Category.Name' />
@@ -115,6 +119,8 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 140,
         field: 'status',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Status' />
@@ -142,6 +148,8 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 140,
         field: 'popular',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Popular' />
@@ -169,6 +177,8 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 120,
         field: 'created_at',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Created_at' />
@@ -187,6 +197,8 @@ const columns: GridColumns = [
         flex: 0.175,
         minWidth: 120,
         field: 'updated_at',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Updated_at' />
@@ -204,8 +216,9 @@ const columns: GridColumns = [
     {
         flex: 0.1,
         minWidth: 130,
-        sortable: false,
         field: 'actions',
+        sortable: false,
+        filterable: false,
         renderHeader: () => (
             <div className="MuiDataGrid-columnHeaderTitle text-column-header">
                 <Translations text='Action' />
@@ -242,34 +255,14 @@ const columns: GridColumns = [
 const TableFilter = () => {
     // ** State
     const [page, setPage] = useState(0)
-    const [total, setTotal] = useState<number>(PAGE.CURRENT)
     const [pageSize, setPageSize] = useState<number>(PAGE.SIZE)
-    const [rows, setRows] = useState([])
     const [show, setShow] = useState<boolean>(false)
 
-    const fetchTableData = useCallback(
-        async (page: number, pageSize: number) => {
-            await axios
-                .get('http://localhost:5000/category', {
-                    params: {
-                        page,
-                        pageSize
-                    }
-                })
-                .then(res => {
-                    const { data } = res
-
-                    setRows(data.data)
-                    setTotal(data.aggregations._count)
-                })
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [page, pageSize]
-    )
-
-    useEffect(() => {
-        fetchTableData(page, pageSize)
-    }, [fetchTableData, page, pageSize])
+    // ** Hooks
+    const { category, isLoading } = useCategory({
+        page,
+        pageSize
+    })
 
     return (
         <Card>
@@ -284,11 +277,11 @@ const TableFilter = () => {
             <DataGrid
                 autoHeight
                 pagination
-                rows={rows}
-                rowCount={total}
+                loading={isLoading}
+                rows={category?.data ?? []}
+                rowCount={category?.aggregations?._count ?? 0}
                 columns={columns}
                 pageSize={pageSize}
-                sortingMode='server'
                 paginationMode='server'
                 onPageChange={newPage => setPage(newPage)}
                 onPageSizeChange={newPageSize => setPageSize(newPageSize)}
