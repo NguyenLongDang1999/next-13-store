@@ -1,8 +1,5 @@
 // ** React Imports
-import { useState } from 'react'
-
-// ** SWR Imports
-import { useCategory } from 'src/swr/category'
+import { useCallback, useEffect, useState } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
@@ -34,6 +31,14 @@ import { CategoryType } from 'src/types/apps/categoryTypes'
 // ** Components Imports
 import SaveCategoryDialog from './SaveCategoryDialog'
 import Translations from 'src/layouts/components/Translations'
+
+// ** Store Imports
+import { useDispatch } from 'react-redux'
+
+// ** Types Imports
+import { AppDispatch, RootState } from 'src/store'
+import { fetchData } from 'src/store/apps/category'
+import { useSelector } from 'react-redux'
 
 interface CellType {
     row: CategoryType
@@ -259,10 +264,21 @@ const TableFilter = () => {
     const [show, setShow] = useState<boolean>(false)
 
     // ** Hooks
-    const { category, isLoading } = useCategory({
-        page,
-        pageSize
-    })
+    const dispatch = useDispatch<AppDispatch>()
+    const store = useSelector((state: RootState) => state.category)
+
+    const fetchTableData = useCallback(
+        async () => {
+            dispatch(fetchData({ page, pageSize }))
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [page, pageSize]
+    )
+
+    useEffect(() => {
+        fetchTableData()
+    }, [fetchTableData])
+
 
     return (
         <Card>
@@ -277,9 +293,8 @@ const TableFilter = () => {
             <DataGrid
                 autoHeight
                 pagination
-                loading={isLoading}
-                rows={category?.data ?? []}
-                rowCount={category?.aggregations?._count ?? 0}
+                rows={store.categoryList ?? []}
+                rowCount={store.categoryTotal ?? 0}
                 columns={columns}
                 pageSize={pageSize}
                 paginationMode='server'

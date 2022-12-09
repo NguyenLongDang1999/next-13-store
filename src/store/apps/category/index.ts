@@ -1,42 +1,58 @@
 // ** Redux Imports
+import { Dispatch } from 'redux'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // ** Utils Imports
-import { API } from 'src/utils/enums'
+import { API, PAGE } from 'src/utils/enums'
 import { request } from 'src/utils/request'
 import { FillFormData } from 'src/utils/funcs'
 
 // ** Types
 import { CategoryInputType } from 'src/types/apps/categoryTypes'
 
-// ** POST: Create
-export const create = createAsyncThunk('appCategory/create', async (data: CategoryInputType) => {
-    FillFormData(data)
+interface DataParams {
+    page: number
+    pageSize: number
+}
 
-    return await request.post(API.CATEGORY, data)
+interface Redux {
+    dispatch: Dispatch<any>
+}
+
+const Pagination: DataParams = {
+    page: PAGE.CURRENT,
+    pageSize: PAGE.SIZE
+}
+
+// ** Get: Category
+export const fetchData = createAsyncThunk('appCategory/fetchData', async (params: DataParams) => {
+    const response = await request.get(API.CATEGORY, { params })
+
+    return response
+})
+
+// ** POST: Create
+export const create = createAsyncThunk('appCategory/create', async (data: CategoryInputType, { dispatch }: Redux) => {
+    FillFormData(data)
+    await request.post(API.CATEGORY, data)
+
+    return dispatch(fetchData(Pagination))
 })
 
 export const appCategorySlice = createSlice({
     name: 'appCategory',
     initialState: {
-        categoryList: null
+        categoryList: null,
+        categoryTotal: null
     },
-    reducers: {
-        // removeSelectedChat: state => {
-        //     state.selectedChat = null
-        // }
-    },
+    reducers: {},
     extraReducers: builder => {
-        // builder.addCase(fetchList.fulfilled, (state, action) => {
-        //     state.categoryList = action.payload
-        // })
-        // builder.addCase(fetchChatsContacts.fulfilled, (state, action) => {
-        //     state.contacts = action.payload.contacts
-        //     state.chats = action.payload.chatsContacts
-        // })
-        // builder.addCase(selectChat.fulfilled, (state, action) => {
-        //     state.selectedChat = action.payload
-        // })
+        builder.addCase(fetchData.fulfilled, (state, action) => {
+            const { data: category } = action.payload
+
+            state.categoryList = category.data
+            state.categoryTotal = category.aggregations?._count
+        })
     }
 })
 

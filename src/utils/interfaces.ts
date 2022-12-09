@@ -15,8 +15,3 @@ export interface PopularType {
         color: ThemeColor
     }
 }
-
-export interface PAGINATION {
-    page: number
-    pageSize: number
-}
