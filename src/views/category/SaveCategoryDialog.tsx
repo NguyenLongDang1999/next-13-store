@@ -1,5 +1,5 @@
 // ** React Imports
-import { KeyboardEvent } from 'react'
+import { KeyboardEvent, useCallback, useEffect } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -30,34 +30,28 @@ import Icon from 'src/@core/components/icon'
 
 // ** Utils Imports
 import { OptionPopular, OptionStatus, StrSlugify } from 'src/utils/funcs'
+import { request } from 'src/utils/request'
+import { API } from 'src/utils/enums'
 
 // ** Store Imports
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 // ** Types Imports
-import { AppDispatch } from 'src/store'
+import { AppDispatch, RootState } from 'src/store'
+import { CategoryInputType } from 'src/types/apps/categoryTypes'
 
 // ** Actions Imports
-import { create } from 'src/store/apps/category'
+import { create, update } from 'src/store/apps/category'
 
 type Props = {
+    id?: string
+    setId: (val: string) => void
     show: boolean
     setShow: (val: boolean) => void
 }
-interface FormData {
-    name: string
-    slug: string
-    description?: string
-    image_uri?: string
-    parent_id?: string
-    status?: number
-    popular?: number
-    meta_title?: string
-    meta_keyword?: string
-    meta_description?: string
-}
 
 const defaultValues = {
+    id: '',
     name: '',
     slug: '',
     description: '',
@@ -73,6 +67,7 @@ const defaultValues = {
 const schema = yup.object().shape({
     name: yup
         .string()
+        .nullable(true)
         .min(3, obj => <Translations
             text='Category.Title'
             message='Validate.Min'
@@ -89,6 +84,7 @@ const schema = yup.object().shape({
         />),
     description: yup
         .string()
+        .nullable(true)
         .max(160, obj => <Translations
             text='Description'
             message='Validate.Max'
@@ -96,6 +92,7 @@ const schema = yup.object().shape({
         />),
     meta_title: yup
         .string()
+        .nullable(true)
         .max(60, obj => <Translations
             text='Meta.Title'
             message='Validate.Max'
@@ -103,6 +100,7 @@ const schema = yup.object().shape({
         />),
     meta_keyword: yup
         .string()
+        .nullable(true)
         .max(60, obj => <Translations
             text='Meta.Keyword'
             message='Validate.Max'
@@ -110,6 +108,7 @@ const schema = yup.object().shape({
         />),
     meta_description: yup
         .string()
+        .nullable(true)
         .max(160, obj => <Translations
             text='Meta.Description'
             message='Validate.Max'
@@ -119,10 +118,12 @@ const schema = yup.object().shape({
 
 const SaveCategoryDialog = (props: Props) => {
     // ** Props
-    const { show, setShow } = props
+    const { show, setShow, id, setId } = props
 
     // ** Hooks
     const dispatch = useDispatch<AppDispatch>()
+    const store = useSelector((state: RootState) => state.category)
+
     const {
         reset,
         control,
@@ -137,16 +138,28 @@ const SaveCategoryDialog = (props: Props) => {
 
     const handleClose = () => {
         setShow(false)
+        setId('')
         reset(defaultValues)
     }
 
-    const onSubmit = (data: FormData) => {
-        dispatch(create({ ...data }))
+    const onSubmit = (data: CategoryInputType) => {
+        id ? dispatch(update({ ...data })) : dispatch(create({ ...data }))
         toast.success(<Translations text="Message.Success" />)
         handleClose()
     }
 
     const slugify = (event: KeyboardEvent<HTMLInputElement>) => setValue('slug', StrSlugify((event.target as HTMLInputElement).value))
+
+    const fetchDataDetail = useCallback(async (id?: string) => {
+        if (show && id) {
+            const res = await request.get(API.CATEGORY + '/' + id)
+            reset(res.data)
+        }
+    }, [show, reset])
+
+    useEffect(() => {
+        fetchDataDetail(id)
+    }, [fetchDataDetail, id])
 
     return (
         <>
@@ -172,7 +185,7 @@ const SaveCategoryDialog = (props: Props) => {
                                 variant='h6'
                                 sx={{ mb: 3, lineHeight: '2rem', textTransform: 'uppercase' }}
                             >
-                                <Translations text='Category.Create' />
+                                <Translations text={id ? 'Category.Edit' : 'Category.Create'} />
                             </Typography>
                         </Box>
 
@@ -198,7 +211,7 @@ const SaveCategoryDialog = (props: Props) => {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <TextField
-                                                value={value}
+                                                value={value || ''}
                                                 id='name'
                                                 onChange={onChange}
                                                 onKeyUp={slugify}
@@ -230,16 +243,31 @@ const SaveCategoryDialog = (props: Props) => {
                                     <Translations text='Category.Name' />
                                 </InputLabel>
 
-                                <Select
-                                    fullWidth
-                                    labelId='parent_id'
-                                    id='parent_id'
-                                >
-                                    <MenuItem value='Status'>Status</MenuItem>
-                                    <MenuItem value='Active'>Active</MenuItem>
-                                    <MenuItem value='Inactive'>Inactive</MenuItem>
-                                    <MenuItem value='Suspended'>Suspended</MenuItem>
-                                </Select>
+                                <FormControl fullWidth>
+                                    <Controller
+                                        name='parent_id'
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <Select
+                                                value={value || ''}
+                                                onChange={onChange}
+                                                labelId='parent_id'
+                                                id='parent_id'
+                                                error={Boolean(errors.parent_id)}
+                                                aria-describedby='validation-schema-parent_id'
+                                            >
+                                                {store.categoryData.map(_s => (
+                                                    <MenuItem
+                                                        key={_s.id}
+                                                        value={_s.id}
+                                                    >
+                                                        {_s.name}
+                                                    </MenuItem>
+                                                ))}
+                                            </Select>
+                                        )}
+                                    />
+                                </FormControl>
                             </Grid>
 
                             <Grid
@@ -259,7 +287,7 @@ const SaveCategoryDialog = (props: Props) => {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <TextField
-                                                value={value}
+                                                value={value || ''}
                                                 id='description'
                                                 onChange={onChange}
                                                 error={Boolean(errors.description)}
@@ -290,20 +318,31 @@ const SaveCategoryDialog = (props: Props) => {
                                     <Translations text='Status' />
                                 </InputLabel>
 
-                                <Select
-                                    fullWidth
-                                    labelId='status'
-                                    id='status'
-                                >
-                                    {Object.keys(OptionStatus).map(key => (
-                                        <MenuItem
-                                            key={key}
-                                            value={key}
-                                        >
-                                            {OptionStatus[Number(key)].title}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
+                                <FormControl fullWidth>
+                                    <Controller
+                                        name='status'
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <Select
+                                                value={value || ''}
+                                                onChange={onChange}
+                                                labelId='status'
+                                                id='status'
+                                                error={Boolean(errors.status)}
+                                                aria-describedby='validation-schema-status'
+                                            >
+                                                {Object.keys(OptionStatus).map(key => (
+                                                    <MenuItem
+                                                        key={key}
+                                                        value={Number(key)}
+                                                    >
+                                                        {OptionStatus[Number(key)].title}
+                                                    </MenuItem>
+                                                ))}
+                                            </Select>
+                                        )}
+                                    />
+                                </FormControl>
                             </Grid>
 
                             <Grid
@@ -318,20 +357,31 @@ const SaveCategoryDialog = (props: Props) => {
                                     <Translations text='Popular' />
                                 </InputLabel>
 
-                                <Select
-                                    fullWidth
-                                    labelId='popular'
-                                    id='popular'
-                                >
-                                    {Object.keys(OptionPopular).map(key => (
-                                        <MenuItem
-                                            key={key}
-                                            value={key}
-                                        >
-                                            {OptionPopular[Number(key)].title}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
+                                <FormControl fullWidth>
+                                    <Controller
+                                        name='popular'
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <Select
+                                                value={value || ''}
+                                                onChange={onChange}
+                                                labelId='popular'
+                                                id='popular'
+                                                error={Boolean(errors.popular)}
+                                                aria-describedby='validation-schema-popular'
+                                            >
+                                                {Object.keys(OptionPopular).map(key => (
+                                                    <MenuItem
+                                                        key={key}
+                                                        value={Number(key)}
+                                                    >
+                                                        {OptionPopular[Number(key)].title}
+                                                    </MenuItem>
+                                                ))}
+                                            </Select>
+                                        )}
+                                    />
+                                </FormControl>
                             </Grid>
 
                             <Grid
@@ -351,7 +401,7 @@ const SaveCategoryDialog = (props: Props) => {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <TextField
-                                                value={value}
+                                                value={value || ''}
                                                 onChange={onChange}
                                                 id='meta_title'
                                                 multiline
@@ -389,7 +439,7 @@ const SaveCategoryDialog = (props: Props) => {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <TextField
-                                                value={value}
+                                                value={value || ''}
                                                 onChange={onChange}
                                                 id='meta_keyword'
                                                 multiline
@@ -427,7 +477,7 @@ const SaveCategoryDialog = (props: Props) => {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <TextField
-                                                value={value}
+                                                value={value || ''}
                                                 onChange={onChange}
                                                 id='meta_description'
                                                 multiline

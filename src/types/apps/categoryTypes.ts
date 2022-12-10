@@ -9,6 +9,7 @@ export type CategoryType = {
 }
 
 export type CategoryInputType = {
+    id?: string
     name: string
     slug: string
     image_uri?: string
@@ -19,4 +20,11 @@ export type CategoryInputType = {
     meta_title?: string
     meta_keyword?: string
     meta_description?: string
+}
+
+export type CategorySearchType = {
+    name?: string
+    parent_id?: string
+    status?: number
+    popular?: number
 }

@@ -7,7 +7,8 @@
         "Management": "Quản lý danh mục",
         "Name": "Danh mục",
         "Title": "Tiêu đề danh mục",
-        "Create": "Thêm Mới Danh Mục"
+        "Create": "Thêm Mới Danh Mục",
+        "Edit": "Chỉnh Sửa Danh Mục"
     },
     "Description": "Mô tả",
     "Status": "Trạng Thái",
@@ -16,6 +17,7 @@
     "Created_at": "Ngày tạo",
     "Updated_at": "Ngày sửa",
     "Action": "Hành động",
+    "Search": "Tìm Kiếm Thông Tin",
     "Meta": {
         "Title": "Meta Title",
         "Keyword": "Meta Keyword",
@@ -27,7 +29,9 @@
         "Search": "Tìm Kiếm",
         "Reset": "Làm Mới",
         "Create": "Thêm Mới",
-        "Update": "Chỉnh Sửa"
+        "Update": "Chỉnh Sửa",
+        "Delete": "Xóa",
+        "View": "Xem Chi Tiết"
     },
     "Validate": {
         "Required": "không được bỏ trống.",
