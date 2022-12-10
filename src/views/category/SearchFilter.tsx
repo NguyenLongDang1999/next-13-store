@@ -55,6 +55,12 @@ const SearchFilter = (props: Props) => {
         setSearch(form)
     }
 
+    const handleReset = (e: SyntheticEvent) => {
+        e.preventDefault()
+        setForm(undefined)
+        setSearch()
+    }
+
     return (
         <>
             <Box sx={{ textAlign: 'center' }}>
@@ -70,6 +76,7 @@ const SearchFilter = (props: Props) => {
                 noValidate
                 autoComplete='off'
                 onSubmit={handleSearch}
+                onReset={handleReset}
             >
                 <Grid
                     container
