@@ -1,6 +1,7 @@
 export type CategoryType = {
     id: string
     name: string
+    image_uri: string
     status: number
     popular: number
     publish: boolean

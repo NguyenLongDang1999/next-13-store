@@ -14,7 +14,8 @@ import Typography from '@mui/material/Typography'
 import InputLabel from '@mui/material/InputLabel'
 import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
-import { FormControl, FormHelperText } from '@mui/material'
+import FormControl from '@mui/material/FormControl'
+import FormHelperText from '@mui/material/FormHelperText'
 
 // ** Custom Components Imports
 import Translations from 'src/layouts/components/Translations'
@@ -167,7 +168,7 @@ const SaveCategoryDialog = (props: Props) => {
                 fullWidth
                 open={show}
                 maxWidth='md'
-                scroll='body'
+                scroll='paper'
                 onClose={handleClose}
             >
                 <form onSubmit={handleSubmit(onSubmit)}>

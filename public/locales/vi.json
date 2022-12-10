@@ -40,5 +40,8 @@
     },
     "Message": {
         "Success": "Dữ Liệu Đã Được Lưu Lại Thành Công."
+    },
+    "Upload": {
+        "Btn": "Chọn Hình"
     }
 }

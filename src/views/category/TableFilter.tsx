@@ -29,6 +29,7 @@ import { formatDate } from 'src/@core/utils/format'
 
 // ** Components Imports
 import SaveCategoryDialog from './SaveCategoryDialog'
+import UploadImageCategory from './UploadImageCategory'
 import Translations from 'src/layouts/components/Translations'
 
 // ** Store Imports
@@ -48,6 +49,8 @@ const TableFilter = () => {
     const [page, setPage] = useState(0)
     const [pageSize, setPageSize] = useState<number>(PAGE.SIZE)
     const [show, setShow] = useState<boolean>(false)
+    const [upload, setUpload] = useState<boolean>(false)
+    const [imageURL, setImageURL] = useState<string>('')
     const [id, setId] = useState<string>()
     const [loading, setLoading] = useState<boolean>(false)
     const [search, setSearch] = useState<CategorySearchType>()
@@ -59,6 +62,12 @@ const TableFilter = () => {
     const showCategory = (id: string) => {
         setId(id)
         setShow(true)
+    }
+
+    const showUpload = ({ row }: CellType) => {
+        setId(row.id)
+        setImageURL(row.image_uri)
+        setUpload(true)
     }
 
     const columns: GridColumns = [
@@ -243,6 +252,18 @@ const TableFilter = () => {
                         </IconButton>
                     </Tooltip>
 
+                    <Tooltip title={<Translations text='Btn.View' />}>
+                        <IconButton
+                            size='small'
+                            onClick={() => showUpload({ row })}
+                        >
+                            <Icon
+                                icon='mdi:tray-arrow-up'
+                                fontSize={20}
+                            />
+                        </IconButton>
+                    </Tooltip>
+
                     <Tooltip title={<Translations text='Btn.Delete' />}>
                         <IconButton size='small'>
                             <Icon
@@ -307,6 +328,13 @@ const TableFilter = () => {
             <SaveCategoryDialog
                 show={show}
                 setShow={setShow}
+                id={id}
+                setId={setId}
+            />
+
+            <UploadImageCategory
+                show={upload}
+                setShow={setUpload}
                 id={id}
                 setId={setId}
             />
