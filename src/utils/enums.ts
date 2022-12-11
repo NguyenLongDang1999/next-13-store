@@ -14,5 +14,10 @@ export enum PAGE {
 }
 
 export enum API {
-    CATEGORY = 'category'
+    CATEGORY = 'category',
+    ADMINS = 'admins'
+}
+
+export enum ROLE {
+    ADMINS = 1
 }

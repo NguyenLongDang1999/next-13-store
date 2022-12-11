@@ -1,7 +1,10 @@
 {
     "Dashboards": "Thống kê",
     "ProductManagement": {
-        "Name": "Quản lý sản phẩm"
+        "Category": "Quản lý sản phẩm"
+    },
+    "UsersManagement": {
+        "Admins": "Quản lý người dùng"
     },
     "Category": {
         "Management": "Quản lý danh mục",
@@ -10,6 +13,20 @@
         "Create": "Thêm Mới Danh Mục",
         "Edit": "Chỉnh Sửa Danh Mục"
     },
+    "Admins": {
+        "Management": "Quản lý quản trị viên",
+        "Name": "Quản trị viên",
+        "Create": "Thêm Mới Quản Trị Viên",
+        "Edit": "Chỉnh Sửa Quản Trị Viên"
+    },
+    "Users": {
+        "Name": "Họ và tên",
+        "Phone": "Số điện thoại",
+        "Email": "E-mail",
+        "Password": "Mật Khẩu",
+        "ConfirmPassword": "Xác Nhận Mật Khẩu"
+    },
+    "Info": "Thông tin chung",
     "Description": "Mô tả",
     "Status": "Trạng Thái",
     "Popular": "Phổ Biến",
@@ -37,10 +54,12 @@
         "Required": "không được bỏ trống.",
         "Min": "phải có ít nhất {{ strLength }} ký tự.",
         "Max": "không được vượt quá {{ strLength }} ký tự.",
-        "Email": "không đúng định dạng."
+        "Email": "không đúng định dạng.",
+        "Match": "không chính xác."
     },
     "Message": {
-        "Success": "Dữ Liệu Đã Được Lưu Lại Thành Công."
+        "Success": "Dữ Liệu Đã Được Lưu Lại Thành Công.",
+        "Error": "Có lỗi xảy ra trong quá trình thao tác. Vui lòng kiểm tra lại!"
     },
     "Upload": {
         "Btn": "Chọn Hình"
