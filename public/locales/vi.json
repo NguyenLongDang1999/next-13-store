@@ -36,12 +36,19 @@
     "Validate": {
         "Required": "không được bỏ trống.",
         "Min": "phải có ít nhất {{ strLength }} ký tự.",
-        "Max": "không được vượt quá {{ strLength }} ký tự."
+        "Max": "không được vượt quá {{ strLength }} ký tự.",
+        "Email": "không đúng định dạng."
     },
     "Message": {
         "Success": "Dữ Liệu Đã Được Lưu Lại Thành Công."
     },
     "Upload": {
         "Btn": "Chọn Hình"
+    },
+    "Auth": {
+        "Email": "E-mail",
+        "Password": "Mật Khẩu",
+        "Login": "Đăng Nhập",
+        "Title": "Đăng Nhập CMS"
     }
 }
